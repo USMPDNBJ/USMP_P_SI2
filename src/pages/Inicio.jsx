@@ -60,6 +60,10 @@ export function ProtocoloEntrada() {
 }
 
 export function ProtocoloEntradaNo() {
+  const Inicio = () => {
+    navigate('/');
+  };
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
       <div className="max-w-3xl w-full text-center px-4">
@@ -74,6 +78,7 @@ export function ProtocoloEntradaNo() {
         </p>
 
       </div>
+      <Button1 nombre="Volver" onClick={Inicio} />
       <SidebarNumeros />
     </div>
   );
@@ -114,7 +119,7 @@ export function ProtocoloEntradaSi() {
 export function TiempoEspera() {
   const Inicio = () => {
     navigate('/');
-  }; 
+  };
   const navigate = useNavigate();
   const [secondsLeft, setSecondsLeft] = useState(20 * 60); // 20 minutos
 
@@ -139,18 +144,16 @@ export function TiempoEspera() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
-      <div className="max-w-3xl w-full px-4">
-        <div className='flex my-10'>
-          <h1 className="text-4xl text-center font-bold text-gray-800">
-            3. TIEMPO DE ESPERA
-          </h1>
-          <div className='mx-5 py-1 rounded-md bg-red-600 px-5'>
-            <h1 className=" text-4xl font-bold text-white">
-              {formattedTime}
-            </h1>
-          </div>
-        </div>
-        <p className="text-2xl text-gray-600 mb-6">
+      <h1 className=" text-4xl font-bold text-red">
+        {formattedTime}
+      </h1>
+      <div className="max-w-3xl w-full px-10 py-10">
+
+        <h1 className="text-4xl text-center font-bold text-gray-800">
+          3. TIEMPO DE ESPERA
+        </h1>
+
+        <p className="text-2xl text-gray-600 mb-6 my-10">
           • ¡Excelente! Hoy inicias tu camino a poder estudiar en una de las mejores universidades del
           Perú, según el ranking de excelencia académica 2025 de SUNEDU.
         </p>
@@ -162,8 +165,10 @@ export function TiempoEspera() {
           vamos a dar por finalizado el chat. (Envías la despedida de la USMP)
         </p>
       </div>
+      
       <Button1 nombre='Respondió el Usuario' onClick={Inicio} />
       <SidebarNumeros />
+
     </div>
   );
 }
