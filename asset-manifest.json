@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/USMP_P_SI2/static/css/main.9d4d7740.css",
-    "main.js": "/USMP_P_SI2/static/js/main.cc0a0ad1.js",
+    "main.css": "/USMP_P_SI2/static/css/main.c3e7d7a6.css",
+    "main.js": "/USMP_P_SI2/static/js/main.a49a83b8.js",
     "static/js/453.caa8fb70.chunk.js": "/USMP_P_SI2/static/js/453.caa8fb70.chunk.js",
     "static/media/logo_usmp.png": "/USMP_P_SI2/static/media/logo_usmp.641f25e84495aff8876f.png",
     "static/media/logo.svg": "/USMP_P_SI2/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/USMP_P_SI2/index.html",
-    "main.9d4d7740.css.map": "/USMP_P_SI2/static/css/main.9d4d7740.css.map",
-    "main.cc0a0ad1.js.map": "/USMP_P_SI2/static/js/main.cc0a0ad1.js.map",
+    "main.c3e7d7a6.css.map": "/USMP_P_SI2/static/css/main.c3e7d7a6.css.map",
+    "main.a49a83b8.js.map": "/USMP_P_SI2/static/js/main.a49a83b8.js.map",
     "453.caa8fb70.chunk.js.map": "/USMP_P_SI2/static/js/453.caa8fb70.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d4d7740.css",
-    "static/js/main.cc0a0ad1.js"
+    "static/css/main.c3e7d7a6.css",
+    "static/js/main.a49a83b8.js"
   ]
 }
