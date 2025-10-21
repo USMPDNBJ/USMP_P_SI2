@@ -1,0 +1,169 @@
+
+import React, { useState, useEffect } from 'react';
+import SidebarNumeros from '../components/SidebarNumeros'; // ajusta la ruta si es necesario
+import Button1 from '../components/button1';
+import { useNavigate } from 'react-router-dom';
+
+export default function Inicio() {
+  const navigate = useNavigate();
+  const Derivacion = () => {
+    navigate('/derivacion');
+  };
+  const ProtocoloEntrada = () => {
+    navigate('/protEntr');
+  };
+
+  return (
+    <div className="h-auto min-h-[70vh] bg-white my-20">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12 tracking-tight">
+          SELECCIONE UNA OPCIÓN
+        </h1>
+        <div className='flex flex-col items-center gap-4'>
+          <Button1 nombre='Protocolo de Entrada' onClick={ProtocoloEntrada} />
+          <Button1 nombre='Derivación' onClick={Derivacion} />
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export function ProtocoloEntrada() {
+  const navigate = useNavigate();
+  const ProtocoloEntradaNo = () => {
+    navigate('/protEntrNo');
+  };
+  const ProtocoloEntradaSi = () => {
+    navigate('/protEntrSi');
+  };
+  return (
+    <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
+      <div className="max-w-3xl w-full text-center px-4">
+        <h1 className="text-4xl font-bold text-gray-800 mb-6">1. PROTOCOLO DE ENTRADA</h1>
+        <p className="text-2xl text-gray-600 mb-6">
+          • ¡Hola! 👋🏻😉, agradecemos que te hayas comunicado con nosotros. Si quieres saber más, bríndanos el consentimiento para usar tus datos. Puedes ver las
+          condiciones aquí: <a href="https://usmp.edu.pe/politicas-de-privacidad/" className="text-blue-600 hover:underline">Políticas de Privacidad</a>
+        </p>
+        <p className="text-2xl text-gray-600 mb-8">
+          • ¿Estás de acuerdo para que sigamos?
+        </p>
+        <div className="flex justify-center gap-4">
+          <Button1 nombre="SI" onClick={ProtocoloEntradaSi} />
+          <Button1 nombre="NO" onClick={ProtocoloEntradaNo} />
+        </div>
+      </div>
+      <SidebarNumeros />
+    </div>
+  );
+}
+
+export function ProtocoloEntradaNo() {
+  return (
+    <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
+      <div className="max-w-3xl w-full text-center px-4">
+        <h1 className="text-4xl font-bold text-gray-800 mb-6">2. COMUNICACIÓN DENEGADA</h1>
+        <p className="text-2xl text-gray-600 mb-6">
+          • Gracias por tu respuesta. Lamentamos no poder ayudarte.
+        </p>
+        <p className="text-2xl text-gray-600 mb-6">
+          • De igual manera podrás acceder contar con información general de la universidad a
+          través de la siguiente URL: https://www.admision.usmp.edu.pe o podrás comunicarte
+          con nosotros vía telefónica a nuestra central 01-7484747
+        </p>
+
+      </div>
+      <SidebarNumeros />
+    </div>
+  );
+}
+
+export function ProtocoloEntradaSi() {
+  const navigate = useNavigate();
+  const DerivarAsesor = () => {
+    navigate('/derivarAsesor');
+  };
+  return (
+    <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
+      <div className="max-w-3xl w-full px-4">
+        <h1 className="text-4xl text-center  font-bold text-gray-800 mb-6">2. COMUNICACIÓN PERMITIDA</h1>
+        <p className="text-2xl text-gray-600 mb-6">
+          • ¡Excelente! Hoy inicias tu camino a poder estudiar en una de las mejores universidades del
+          Perú, según el ranking de excelencia académica 2025 de SUNEDU.
+        </p>
+        <p className="text-2xl text-gray-600 mb-6">
+          1. ¿Me indicas tus nombres y apellidos completos?
+        </p>
+        <p className="text-2xl text-gray-600 mb-6">
+          2. ¿Cuál es tu número de DNI?
+        </p>
+        <p className="text-2xl text-gray-600 mb-6">
+          3. ¿Cuál es tu carrera de interés?
+        </p>
+        <p className="text-2xl text-gray-600 mb-6">
+          4. ¿Tu número de celular es?
+        </p>
+
+      </div>
+      <Button1 className="" nombre='Derivar Asesor' onClick={DerivarAsesor} />
+      <SidebarNumeros />
+    </div>
+  );
+}
+export function TiempoEspera() {
+  const Inicio = () => {
+    navigate('/');
+  }; 
+  const navigate = useNavigate();
+  const [secondsLeft, setSecondsLeft] = useState(20 * 60); // 20 minutos
+
+  useEffect(() => {
+    if (secondsLeft <= 0) {
+      // El cronómetro terminó: haz lo que necesites, por ejemplo navegar o mostrar algo:
+      // navigate('/ruta-al-finalizar');
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setSecondsLeft(prev => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [secondsLeft, navigate]);
+
+  const minutes = Math.floor(secondsLeft / 60);
+  const seconds = secondsLeft % 60;
+  const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+
+  return (
+    <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
+      <div className="max-w-3xl w-full px-4">
+        <div className='flex my-10'>
+          <h1 className="text-4xl text-center font-bold text-gray-800">
+            3. TIEMPO DE ESPERA
+          </h1>
+          <div className='mx-5 py-1 rounded-md bg-red-600 px-5'>
+            <h1 className=" text-4xl font-bold text-white">
+              {formattedTime}
+            </h1>
+          </div>
+        </div>
+        <p className="text-2xl text-gray-600 mb-6">
+          • ¡Excelente! Hoy inicias tu camino a poder estudiar en una de las mejores universidades del
+          Perú, según el ranking de excelencia académica 2025 de SUNEDU.
+        </p>
+        <p className="text-2xl text-black mb-6 font-bold underline underline-offset-8">
+          SI NO RESPONDE EL USUARIO Indicas lo siguiente:
+        </p>
+        <p className="text-2xl text-gray-600 mb-6">
+          • Hola, estamos a la espera de tu respuesta para continuar con la atención si no, por lo contrario,
+          vamos a dar por finalizado el chat. (Envías la despedida de la USMP)
+        </p>
+      </div>
+      <Button1 nombre='Respondió el Usuario' onClick={Inicio} />
+      <SidebarNumeros />
+    </div>
+  );
+}
