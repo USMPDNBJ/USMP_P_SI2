@@ -10,10 +10,9 @@ export default function Carrera() {
   const { nombre } = useParams();
   const [careers, setCareers] = useState([]);
   const navigate = useNavigate();
+  const careerId = sessionStorage.getItem('careerId');
   const handleCareerClick = (careerIdOrName) => {
-    // careerIdOrName can be a number (id) or a name string; encode for the URL
-    const encoded = encodeURIComponent(String(careerIdOrName));
-    navigate(`/solicitud/${encoded}`);
+    navigate(`/preguntar/${careerId}`);
   };
   useEffect(() => {
     // Try sessionStorage first (used by Carreras.jsx), then localStorage (used elsewhere).
@@ -113,8 +112,18 @@ export default function Carrera() {
       <p className="text-2xl text-gray-600 mb-6 ">
         {career?.sedes || ''}
       </p> <br />
-  <Button1 nombre="Continuar" onClick={() => { if (career) handleCareerClick(career.id); }} />
-      <SidebarNumeros />
+      <Button1 nombre="Continuar" onClick={() => { if (career) handleCareerClick(career.id); }} />
+      <SidebarNumeros currentPage={2} lengthReq={4}
+        home={'/chatInicio'}
+        routes={
+          {
+            1: '/derivacion',
+            2: '/carrera/' + careerId,
+            3: '/preguntar/' + careerId,
+            4: '/solicitud/' + careerId,
+          }
+        }
+      />
     </div>
   );
 }

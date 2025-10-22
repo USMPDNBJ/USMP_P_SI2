@@ -18,15 +18,16 @@ export default function CarrerasUniversitarias() {
   const navigate = useNavigate();
   const [careersPages, setCareersPages] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-
+  const careerId = sessionStorage.getItem('careerId');
   // Tamaño de página: cuántas carreras mostrar por página
   const PAGE_SIZE = 16;
 
   // Función para navegar cuando se hace clic en una carrera
   const handleCareerClick = (careerIdOrName) => {
     // careerIdOrName can be a number (id) or a name string; encode for the URL
-    const encoded = encodeURIComponent(String(careerIdOrName));
-    navigate(`/carrera/${encoded}`);
+    const value = encodeURIComponent(String(careerIdOrName));
+    sessionStorage.setItem('careerId', String(careerIdOrName));
+    navigate(`/carrera/${value}`);
   };
 
   // Cargar datos desde localStorage o inicializarlos
@@ -54,7 +55,7 @@ export default function CarrerasUniversitarias() {
       }
     }
 
-   
+
 
 
     const pages = [];
@@ -84,7 +85,7 @@ export default function CarrerasUniversitarias() {
     <div className="min-h-[70vh] bg-white flex flex-col">
       <div className="max-w-7xl mx-auto flex-grow flex flex-col py-10">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
-          CARRERAS UNIVERSITARIAS
+          1. SELECCIONE LA CARRERA UNIVERSITARIAS
         </h1>
 
         <div className="flex flex-col flex-grow">
@@ -109,7 +110,7 @@ export default function CarrerasUniversitarias() {
               className={`p-3 rounded-full transition-all duration-300 ${currentPage === 1
                 ? 'bg-gray-300 cursor-not-allowed'
                 : 'bg-gray-400 hover:bg-gray-500 active:scale-95'
-              }`}
+                }`}
             >
               <ChevronLeft className="w-6 h-6 text-white" />
             </button>
@@ -122,18 +123,26 @@ export default function CarrerasUniversitarias() {
               className={`p-3 rounded-full transition-all duration-300 ${currentPage === totalPages
                 ? 'bg-gray-300 cursor-not-allowed'
                 : 'bg-gray-500 hover:bg-gray-600 active:scale-95'
-              }`}
+                }`}
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
           </div>
-
+          <SidebarNumeros currentPage={1} lengthReq={4}
+            home={'/chatInicio'}
+            routes={
+              {
+                1: '/derivacion',
+                2: '/carrera/' + careerId,
+                3: '/preguntar/' + careerId,
+                4: '/solicitud/' + careerId,
+              }
+            }
+          />
           <div className="text-center mt-4 text-gray-600">
             Página {currentPage} de {totalPages}
           </div>
         </div>
-
-        <SidebarNumeros currentPage={currentPage} totalPages={totalPages} goToPage={goToPage} />
       </div>
     </div>
   );

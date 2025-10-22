@@ -5,10 +5,17 @@ import Button1 from '../components/button1';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-export default function Solicitud() {
+export default function Preguntar() {
   // Route uses `/carrera/:nombre` in App.jsx — nombre may be an id or an encoded name
+  const careerId = sessionStorage.getItem('careerId');
   const { nombre } = useParams();
   const [careers, setCareers] = useState([]);
+  const handleCareerClick = (careerIdOrName) => {
+    // careerIdOrName can be a number (id) or a name string; encode for the URL
+    const encoded = encodeURIComponent(String(careerIdOrName));
+    navigate(`/solicitud/${encoded}`);
+  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Try sessionStorage first (used by Carreras.jsx), then localStorage (used elsewhere).
@@ -44,11 +51,11 @@ export default function Solicitud() {
   })();
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-10 ">
+    <div className=" bg-white flex flex-col items-center py-10 ">
       <h1 className="text-4xl text-center font-bold text-red-700 mb-6">
         3. PREGUNTAR SI SE ENCUENTRA EN EL COLEGIO O ES EGRESADO DEL COLEGIO
       </h1>
-      <p className='font-bold text-3xl my-5'>
+      <p className='font-bold text-3xl my-5 '>
         PREGUNTA
       </p>
       <div className="max-w-3xl w-full px-4 my-5">
@@ -56,13 +63,74 @@ export default function Solicitud() {
         <p className="text-2xl text-gray-600">
           ¿Te encuentras cursando 5to de secundaria o ya terminaste el colegio?
         </p>
-
       </div>
+      <Button1 nombre="Continuar" onClick={() => { if (career) handleCareerClick(career.id); }} />
+      <SidebarNumeros currentPage={3} lengthReq={4}
+        routes={
+          {
+            1: '/derivacion',
+            2: '/carrera/' + careerId,
+            3: '/preguntar/' + careerId,
+            4: '/solicitud/' + careerId,
+          }
+        } />
+    </div>
+  );
+}
+export function Solicitud() {
+  // Route uses `/carrera/:nombre` in App.jsx — nombre may be an id or an encoded name
+  const careerId = sessionStorage.getItem('careerId');
+  const { nombre } = useParams();
+  const [careers, setCareers] = useState([]);
+  const Inicio = () => {
+    navigate('/');
+  };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Try sessionStorage first (used by Carreras.jsx), then localStorage (used elsewhere).
+    const sessionRaw = sessionStorage.getItem('careersList');
+    const localRaw = localStorage.getItem('careersList');
+    let storedCareers = [];
+    try {
+      if (sessionRaw) storedCareers = JSON.parse(sessionRaw);
+      else if (localRaw) storedCareers = JSON.parse(localRaw);
+    } catch (e) {
+      console.error('Error parsing careersList from storage', e);
+      storedCareers = [];
+    }
+
+    // If storedCareers is an array of pages (array of arrays), flatten it
+    if (Array.isArray(storedCareers) && storedCareers.length && Array.isArray(storedCareers[0])) {
+      storedCareers = storedCareers.flat();
+    }
+
+    setCareers(storedCareers || []);
+  }, []);
+
+  // Resolve career by id (numeric param) or by name (decoded string)
+  const career = (() => {
+    if (!nombre || careers.length === 0) return undefined;
+    const decoded = decodeURIComponent(nombre);
+    const asNum = parseInt(decoded, 10);
+    if (!Number.isNaN(asNum)) {
+      return careers.find(c => Number(c.id) === asNum);
+    }
+    // match by name (case-insensitive)
+    return careers.find(c => String(c.name).toLowerCase() === String(decoded).toLowerCase());
+  })();
+
+  return (
+    <div className="min-h-screen bg-white flex flex-col items-center ">
+
       <div className="max-w-3xl w-full px-4">
 
         <h1 className="text-4xl text-center font-bold text-red-700 mb-10 my-10">
           4. SOLICITUD DE LLAMADA
         </h1>
+        <p className='font-bold text-3xl my-5 text-center'>
+          PREGUNTA
+        </p>
         <p className="text-2xl text-gray-600 mb-10">
           ¿Qué te parece si te llamo unos minutos? Así te cuento todos los beneficios de
           estudiar en nuestra universidad
@@ -72,10 +140,10 @@ export default function Solicitud() {
           RESPONDIÓ QUE SÍ ?
         </p>
         <p className="text-2xl text-gray-600 mb-6 my-5">
-          ¡Perfecto! Me comunicaré contigo a través de nuestra central (01) 748 4747
+          ¡Perfecto! Me comunicaré contigo a través de nuestra central <br /> (01) 748 4747
         </p>
         <p className="text-2xl text-gray-600 mb-6 my-5">
-          Soy {career?.asesor || ''}, tu asesora de la Facultad de {career?.facultad || ''} de la USMP
+          Soy {career?.asesor || ''}, tu asesor de la Facultad de {career?.facultad || ''} de la USMP
         </p>
         <p className="text-2xl text-gray-600 mb-6 my-5">
           Te dejo mi número {career?.celular || ''} para que lo puedas agendar, ya que por ese medio te
@@ -89,8 +157,16 @@ export default function Solicitud() {
 
       </div>
 
-      <Button1 nombre="Finalizar" />
-      <SidebarNumeros />
+      <Button1 nombre="Finalizar" onClick={Inicio} />
+      <SidebarNumeros currentPage={4} lengthReq={4}
+        routes={
+          {
+            1: '/derivacion',
+            2: '/carrera/' + careerId,
+            3: '/preguntar/' + careerId,
+            4: '/solicitud/' + careerId,
+          }
+        } />
     </div>
   );
 }
