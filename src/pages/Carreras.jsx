@@ -23,18 +23,23 @@ export default function CarrerasUniversitarias() {
   const PAGE_SIZE = 16;
 
   // Función para navegar cuando se hace clic en una carrera
-  const handleCareerClick = (careerName) => {
-    const encodedName = encodeURIComponent(careerName);
-    navigate(`/carrera/${encodedName}`);
+  const handleCareerClick = (careerIdOrName) => {
+    // careerIdOrName can be a number (id) or a name string; encode for the URL
+    const encoded = encodeURIComponent(String(careerIdOrName));
+    navigate(`/carrera/${encoded}`);
   };
 
-  // Cargar datos desde sessionStorage o inicializarlos
+  // Cargar datos desde localStorage o inicializarlos
   useEffect(() => {
     const storageKey = 'careersList';
-    const stored = sessionStorage.getItem(storageKey);
+    const stored = localStorage.getItem(storageKey);
     if (stored) {
       try {
-        const parsed = JSON.parse(stored);
+        let parsed = JSON.parse(stored);
+        // Si es array de páginas (array de arrays), lo aplanamos
+        if (Array.isArray(parsed) && parsed.length > 0 && Array.isArray(parsed[0])) {
+          parsed = parsed.flat();
+        }
         if (Array.isArray(parsed) && parsed.length > 0) {
           // Creamos páginas
           const pages = [];
@@ -45,41 +50,15 @@ export default function CarrerasUniversitarias() {
           return;
         }
       } catch (e) {
-        console.error('Error parsing careersList from sessionStorage', e);
+        console.error('Error parsing careersList from localStorage', e);
       }
     }
 
-    // Si no existe o está vacío, inicializamos con tus datos
-    const initialCareers = [
-      { name: 'DERECHO', id: 1 },
-      { name: 'MARKETING', id: 2 },
-      { name: 'MEDICINA HUMANA', id: 3 },
-      { name: 'ADMINISTRACIÓN', id: 4 },
-      { name: 'NEGOCIOS INTERNACIONALES', id: 5 },
-      { name: 'CIENCIAS AERONÁUTICAS', id: 6 },
-      { name: 'ING. COMPUTACIÓN Y SISTEMAS', id: 7 },
-      { name: 'ING. INDUSTRIAL', id: 8 },
-      { name: 'ENFERMERÍA', id: 9 },
-      { name: 'ING. CIVIL', id: 10 },
-      { name: 'OBSTETRICIA', id: 11 },
-      { name: 'ARQUITECTURA', id: 12 },
-      { name: 'PSICOLOGÍA', id: 13 },
-      { name: 'INTELIGENCIA ARTIFICIAL', id: 14 },
-      { name: 'ING. CIENCIA DE DATOS', id: 15 },
-      { name: 'ODONTOLOGÍA', id: 16 },
-      { name: 'ECONOMÍA', id: 17 },
-      { name: 'CIBERSEGURIDAD Y ANÁLISIS FORENSE DIGITAL', id: 18 },
-      { name: 'TURISMO Y HOTELERÍA', id: 19 },
-      { name: 'CIENCIAS DE LA COMUNICACIÓN', id: 20 },
-      { name: 'GESTIÓN DE RECURSOS HUMANOS', id: 21 },
-    ];
+   
 
-    sessionStorage.setItem(storageKey, JSON.stringify(initialCareers));
 
     const pages = [];
-    for (let i = 0; i < initialCareers.length; i += PAGE_SIZE) {
-      pages.push(initialCareers.slice(i, i + PAGE_SIZE));
-    }
+
     setCareersPages(pages);
 
   }, []);
@@ -104,7 +83,7 @@ export default function CarrerasUniversitarias() {
   return (
     <div className="min-h-[70vh] bg-white flex flex-col">
       <div className="max-w-7xl mx-auto flex-grow flex flex-col py-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
           CARRERAS UNIVERSITARIAS
         </h1>
 
