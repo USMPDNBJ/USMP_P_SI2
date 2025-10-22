@@ -29,7 +29,6 @@ export default function SidebarNumeros({ home, currentPage, totalPages, goToPage
           </button>
         );
       })}
-      <ButtonReiniciar />
     </div>
   );
 }
@@ -49,7 +48,7 @@ export function ButtonReiniciar() {
     </button>
   );
 }
-export function ButtonHome({route}) {
+export function ButtonHome({ route }) {
   const navigate = useNavigate();
   // Allow parent to override reset route via element props? Keep simple: navigate to '/'
 

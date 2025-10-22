@@ -27,11 +27,13 @@ export function ChatInicio() {
           <Button1 nombre='Protocolo de Entrada' onClick={ProtocoloEntrada} />
           <Button1 nombre='Derivación' onClick={Derivacion} />
         </div>
+        <div className='relative size-32 '>
+          <div className='absolute -inset-y-20 right-0 w-16'>
+            <ButtonReiniciar />
+          </div>
+        </div>
+      </div>
 
-      </div>
-      <div className='flex justify-end mr-5'>
-        <ButtonReiniciar />
-      </div>
     </div>
   );
 }
