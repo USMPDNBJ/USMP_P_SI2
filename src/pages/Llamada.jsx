@@ -13,7 +13,10 @@ export default function LlamadaInicio() {
 
     return (
         <div className="h-auto min-h-[70vh] bg-white ">
-            <div className="max-w-7xl mx-auto my-20">
+            <div className='absolute top-100 right-0 w-16'>
+                <ButtonReiniciar />
+            </div>
+            <div className="max-w-7xl mx-auto my-20 relative">
                 {/* Header */}
 
                 <h1 className="text-5xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
@@ -28,11 +31,7 @@ export default function LlamadaInicio() {
                 </div>
 
             </div>
-            <div className='relative size-32 '>
-                <div className='absolute -inset-y-20 right-0 w-16'>
-                    <ButtonReiniciar />
-                </div>
-            </div>
+
         </div>
     );
 }
@@ -52,7 +51,11 @@ export function LlamadaDesicion() {
     };
     return (
         <div className="h-auto min-h-[10vh] bg-white ">
-            <div className="max-w-7xl mx-auto my-20">
+            <div className='absolute top-100 right-0 w-16'>
+                <ButtonReiniciar />
+            </div>
+            <div className="max-w-7xl mx-auto my-20 relative">
+
                 {/* Header */}
 
                 <h1 className="text-5xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
@@ -69,11 +72,7 @@ export function LlamadaDesicion() {
                 </div>
 
             </div>
-            <div className='relative size-32 '>
-                <div className='absolute -inset-y-20 right-0 w-16'>
-                    <ButtonReiniciar />
-                </div>
-            </div>
+
         </div>
     );
 }
@@ -84,7 +83,12 @@ export function LlamadaProtocolInNo() {
     const navigate = useNavigate();
     return (
         <div className="h-auto min-h-[10vh] bg-white">
-            <div className="max-w-7xl mx-auto my-20 bg-white text-center">
+            {/* Contenedor del ButtonReiniciar centrado */}
+            <div className='absolute top-100 right-0 w-16'>
+                <ButtonReiniciar />
+            </div>
+
+            <div className="max-w-7xl mx-auto my-20 bg-white text-center relative">
                 <h1 className="text-4xl font-bold text-gray-800 mb-6">COMUNICACIÓN DENEGADA</h1>
                 <p className="text-2xl text-gray-600 mb-6">
                     • Gracias por tu respuesta. Lamentamos no poder ayudarte.
@@ -94,13 +98,13 @@ export function LlamadaProtocolInNo() {
                     través de la siguiente URL: https://www.admision.usmp.edu.pe o podrás comunicarte
                     con nosotros vía telefónica a nuestra central 01-7484747
                 </p>
-                <Button1 nombre="Volver" onClick={Inicio} />
-            </div>
-            <div className='relative size-32'>
-                <div className='absolute -inset-y-20 right-0 w-16'>
-                    <ButtonReiniciar />
+
+                {/* Botón Volver centrado */}
+                <div className="flex justify-center">
+                    <Button1 nombre="Volver" onClick={Inicio} />
                 </div>
             </div>
         </div>
     );
+
 }

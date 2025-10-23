@@ -22,7 +22,7 @@ export default function Inicio() {
         </h1>
         <div className='flex flex-col items-center gap-4'>
           <Button1 nombre='Chat Mensajería' onClick={ChatInicio} />
-          <Button1 nombre='Llamada Telefónica' onClick={LlamadaInicio}/>
+          <Button1 nombre='Llamada Telefónica' onClick={LlamadaInicio} />
         </div>
       </div>
     </div>

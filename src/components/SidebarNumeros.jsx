@@ -7,7 +7,7 @@ export default function SidebarNumeros({ home, currentPage, totalPages, routes =
   const navigate = useNavigate();
   const lengthReq = Object.keys(routes).length;
   return (
-    <div className="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
+    <div className="fixed top-[25vh] right-0 flex flex-col gap-2 mx-5">
       <ButtonHome route={home} />
       {Array.from({ length: lengthReq }, (_, i) => i + 1).map((num) => {
         const target = routes && routes[num];
@@ -15,7 +15,7 @@ export default function SidebarNumeros({ home, currentPage, totalPages, routes =
           <button
             key={num}
             onClick={() => {
-              if (target) return navigate(target, { state: { routex , routes} });
+              if (target) return navigate(target, { state: { routex, routes } });
               return null;
             }}
             className={`w-12 h-12 rounded-lg font-bold  text-lg transition-all duration-300 ${num === currentPage

@@ -18,10 +18,13 @@ export function ChatInicio() {
     4: '/solicitud/' + careerId,
   };
   return (
-    <div className="h-auto min-h-[70vh] bg-white my-20">
-      <div className="max-w-7xl mx-auto">
+    <div className="h-auto min-h-[70vh] bg-white">
+      <div className='fixed top-[25vh] right-0 w-16'>
+        <ButtonReiniciar />
+      </div>
+      <div className="relative top-32 max-w-7xl mx-auto">
         {/* Header */}
-        <h1 className="text-5xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
+        <h1 className=" text-5xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
           CHAT MENSAJERÍA
         </h1>
         <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12 tracking-tight">
@@ -34,11 +37,6 @@ export function ChatInicio() {
           />
         </div>
 
-      </div>
-      <div className='relative size-32 '>
-        <div className='absolute -inset-y-20 right-0 w-16'>
-          <ButtonReiniciar />
-        </div>
       </div>
     </div>
   );
@@ -53,11 +51,11 @@ export function ChatProtocolIn() {
     navigate('/protEntrSi');
   };
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
-      <div className="max-w-3xl w-full text-center px-4">
+    <div className="bg-white flex flex-col items-center text-center">
+      <div className="relative top-20 max-w-3xl w-full">
         <h1 className="text-4xl font-bold text-gray-800 mb-6">1. PROTOCOLO DE ENTRADA</h1>
         <p className="text-2xl text-gray-600 mb-6">
-          • ¡Hola! 👋🏻😉, agradecemos que te hayas comunicado con nosotros. Si quieres saber más, bríndanos el consentimiento para usar tus datos. Puedes ver las
+          • ¡Hola! 👋🏻😉, agradecemos que te hayas comunicado con nosotros. <br /> Si quieres saber más, bríndanos el consentimiento para usar tus datos. Puedes ver las
           condiciones aquí: <a href="https://usmp.edu.pe/politicas-de-privacidad/" className="text-blue-600 hover:underline">Políticas de Privacidad</a>
         </p>
         <p className="text-2xl text-gray-600 mb-8">
@@ -86,7 +84,7 @@ export function ChatProtocolInNo() {
   };
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
+    <div className="bg-white flex flex-col items-center text-center">
       <div className="max-w-3xl w-full text-center px-4">
         <h1 className="text-4xl font-bold text-gray-800 mb-6">2. COMUNICACIÓN DENEGADA</h1>
         <p className="text-2xl text-gray-600 mb-6">
@@ -116,8 +114,8 @@ export function ChatProtocolInSi() {
     navigate('/derivarAsesor');
   };
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
-      <div className="max-w-3xl w-full px-4">
+    <div className="bg-white flex flex-col items-center text-center">
+      <div className="my-20 max-w-3xl w-full px-4">
         <h1 className="text-4xl text-center  font-bold text-gray-800 mb-6">2. COMUNICACIÓN PERMITIDA</h1>
         <p className="text-2xl text-gray-600 mb-6">
           • ¡Excelente! Hoy inicias tu camino a poder estudiar en una de las mejores universidades del
@@ -132,13 +130,13 @@ export function ChatProtocolInSi() {
         <p className="text-2xl text-gray-600 mb-6">
           3. ¿Cuál es tu carrera de interés?
         </p>
-        <p className="text-2xl text-gray-600 mb-6">
+        <p className="text-2xl text-gray-600">
           4. ¿Tu número de celular es?
         </p>
-
       </div>
       <Button1 className="" nombre='Derivar Asesor' onClick={DerivarAsesor} />
       <SidebarNumeros currentPage={2}
+        home={'/chatInicio'}
         routes={
           {
             1: '/protEntr',
@@ -175,9 +173,9 @@ export function TiempoEspera() {
 
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
+    <div className="bg-white flex flex-col items-center text-center">
 
-      <div className="max-w-3xl w-full px-10 py-10">
+      <div className="mt-10 max-w-3xl w-full px-10 py-10 ">
 
         <h1 className="text-4xl text-center font-bold text-gray-800">
           3. TIEMPO DE ESPERA
