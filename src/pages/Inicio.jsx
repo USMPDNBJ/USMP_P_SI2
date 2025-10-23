@@ -14,15 +14,15 @@ export default function Inicio() {
   };
 
   return (
-    <div className="h-auto min-h-[70vh] bg-white my-20">
-      <div className="max-w-7xl mx-auto">
+    <div className="h-auto min-h-[70vh] bg-white">
+      <div className="max-w-7xl mx-auto my-20">
         {/* Header */}
         <h1 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12 tracking-tight">
           SELECCIONE MEDIO DE COMUNICACIÓN
         </h1>
         <div className='flex flex-col items-center gap-4'>
           <Button1 nombre='Chat Mensajería' onClick={ChatInicio} />
-          <Button1 nombre='Llamada Telefónica' />
+          <Button1 nombre='Llamada Telefónica' onClick={LlamadaInicio}/>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SidebarNumeros from '../components/SidebarNumeros';
 
 const ChevronLeft = ({ className }) => (
@@ -14,20 +15,24 @@ const ChevronRight = ({ className }) => (
   </svg>
 );
 
-export default function CarrerasUniversitarias() {
+export default function CarrerasUniversitarias({ }) {
   const navigate = useNavigate();
   const [careersPages, setCareersPages] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const careerId = sessionStorage.getItem('careerId');
+  
   // Tamaño de página: cuántas carreras mostrar por página
   const PAGE_SIZE = 16;
-
+  const location = useLocation();
+  const routex = location.state?.routex;
+  const dynamicHome = routex === 'llamada' ? '/LlamadaInicio' : 'chatInicio';
+  const routesState = location.state?.routes;
+  const lengthCar = location.state?.lengthCar;
   // Función para navegar cuando se hace clic en una carrera
   const handleCareerClick = (careerIdOrName) => {
     // careerIdOrName can be a number (id) or a name string; encode for the URL
     const value = encodeURIComponent(String(careerIdOrName));
     sessionStorage.setItem('careerId', String(careerIdOrName));
-    navigate(`/carrera/${value}`);
+    navigate(`/${routex}/${value}`);
   };
 
   // Cargar datos desde localStorage o inicializarlos
@@ -85,7 +90,7 @@ export default function CarrerasUniversitarias() {
     <div className="min-h-[70vh] bg-white flex flex-col">
       <div className="max-w-7xl mx-auto flex-grow flex flex-col py-10">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
-          1. SELECCIONE LA CARRERA UNIVERSITARIAS
+          1. SELECCIONE LA CARRERA UNIVERSITARIA
         </h1>
 
         <div className="flex flex-col flex-grow">
@@ -128,16 +133,10 @@ export default function CarrerasUniversitarias() {
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
           </div>
-          <SidebarNumeros currentPage={1} lengthReq={4}
-            home={'/chatInicio'}
-            routes={
-              {
-                1: '/derivacion',
-                2: '/carrera/' + careerId,
-                3: '/preguntar/' + careerId,
-                4: '/solicitud/' + careerId,
-              }
-            }
+          <SidebarNumeros currentPage={1}
+            home={dynamicHome}
+            routes={routesState}
+            routex={routex}
           />
           <div className="text-center mt-4 text-gray-600">
             Página {currentPage} de {totalPages}

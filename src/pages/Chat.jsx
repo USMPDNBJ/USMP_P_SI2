@@ -1,18 +1,22 @@
 
 import React, { useState, useEffect } from 'react';
-import SidebarNumeros, { ButtonReiniciar } from '../components/SidebarNumeros'; // ajusta la ruta si es necesario
+import SidebarNumeros, { ButtonHome, ButtonReiniciar } from '../components/SidebarNumeros'; // ajusta la ruta si es necesario
 import Button1 from '../components/button1';
 import { useNavigate } from 'react-router-dom';
 
 export function ChatInicio() {
   const navigate = useNavigate();
-  const Derivacion = () => {
-    navigate('/derivacion');
-  };
   const ProtocoloEntrada = () => {
     navigate('/protEntr');
   };
-
+  const routex = 'carrera';
+  const careerId = sessionStorage.getItem('careerId');
+  const routes = {
+    1: '/derivacion',
+    2: '/carrera/' + careerId,
+    3: '/preguntar/' + careerId,
+    4: '/solicitud/' + careerId,
+  };
   return (
     <div className="h-auto min-h-[70vh] bg-white my-20">
       <div className="max-w-7xl mx-auto">
@@ -25,15 +29,17 @@ export function ChatInicio() {
         </h1>
         <div className='flex flex-col items-center gap-4'>
           <Button1 nombre='Protocolo de Entrada' onClick={ProtocoloEntrada} />
-          <Button1 nombre='Derivación' onClick={Derivacion} />
+          <Button1 nombre='Derivación'
+            onClick={() => navigate('/derivacion', { state: { routex, routes } })}
+          />
         </div>
-        <div className='relative size-32 '>
-          <div className='absolute -inset-y-20 right-0 w-16'>
-            <ButtonReiniciar />
-          </div>
+
+      </div>
+      <div className='relative size-32 '>
+        <div className='absolute -inset-y-20 right-0 w-16'>
+          <ButtonReiniciar />
         </div>
       </div>
-
     </div>
   );
 }
@@ -62,7 +68,7 @@ export function ChatProtocolIn() {
           <Button1 nombre="NO" onClick={ProtocoloEntradaNo} />
         </div>
       </div>
-      <SidebarNumeros currentPage={1} lengthReq={3}
+      <SidebarNumeros currentPage={1}
         home={'/chatInicio'}
         routes={
           {
@@ -94,7 +100,7 @@ export function ChatProtocolInNo() {
 
       </div>
       <Button1 nombre="Volver" onClick={Inicio} />
-      <SidebarNumeros currentPage={2} lengthReq={2}
+      <SidebarNumeros currentPage={2}
         home={'/chatInicio'}
         routes={
           {
@@ -132,8 +138,7 @@ export function ChatProtocolInSi() {
 
       </div>
       <Button1 className="" nombre='Derivar Asesor' onClick={DerivarAsesor} />
-      <SidebarNumeros currentPage={2} lengthReq={3}
-        home={'/chatInicio'}
+      <SidebarNumeros currentPage={2}
         routes={
           {
             1: '/protEntr',
@@ -145,7 +150,7 @@ export function ChatProtocolInSi() {
 }
 export function TiempoEspera() {
   const Inicio = () => {
-    navigate('/');
+    navigate('/chatInicio');
   };
   const navigate = useNavigate();
   const [secondsLeft, setSecondsLeft] = useState(20 * 60); // 20 minutos
@@ -171,9 +176,7 @@ export function TiempoEspera() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center py-10 my-20">
-      <h1 className=" text-4xl font-bold text-red">
-        {formattedTime}
-      </h1>
+
       <div className="max-w-3xl w-full px-10 py-10">
 
         <h1 className="text-4xl text-center font-bold text-gray-800">
@@ -187,14 +190,16 @@ export function TiempoEspera() {
         <p className="text-2xl text-black mb-6 font-bold underline underline-offset-8">
           SI NO RESPONDE EL USUARIO Indicas lo siguiente:
         </p>
-        <p className="text-2xl text-gray-600 mb-6">
+        <p className="text-2xl text-gray-600 ">
           • Hola, estamos a la espera de tu respuesta para continuar con la atención si no, por lo contrario,
           vamos a dar por finalizado el chat. (Envías la despedida de la USMP)
         </p>
       </div>
-
+      <h1 className=" text-4xl font-bold text-red mb-6">
+        {formattedTime}
+      </h1>
       <Button1 nombre='Respondió el Usuario' onClick={Inicio} />
-      <SidebarNumeros currentPage={3} lengthReq={3}
+      <SidebarNumeros currentPage={3}
         home={'/chatInicio'}
         routes={
           {

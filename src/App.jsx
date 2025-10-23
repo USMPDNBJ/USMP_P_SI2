@@ -3,24 +3,25 @@ import './App.css';
 import Headerx from './components/header';
 import Inicio from './pages/Inicio';
 import { ChatInicio, ChatProtocolIn, ChatProtocolInNo, ChatProtocolInSi, TiempoEspera } from './pages/Chat';
-import Proto from './pages/Inicio';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CarrerasUniversitarias from './pages/Carreras';
-import Carrera from './pages/Derivacion';
+import Carrera, { Llamada } from './pages/Derivacion';
 import React, { useState, useEffect } from 'react';
-import Preguntar, { Solicitud } from './pages/Solicitud';
+import Preguntar, { ChatSolicitud, LlamadaSolicitud, Solicitud } from './pages/Solicitud';
+import LlamadaInicio, { LlamadaDesicion, LlamadaProtocolInNo, LlamadaProtocolInSi } from './pages/Llamada';
 
 function App() {
   const [initialCareers, setCareers] = useState([]);
   useEffect(() => {
     const storageKey = 'careersList';
     const stored = localStorage.getItem(storageKey);
+
     const initialCareers = [
       [
         {
           descripcion1: "⚖️ ¡Defiende la justicia y transforma la sociedad con Derecho en la USMP! Conviértete en un profesional con visión crítica, ética y compromiso social, capaz de interpretar y aplicar las leyes para resolver los grandes retos del mundo jurídico.",
-          asesor: "a",
+          asesor: "JOICE",
           name: 'DERECHO',
           id: 1
           , beneficios: '✅ Plan de estudios sólido y actualizado, con cursos de especialidad desde los primeros ciclos \n ✅ Sala de simulación de litigio, donde desarrollarás oratoria y práctica real de procesos judiciales.✅ Sociedad de Debates, que te forma en pensamiento crítico y liderazgo político académico.✅ Más de 30 centros de estudios e investigación, que potencian tu formación académica.✅ Infraestructura moderna, con auditorios, aulas especializadas y espacios para debates y foros internacionales.✅ Convenios internacionales que te permiten realizar intercambios y pasantías en América, Europa y Asia.'
@@ -28,6 +29,8 @@ function App() {
           , sedes: 'Santa Anita, La Molina, Lima Norte (Comas), Chiclayo y Arequipa'
           , facultad: 'DERECHO'
           , celular: '991 531 262'
+          , profesion: 'abogad@'
+          , sedesEsp: '• La Molina: Av. Alameda del Corregidor N° 1865 • Santa Anita: Jr. Las Calandrias N° 151 • Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir) • Filial Chiclayo: Av. Los Eucaliptos N° 300 – 304, Urb. La Pradera – Pimentel Filial • Arequipa: Urb. Daniel Alcides Carrión, Mz. G Lote 14, José Luis Bustamante y Rivero'
         },
         {
           descripcion1: "",
@@ -39,6 +42,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -50,6 +55,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -61,6 +68,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -72,6 +81,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -83,6 +94,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -94,6 +107,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -105,6 +120,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -116,6 +133,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -127,6 +146,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -138,6 +159,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -149,6 +172,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -160,6 +185,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -171,6 +198,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -182,6 +211,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           descripcion1: "",
@@ -193,6 +224,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
       ],
       [
@@ -205,6 +238,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           asesor: "z ",
@@ -215,6 +250,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           asesor: "z ",
@@ -225,6 +262,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           asesor: "z ",
@@ -235,6 +274,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
         {
           asesor: "z ",
@@ -245,6 +286,8 @@ function App() {
           , sedes: ''
           , facultad: ''
           , celular: ''
+          , profesion: ''
+          , sedesEsp: ''
         },
       ],
     ];
@@ -265,7 +308,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/chatInicio" element={<ChatInicio />} />
-          {/* <Route path="/LlamadaInicio" element={<LlamadaInicio />} /> */}
+          <Route path="/LlamadaDesicion" element={<LlamadaDesicion />} />
+          <Route path="/LlamadaInicio" element={<LlamadaInicio />} />
+          <Route path="/LlamadaProtocolInNo" element={<LlamadaProtocolInNo />} />
+          <Route path="/llamada/:nombre" element={<Llamada />} />
           <Route path="/protEntr" element={<ChatProtocolIn />} />
           <Route path="/derivacion" element={<CarrerasUniversitarias />} />
           <Route path="/derivarAsesor" element={<TiempoEspera />} />
@@ -273,7 +319,8 @@ function App() {
           <Route path="/protEntrSi" element={<ChatProtocolInSi />} />
           <Route path="/carrera/:nombre" element={<Carrera />} />
           <Route path="/preguntar/:nombre" element={<Preguntar />} />
-          <Route path="/solicitud/:nombre" element={<Solicitud />} />
+          <Route path="/solicitud/:nombre" element={<ChatSolicitud />} />
+          <Route path="/solicitudLlam/:nombre" element={<LlamadaSolicitud />} />
         </Routes>
       </header>
     </div>
