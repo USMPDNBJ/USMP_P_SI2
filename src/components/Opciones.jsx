@@ -234,7 +234,7 @@ export function Opciones1x1({ storedList, title, routex }) {
 
   const handleCareerClick = (careerIdOrName) => {
     const value = encodeURIComponent(String(careerIdOrName));
-    sessionStorage.setItem('careerId', String(careerIdOrName));
+    sessionStorage.setItem('situacionId', String(careerIdOrName));
     navigate(`/${(routex || 'carrera')}/${value}`);
   };
 

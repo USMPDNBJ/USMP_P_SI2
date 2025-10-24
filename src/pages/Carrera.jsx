@@ -120,8 +120,6 @@ export default function Carrera() {
           {
             1: '/carrerasUnivChat',
             2: '/carrera/' + careerId,
-            3: '/preguntar/' + careerId,
-            4: '/solicitud/' + careerId,
           }
         }
       />

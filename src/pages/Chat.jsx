@@ -102,6 +102,7 @@ export function ChatProtocolInNo() {
         routes={
           {
             1: '/protEntr',
+            2: '/protEntrNo',
           }} />
     </div>
   );
@@ -140,7 +141,6 @@ export function ChatProtocolInSi() {
           {
             1: '/protEntr',
             2: '/protEntrSi',
-            3: '/derivarAsesor'
           }} />
     </div>
   );

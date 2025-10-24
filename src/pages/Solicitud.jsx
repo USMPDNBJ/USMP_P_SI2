@@ -72,10 +72,8 @@ export default function Preguntar() {
             1: '/carrerasUnivChat',
             2: '/carrera/' + careerId,
             3: '/preguntar/' + careerId,
-            4: '/solicitud/' + careerId,
           }
         }
-        routex={'carrera'}
       />
     </div>
   );
@@ -170,7 +168,6 @@ export function ChatSolicitud() {
             4: '/solicitud/' + careerId,
           }
         }
-        routex={'carrera'}
       />
     </div>
   );
