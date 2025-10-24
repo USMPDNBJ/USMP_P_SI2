@@ -33,7 +33,7 @@ export function ChatInicio() {
         <div className='flex flex-col items-center gap-4'>
           <Button1 nombre='Protocolo de Entrada' onClick={ProtocoloEntrada} />
           <Button1 nombre='Derivación'
-            onClick={() => navigate('/derivacion', { state: { routex, routes } })}
+            onClick={() => navigate('/carrerasUnivChat')}
           />
         </div>
 

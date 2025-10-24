@@ -5,12 +5,12 @@ import Inicio from './pages/Inicio';
 import { ChatInicio, ChatProtocolIn, ChatProtocolInNo, ChatProtocolInSi, TiempoEspera } from './pages/Chat';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CarrerasUniversitarias from './pages/Carreras';
-import Carrera, { Llamada } from './pages/Derivacion';
+import Carrera from './pages/Carrera';
 import React, { useState, useEffect } from 'react';
-import Preguntar, { ChatSolicitud, LlamadaSolicitud, Solicitud } from './pages/Solicitud';
-import LlamadaInicio, { LlamadaDesicion, LlamadaProtocolInNo, LlamadaProtocolInSi } from './pages/Llamada';
+import Preguntar, { ChatSolicitud } from './pages/Solicitud';
+import LlamadaInicio, { Llamada, LlamadaDesicion, LlamadaProtocolInNo, Modalidades } from './pages/Llamada/Llamada';
 import { carrerasJS } from './assets/ListaCarreras';
+import CarrerasUnivChat, { CarrerasUnivLlam } from './pages/Carreras';
 
 function App() {
   const [initialCareers, setCareers] = useState([]);
@@ -35,20 +35,23 @@ function App() {
         <Headerx />
         <Routes>
           <Route path="/" element={<Inicio />} />
+          //*CHAT
           <Route path="/chatInicio" element={<ChatInicio />} />
-          <Route path="/LlamadaDesicion" element={<LlamadaDesicion />} />
-          <Route path="/LlamadaInicio" element={<LlamadaInicio />} />
-          <Route path="/LlamadaProtocolInNo" element={<LlamadaProtocolInNo />} />
-          <Route path="/llamada/:nombre" element={<Llamada />} />
           <Route path="/protEntr" element={<ChatProtocolIn />} />
-          <Route path="/derivacion" element={<CarrerasUniversitarias />} />
+          <Route path="/carrerasUnivChat" element={<CarrerasUnivChat />} />
+          <Route path="/carrerasUnivLlam" element={<CarrerasUnivLlam />} />
           <Route path="/derivarAsesor" element={<TiempoEspera />} />
           <Route path="/protEntrNo" element={<ChatProtocolInNo />} />
           <Route path="/protEntrSi" element={<ChatProtocolInSi />} />
           <Route path="/carrera/:nombre" element={<Carrera />} />
           <Route path="/preguntar/:nombre" element={<Preguntar />} />
           <Route path="/solicitud/:nombre" element={<ChatSolicitud />} />
-          <Route path="/solicitudLlam/:nombre" element={<LlamadaSolicitud />} />
+          //*LLAMADA
+          <Route path="/LlamadaDesicion" element={<LlamadaDesicion />} />
+          <Route path="/LlamadaInicio" element={<LlamadaInicio />} />
+          <Route path="/LlamadaProtocolInNo" element={<LlamadaProtocolInNo />} />
+          <Route path="/llamada/:nombre" element={<Llamada />} />
+          <Route path="/modalidades" element={<Modalidades />} />
         </Routes>
       </header>
     </div>

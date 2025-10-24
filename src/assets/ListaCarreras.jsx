@@ -3,293 +3,296 @@ export const carrerasJS = [
         {
             descripcion1: "⚖️ ¡Defiende la justicia y transforma la sociedad con Derecho en la USMP! Conviértete en un profesional con visión crítica, ética y compromiso social, capaz de interpretar y aplicar las leyes para resolver los grandes retos del mundo jurídico.",
             asesor: "JOICE",
-            name: 'DERECHO',
-            id: 1
-            , beneficios: '✅ Plan de estudios sólido y actualizado, con cursos de especialidad desde los primeros ciclos \n ✅ Sala de simulación de litigio, donde desarrollarás oratoria y práctica real de procesos judiciales.✅ Sociedad de Debates, que te forma en pensamiento crítico y liderazgo político académico.✅ Más de 30 centros de estudios e investigación, que potencian tu formación académica.✅ Infraestructura moderna, con auditorios, aulas especializadas y espacios para debates y foros internacionales.✅ Convenios internacionales que te permiten realizar intercambios y pasantías en América, Europa y Asia.'
-            , perfil: '• Abogados litigantes en diversas ramas del Derecho.• Asesores jurídicos en empresas, organismos públicos y privados.• Magistrados, fiscales o procuradores.• Asesores en organismos internacionales como la OEA.• Consultores en proyectos legales, ambientales y de derechos humanos.'
-            , sedes: 'Santa Anita, La Molina, Lima Norte (Comas), Chiclayo y Arequipa'
-            , facultad: 'DERECHO'
-            , celular: '991 531 262'
-            , profesion: 'abogad@'
-            , sedesEsp: '• La Molina: Av. Alameda del Corregidor N° 1865 • Santa Anita: Jr. Las Calandrias N° 151 • Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir) • Filial Chiclayo: Av. Los Eucaliptos N° 300 – 304, Urb. La Pradera – Pimentel Filial • Arequipa: Urb. Daniel Alcides Carrión, Mz. G Lote 14, José Luis Bustamante y Rivero'
-            , modalidad: ''
+            name: "DERECHO",
+            id: 1,
+            beneficios: "✅ Plan de estudios sólido y actualizado, con cursos de especialidad desde los primeros ciclos\n✅ Sala de simulación de litigio, donde desarrollarás oratoria y práctica real de procesos judiciales.\n✅ Sociedad de Debates, que te forma en pensamiento crítico y liderazgo político académico.\n✅ Más de 30 centros de estudios e investigación, que potencian tu formación académica.\n✅ Infraestructura moderna, con auditorios, aulas especializadas y espacios para debates y foros internacionales.\n✅ Convenios internacionales que te permiten realizar intercambios y pasantías en América, Europa y Asia.",
+            perfil: "• Abogados litigantes en diversas ramas del Derecho.\n• Asesores jurídicos en empresas, organismos públicos y privados.\n• Magistrados, fiscales o procuradores.\n• Asesores en organismos internacionales como la OEA.\n• Consultores en proyectos legales, ambientales y de derechos humanos.",
+            sedes: "Santa Anita, La Molina, Lima Norte (Comas), Chiclayo y Arequipa",
+            facultad: "DERECHO",
+            celular: "991 531 262",
+            profesion: "abogad@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865\n• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)\n• Filial Chiclayo: Av. Los Eucaliptos N° 300 – 304, Urb. La Pradera – Pimentel\n• Filial Arequipa: Urb. Daniel Alcides Carrión, Mz. G Lote 14, José Luis Bustamante y Rivero",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "b ",
-            name: 'MARKETING',
-            id: 2
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "💡 ¡Conviértete en un líder del marketing de hoy en la USMP! Forma parte de una carrera que combina estrategia, innovación y tecnología para posicionar y rentabilizar negocios en un mundo global y digital.",
+            asesor: "Tu Nombre",
+            name: "MARKETING",
+            id: 2,
+            beneficios: "✅ Plan de estudios actualizado con cursos en marketing digital, neuromarketing, análisis de datos y branding.\n✅ Laboratorios modernos y plataformas digitales para el desarrollo de campañas reales.\n✅ Alianzas estratégicas con empresas líderes, que impulsan proyectos y prácticas preprofesionales.\n✅ Participación en congresos, workshops y competencias de marketing que potencian tu networking.\n✅ Docentes con trayectoria en empresas reconocidas, que aportan visión práctica del mercado.\n✅ Oportunidad de obtener doble grado con Furtwangen University en Alemania 🌍",
+            perfil: "Un profesional capaz de gestionar y liderar estrategias de marketing en empresas, startups, agencias de publicidad o proyectos propios, con una mirada creativa, analítica y sostenible.",
+            sedes: "Santa Anita",
+            facultad: "CIENCIAS ADMINISTRATIVAS Y RECURSOS HUMANOS",
+            celular: "991 535 050",
+            profesion: "Profesional",
+            sedesEsp: "• Santa Anita: Jr. Las Calandrias N° 151",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "c ",
-            name: 'MEDICINA HUMANA',
-            id: 3
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "🩺 ¡Conviértete en un médico con visión humanista y científica en la USMP! La Facultad de Medicina Humana de la Universidad de San Martín de Porres (USMP) es una de las más prestigiosas del país, con más de 50 años formando profesionales de excelencia en la salud y con acreditación internacional que respalda su calidad académica.",
+            asesor: "Tu Nombre",
+            name: "MEDICINA HUMANA",
+            id: 3,
+            beneficios: "✅ Plan de estudios integral: enfoque en ciencias básicas, clínicas, investigación y formación humanista.\n✅ Centro de simulación clínico-quirúrgico con tecnología de vanguardia, que permite entrenar habilidades desde el pregrado.\n✅ Anfiteatro anatómico moderno con más de 300 preparados anatómicos y recursos interactivos.\n✅ Hospital Docente Universitario USMP y convenios hospitalarios estratégicos para prácticas reales con pacientes desde los primeros ciclos.\n✅ Docentes de prestigio, con trayectoria nacional e internacional.\n✅ Movilidad académica e intercambios con universidades de América, Europa y Asia.\n✅ Acreditación internacional por COMAEM (México), que permite continuar estudios de especialización en EE.UU. y Canadá.",
+            perfil: "• Previene, diagnostica y trata enfermedades comunes y complejas.\n• Se desempeña como médico general o especialista (cirugía, pediatría, cardiología, ginecología, dermatología, entre otros).\n• Integra equipos multidisciplinarios en salud pública y privada.\n• Puede ejercer como médico forense, investigador o gestor en servicios de salud.",
+            sedes: "La Molina, Lima Norte (Comas)",
+            facultad: "MEDICINA HUMANA",
+            celular: "986 701 839",
+            profesion: "Doctor(@)",
+            sedesEsp: "• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)\n• La Molina: Av. Alameda del Corregidor N° 1865",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "d ",
-            name: 'ADMINISTRACIÓN',
-            id: 4
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "🏢 ¡Lidera el futuro de los negocios con Administración en la USMP! Conviértete en un profesional con capacidad de decisión, visión estratégica y competencias para transformar organizaciones en un entorno empresarial cada vez más competitivo.",
+            asesor: "Tu Nombre",
+            name: "ADMINISTRACIÓN",
+            id: 4,
+            beneficios: "✅ Plan de estudios integral, con cursos en gestión empresarial, finanzas, marketing, innovación y emprendimiento.\n✅ Laboratorios de simulación empresarial, software ERP y centros de innovación para la toma de decisiones estratégicas.\n✅ Capacitaciones y certificaciones en herramientas de gestión y áreas especializadas.\n✅ Docentes con trayectoria en consultoría y gestión empresarial.\n✅ Convenios internacionales y doble grado con Furtwangen University (Alemania) 🌍.\n✅ Prácticas preprofesionales en empresas nacionales, multinacionales y entidades gubernamentales",
+            perfil: "Un líder innovador y competitivo, capaz de gestionar recursos, dirigir proyectos y transformar organizaciones con visión de crecimiento y sostenibilidad.",
+            sedes: "Santa Anita, Lima Norte (Comas)",
+            facultad: "CIENCIAS ADMINISTRATIVAS Y RECURSOS HUMANOS",
+            celular: "991 535 050",
+            profesion: "administrad@r",
+            sedesEsp: "• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros"
         },
         {
-            descripcion1: "",
-            asesor: "e ",
-            name: 'NEGOCIOS INTERNACIONALES',
-            id: 5
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "🌍 ¡Conquista el mundo de los negocios internacionales desde la USMP! Conviértete en un profesional capaz de liderar operaciones globales, gestionar comercio exterior y conectar empresas con nuevos mercados en un entorno cada vez más dinámico y competitivo.",
+            asesor: "Tu Nombre",
+            name: "NEGOCIOS INTERNACIONALES",
+            id: 5,
+            beneficios: "✅ Plan de estudios actualizado, con énfasis en comercio exterior, logística, finanzas globales y negociación intercultural.\n✅ Infraestructura moderna y simuladores de negocios europeos, que fortalecen tu aprendizaje práctico.\n✅ Convenios internacionales y programas de intercambio en América, Europa y Asia.\n✅ Oportunidad de obtener doble grado con Furtwangen University (Alemania).\n✅ Profesores con trayectoria en empresas multinacionales y organismos internacionales.\n✅ Prácticas profesionales en empresas exportadoras, importadoras, agencias aduaneras y entidades gubernamentales.",
+            perfil: "Un líder global con visión estratégica, preparado para diseñar soluciones que impulsen el crecimiento empresarial y fortalezcan la competitividad internacional.",
+            sedes: "Santa Anita, Lima Norte (Comas)",
+            facultad: "CIENCIAS ADMINISTRATIVAS Y RECURSOS HUMANOS",
+            celular: "991 535 050",
+            profesion: "administrad@r",
+            sedesEsp: "• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros"
         },
         {
-            descripcion1: "",
-            asesor: "f ",
-            name: 'CIENCIAS AERONÁUTICAS',
-            id: 6
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "✈️ ¡Lleva tu pasión por la aviación a otro nivel con Ciencias Aeronáuticas en la USMP! Conviértete en un profesional altamente capacitado para gestionar operaciones aéreas, volar aeronaves modernas y liderar la industria aeronáutica con estándares internacionales.",
+            asesor: "Tu Nombre",
+            name: "CIENCIAS AERONÁUTICAS",
+            id: 6,
+            beneficios: "✅ Única escuela profesional en el país que otorga el grado académico de Bachiller en Ciencias Aeronáuticas.\n✅ Aeronaves modernas con aviónica de última generación y aulas isópticas.\n✅ Laboratorios de simulación fijos (TD2) y con movimiento (FMX) para prácticas reales de vuelo y gestión.\n✅ Docentes altamente calificados con experiencia en aerolíneas y organismos aeronáuticos.\n✅ Convenios con instituciones y aerolíneas nacionales e internacionales que potencian tu empleabilidad.\n✅ Preparación para destacar en áreas de operaciones de vuelo, gestión aeroportuaria, mantenimiento y logística aérea.",
+            perfil: "Profesionales listos para desempeñarse como:\n• Pilotos de línea aérea y vuelos chárter.\n• Gestores y gerentes en empresas de transporte aéreo y aeropuertos.\n• Analistas y supervisores de operaciones aeronáuticas.\n• Consultores y líderes en servicios de mantenimiento y logística.",
+            sedes: "La Molina",
+            facultad: "INGENIERÍA Y ARQUITECTURA",
+            celular: "991 531 134",
+            profesion: "aeronautic@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional"
         },
         {
-            descripcion1: "",
-            asesor: "g ",
-            name: 'ING. COMPUTACIÓN Y SISTEMAS',
-            id: 7
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "💻 ¡Impulsa la innovación digital con Ingeniería en Computación y Sistemas en la USMP! Conviértete en un profesional capaz de diseñar, desarrollar e implementar soluciones tecnológicas que transformen organizaciones y aporten valor en un mundo cada vez más digital.",
+            asesor: "Tu Nombre",
+            name: "ING. COMPUTACIÓN Y SISTEMAS",
+            id: 7,
+            beneficios: "✅ Plan de estudios integral, con cursos en programación, inteligencia artificial, big data, ciberseguridad y gestión de TI.\n✅ Laboratorios especializados en IA y robótica, bases de datos, inteligencia de negocios, FABLAB e investigación de software.\n✅ Convenios con empresas líderes en tecnología, para acceder a herramientas actualizadas y prácticas reales.\n✅ Formación que integra habilidades técnicas con liderazgo, trabajo en equipo y ética profesional.\n✅ Docentes con sólida trayectoria académica y experiencia en la industria tecnológica.\n✅ Oportunidad de desarrollar proyectos con impacto en la transformación digital y el desarrollo sostenible.",
+            perfil: "Profesionales capaces de liderar equipos tecnológicos, desarrollar aplicaciones, gestionar infraestructuras digitales y proponer soluciones innovadoras en empresas públicas, privadas o multinacionales.",
+            sedes: "La Molina, Santa Anita, Lima Norte (Comas)",
+            facultad: "INGENIERÍA Y ARQUITECTURA",
+            celular: "991 531 134",
+            profesion: "ingeníer@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865\n• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "h ",
-            name: 'ING. INDUSTRIAL',
-            id: 8
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "⚙️ ¡Transforma procesos y lidera la innovación con Ingeniería Industrial en la USMP! Conviértete en un profesional capaz de diseñar, optimizar y gestionar sistemas de producción y servicios que impulsen la competitividad y sostenibilidad de las organizaciones.",
+            asesor: "Tu Nombre",
+            name: "ING. INDUSTRIAL",
+            id: 8,
+            beneficios: "✅ Plan de estudios integral, con enfoque en gestión de operaciones, mejora continua, innovación y liderazgo.\n✅ Laboratorios especializados en cómputo, procesos, manufactura, automatización y control industrial.\n✅ Docentes con experiencia en la industria, que brindan una formación práctica y actual.\n✅ Diploma suplemento EUR-ACE con reconocimiento de la Unión Europea.\n✅ Doble grado con la Universidad de Missouri (EE. UU.) 🌍.\n✅ Proyecto final que conecta teoría y práctica, simulando un ambiente empresarial real.\n✅ Actividades extracurriculares que potencian tus habilidades blandas y liderazgo.",
+            perfil: "Un profesional innovador, analítico y comprometido, preparado para liderar proyectos de mejora continua, optimización de procesos y gestión de operaciones en sectores como industria, tecnología, alimentos, farmacéutica, construcción, minería, energía, logística y más.",
+            sedes: "La Molina, Santa Anita, Lima Norte (Comas)",
+            facultad: "INGENIERÍA Y ARQUITECTURA",
+            celular: "991 531 134",
+            profesion: "ingeníer@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865\n• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "i ",
-            name: 'ENFERMERÍA',
-            id: 9
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "💙 ¡Haz de tu vocación un camino profesional con Enfermería en la USMP! Conviértete en un profesional comprometido con la salud y el bienestar de las personas, brindando cuidados integrales con sensibilidad, ciencia y tecnología.",
+            asesor: "Tu Nombre",
+            name: "ENFERMERÍA",
+            id: 9,
+            beneficios: "✅ Plan de estudios actualizado, que progresa de lo básico a lo complejo.\n✅ Prácticas desde los primeros ciclos en hospitales y centros de salud, con grupos reducidos y supervisión personalizada.\n✅ Laboratorios de ciencias básicas y humanísticas con simuladores de alta fidelidad, microscopios e instrumental quirúrgico.\n✅ Anfiteatro anatómico para un aprendizaje detallado del cuerpo humano.\n✅ Centro de Simulación para prácticas de pregrado y evaluación por competencias.\n✅ Docentes especializados en diversas áreas de la salud, altamente capacitados.\n✅ Convenios con MINSA, EsSalud y clínicas reconocidas para prácticas preprofesionales.",
+            perfil: "Profesionales con vocación de servicio, capaces de brindar atención integral en todas las etapas de la vida, liderar programas de salud, gestionar servicios sanitarios y realizar investigaciones que innoven el sistema de salud.",
+            sedes: "Jesús María, Santa Anita, Lima Norte (Comas)",
+            facultad: "OBSTETRICIA Y ENFERMERÍA",
+            celular: "991 531 134",
+            profesion: "enfermer@",
+            sedesEsp: "• Av. Gral. Felipe Salaverry 1136 - 1144\n• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "j ",
-            name: 'ING. CIVIL',
-            id: 10
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "🏗️ ¡Construye el futuro con Ingeniería Civil en la USMP! Conviértete en un profesional capaz de diseñar, planificar y ejecutar proyectos de infraestructura que impacten en el desarrollo urbano, social y económico del país.",
+            asesor: "Tu Nombre",
+            name: "ING. CIVIL",
+            id: 10,
+            beneficios: "✅ Plan de estudios actualizado, con enfoque en diseño estructural, hidráulica, transporte y gestión de obras.\n✅ Laboratorios especializados en materiales de construcción, mecánica de suelos, hidráulica y estructuras.\n✅ Docentes con amplia trayectoria académica y experiencia en el sector construcción.\n✅ Prácticas y proyectos reales desde los primeros ciclos.\n✅ Convenios con empresas e instituciones públicas y privadas, que facilitan pasantías y empleabilidad.\n✅ Actividades académicas, congresos y certificaciones que refuerzan tu perfil profesional.",
+            perfil: "Profesionales capaces de liderar proyectos de construcción, optimizar recursos, supervisar obras, garantizar la seguridad estructural y aportar soluciones sostenibles para el crecimiento del país.",
+            sedes: "La Molina, Santa Anita, Lima Norte (Comas)",
+            facultad: "INGENIERÍA Y ARQUITECTURA",
+            celular: "991 531 134",
+            profesion: "ingeníer@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865\n• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "k ",
-            name: 'OBSTETRICIA',
-            id: 11
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "🌸 ¡Haz de tu vocación un compromiso con la vida! Estudia Obstetricia en la USMP. Conviértete en un profesional con formación científica, tecnológica y humanista, capaz de cuidar la salud sexual y reproductiva de las personas en todas las etapas de la vida.",
+            asesor: "Tu Nombre",
+            name: "OBSTETRICIA",
+            id: 11,
+            beneficios: "✅ Plan de estudios integral y actualizado, que combina teoría, práctica y enfoque preventivo.\n✅ Laboratorios especializados y Centro de Simulación, con equipos modernos para tu formación clínica.\n✅ Prácticas desde los primeros ciclos en hospitales y centros de salud.\n✅ Docentes expertos con experiencia en salud sexual, materna y neonatal.\n✅ Convenios con MINSA, EsSalud y clínicas privadas para prácticas e internado.\n✅ Participación en campañas de salud, congresos y proyectos de investigación.",
+            perfil: "Profesionales con ética y compromiso social, preparados para:\n• Brindar atención integral a la mujer en salud sexual, reproductiva y materna.\n• Promover la planificación familiar, la prevención de enfermedades y estilos de vida saludables.\n• Liderar programas y servicios de salud a nivel público y privado.\n• Participar en proyectos de investigación y gestión en salud.",
+            sedes: "Jesús María, Santa Anita",
+            facultad: "OBSTETRICIA Y ENFERMERÍA",
+            celular: "991 531 134",
+            profesion: "obstret@",
+            sedesEsp: "• Av. Gral. Felipe Salaverry 1136 - 1144\n• Santa Anita: Jr. Las Calandrias N° 151",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita)"
         },
         {
-            descripcion1: "",
-            asesor: "z ",
-            name: 'ARQUITECTURA',
-            id: 12
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "🏛️ ¡Diseña el futuro con Arquitectura en la USMP! Conviértete en un profesional creativo, innovador y comprometido con el diseño de espacios sostenibles que transforman ciudades y mejoren la vida de las personas.",
+            asesor: "Tu Nombre",
+            name: "ARQUITECTURA",
+            id: 12,
+            beneficios: "✅ Acreditación internacional RIBA (Royal Institute of British Architects).\n✅ Plan de estudios integral, que combina teoría, práctica y herramientas digitales de última generación.\n✅ Talleres especializados en planos, maquetas y proyectos sostenibles.\n✅ Laboratorios con tecnología avanzada, como cortadoras láser e impresoras 3D.\n✅ Instituto de Vivienda, Urbanismo y Construcción (IVUC) para proyectos de investigación científica y tecnológica.\n✅ Oportunidades de intercambio y pasantías internacionales en América, Europa y Asia.\n✅ Participación en proyectos de impacto social y asesoría a iniciativas estudiantiles.",
+            perfil: "Profesionales capaces de:\n• Diseñar y planificar proyectos arquitectónicos innovadores y sostenibles.\n• Gestionar proyectos inmobiliarios y urbanos.\n• Desarrollar diseño interior, paisajístico y urbano.\n• Supervisar y dirigir obras arquitectónicas.\n• Emprender estudios de diseño y trabajar en empresas nacionales e internacionales.",
+            sedes: "La Molina, Santa Anita, Lima Norte (Comas)",
+            facultad: "INGENIERÍA Y ARQUITECTURA",
+            celular: "991 531 134",
+            profesion: "arquitect@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865\n• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "z ",
-            name: 'PSICOLOGÍA',
-            id: 13
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "💜 ¡Comprende la mente humana y ayuda a transformar vidas con Psicología en la USMP! 🧠 Conviértete en un profesional ético y comprometido con el bienestar emocional, social y cognitivo de las personas en diferentes etapas de la vida.",
+            asesor: "Tu Nombre",
+            name: "PSICOLOGÍA",
+            id: 13,
+            beneficios: "✅ Plan de estudios integral, con enfoque en psicología clínica, educativa, organizacional y social.\n✅Laboratorios especializados en neuropsicología, psicometría y evaluación conductual.\n✅ Centros de atención psicológica universitaria, donde atenderás casos reales bajo supervisión profesional.\n✅ Docentes con experiencia clínica y académica, que aportan una visión práctica y actual.\n✅ Convenios con centros educativos, hospitales, ONGs y empresas privadas para prácticas profesionales.\n✅ Oportunidad de realizar intercambios académicos internacionales y proyectos de investigación en psicología aplicada.",
+            perfil: "• Evalúa, diagnostica e interviene en problemas emocionales, conductuales y sociales.\n• Aplica métodos científicos en investigación psicológica.\n• Se desempeña en áreas de psicología clínica, educativa, organizacional y social.\n• Contribuye al diseño de políticas y programas de salud mental y bienestar social.\n• Trabaja en hospitales, clínicas, instituciones educativas, empresas, ONGs y consultoras.",
+            sedes: "Surquillo, Santa Anita, Lima Norte (Comas)",
+            facultad: "CIENCIAS DE LA COMUNICACIÓN, TURISMO Y PSICOLOGÍA",
+            celular: "991 531 274",
+            profesion: "psicolog@",
+            sedesEsp: "• Surquillo: Av. Tomás Marsano N°242\n• Santa Anita: Jr. Las Calandrias N° 151\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Santa Anita y Comas)"
+        },
+{
+            descripcion1: "🤖✨ ¡Crea el futuro hoy! Estudia Ingeniería en Inteligencia Artificial y Robótica en la USMP y convierte tu pasión por la tecnología en innovación real 🚀💡",
+            asesor: "Tu Nombre",
+            name: "INTELIGENCIA ARTIFICIAL",
+            id: 14,
+            beneficios: "✅ Plan de estudios moderno con cursos de IA y Robótica desde los primeros ciclos.\n✅ Laboratorios especializados en Big Data, IA, Robótica y Redes.\n✅ Modalidad semipresencial: aprende a tu ritmo.\n✅ Campo laboral en salud, banca, transporte, seguridad, aeroespacial, tecnología y más",
+            perfil: "👨‍💻 Si eres curioso, creativo y quieres cambiar el mundo con la tecnología, esta carrera es para ti.",
+            sedes: "La Molina, Lima Norte (Comas)",
+            facultad: "INGENIERÍA Y ARQUITECTURA",
+            celular: "991 531 134",
+            profesion: "ingenier@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "z ",
-            name: 'INTELIGENCIA ARTIFICIAL',
-            id: 14
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "📊 ¡Convierte los datos en decisiones inteligentes con Ingeniería en Ciencias de Datos en la USMP! Forma parte de una carrera innovadora que combina matemática, estadística, programación e inteligencia artificial para transformar información en soluciones estratégicas.",
+            asesor: "Tu Nombre",
+            name: "ING. CIENCIA DE DATOS",
+            id: 15,
+            beneficios: "✅ Plan de estudios moderno, con cursos de carrera desde los primeros ciclos.\n✅ Laboratorios especializados en Big Data, Inteligencia Artificial, Robótica, Redes y Fabricación Digital.\n✅ Docentes con experiencia empresarial, que conectan teoría y práctica.\n✅ Modalidad semipresencial, con clases síncronas y asíncronas que se adaptan a tu tiempo.\n✅ Asignaturas electivas para personalizar tu perfil profesional en IA, Machine Learning, análisis predictivo, entre otros.\n✅ Convenios estratégicos con empresas líderes como Huawei, Microsoft, Cisco y Telefónica del Perú.",
+            perfil: "Profesionales capaces de desempeñarse como:\n• Gerentes en gestión organizacional y tecnológica.\n• Creadores de proyectos de inteligencia y aplicaciones de machine learning.\n• Desarrolladores de software, apps y servicios digitales.\n• Analistas de políticas públicas basadas en datos.\n• Estrategas en proyectos de análisis de datos para empresas y organismos internacionales.",
+            sedes: "La Molina, Lima Norte (Comas)",
+            facultad: "INGENIERÍA Y ARQUITECTURA",
+            celular: "991 531 134",
+            profesion: "ingenier@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Comas)"
         },
         {
-            descripcion1: "",
-            asesor: "z ",
-            name: 'ING. CIENCIA DE DATOS',
-            id: 15
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "😁 ¡Devuelve sonrisas y mejora la salud bucal con Odontología en la USMP! 🦷 Conviértete en un profesional con formación científica, tecnológica y humanista, preparado para diagnosticar, prevenir y tratar enfermedades bucales con un enfoque integral.",
+            asesor: "Tu Nombre",
+            name: "ODONTOLOGÍA",
+            id: 16,
+            beneficios: "✅ Plan de estudios moderno, que integra ciencias básicas, clínicas y formación humanista.\n✅ Clínica Odontológica Universitaria propia, equipada con unidades dentales de última generación para atender pacientes desde los primeros ciclos.\n✅ Laboratorios especializados en biomateriales, anatomía dental, radiología, simulación clínica y rehabilitación oral.\n✅ Docentes altamente calificados, especialistas en todas las ramas de la odontología.\n✅ Convenios con hospitales, clínicas y centros de salud para prácticas preprofesionales e internado.\n✅ Participación en campañas de salud bucal, proyectos de investigación y voluntariado.",
+            perfil: "• Diagnostica, previene y trata enfermedades y alteraciones bucodentales.\n• Ejecuta procedimientos de odontología general, rehabilitación oral, ortodoncia y cirugía.\n• Participa en programas de salud bucal comunitaria.\n• Lidera proyectos de investigación e innovación en odontología.\n• Puede ejercer como especialista o emprender su propia clínica dental.",
+            sedes: "Santa Anita",
+            facultad: "ODONTOLOGÍA",
+            celular: "986 701 839",
+            profesion: "odontolog@",
+            sedesEsp: "• Santa Anita: Jr. Las Calandrias N° 151",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros"
         },
         {
-            descripcion1: "",
-            asesor: "z ",
-            name: 'ODONTOLOGÍA',
-            id: 16
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
-        },
-    ],
-    [
-        {
-            asesor: "z ",
-            name: 'ECONOMÍA',
-            id: 17
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "📈 ¡Analiza, proyecta y transforma el futuro con Economía en la USMP! Conviértete en un profesional capaz de entender los fenómenos económicos y proponer soluciones que impulsen el desarrollo empresarial y social.",
+            asesor: "Tu Nombre",
+            name: "ECONOMÍA",
+            id: 17,
+            beneficios: "✅ Plan de estudios integral, con enfoque en macroeconomía, microeconomía, finanzas y comercio internacional.\n✅ Laboratorios de software estadístico y econométrico para simulaciones reales.\n✅ Convenios con instituciones públicas, privadas y organismos internacionales.\n✅ Docentes con trayectoria en consultoría económica y política pública.",
+            perfil: "• Analiza y propone soluciones a problemas económicos nacionales e internacionales.\n• Diseña políticas y estrategias para el crecimiento económico sostenible.\n• Domina el uso de modelos econométricos y software estadístico para la toma de decisiones.\n• Se desempeña en banca, finanzas, comercio internacional, sector público y organismos internacionales.\n• Contribuye a proyectos de investigación y desarrollo económico-social.",
+            sedes: "Santa Anita",
+            facultad: "CIENCIAS CONTABLES, ECONÓMICAS Y FINANCIERAS",
+            celular: "991 535 050",
+            profesion: "economist@",
+            sedesEsp: "• Santa Anita: Jr. Las Calandrias N° 151",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros"
         },
         {
-            asesor: "z ",
-            name: 'CIBERSEGURIDAD Y ANÁLISIS FORENSE DIGITAL',
-            id: 18
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "🔐 ¡Protege el futuro digital con Ingeniería en Ciberseguridad y Análisis Forense Digital en la USMP! Conviértete en un profesional líder en la protección de la información y la infraestructura tecnológica, capaz de prevenir, detectar y responder a los ciberataques que amenazan al mundo actual.",
+            asesor: "Tu Nombre",
+            name: "CIBERSEGURIDAD Y ANÁLISIS FORENSE DIGITAL",
+            id: 18,
+            beneficios: "✅ Plan de estudios actualizado, con cursos de ciberseguridad desde los primeros ciclos.\n✅ Laboratorios especializados en Big Data, Inteligencia Artificial, Robótica, Redes, Comunicaciones y Análisis Forense Digital.\n✅ Docentes del ámbito empresarial, que acercan la enseñanza a la realidad del mercado.\n✅ Carrera en modalidad semipresencial, ideal para combinar estudios y trabajo.\n✅ Amplia variedad de asignaturas electivas, que potencian tu competitividad laboral.\n✅ Convenios estratégicos y el nuevo IA LAB, con tecnologías de vanguardia aplicadas a la seguridad digital.",
+            perfil: "Profesionales preparados para desempeñarse como:\n• Especialistas en riesgos y sistemas de ciberseguridad.\n• Analistas forenses digitales en delitos informáticos.\n• Auditores de seguridad informática.\n• Desarrolladores de estrategias de ciberdefensa.\n• Consultores y líderes en seguridad digital en el sector financiero, salud, inteligencia, empresas privadas y organismos internacionales.",
+            sedes: "La Molina, Lima Norte (Comas)",
+            facultad: "INGENIERÍA Y ARQUITECTURA",
+            celular: "991 531 134",
+            profesion: "ingenier@",
+            sedesEsp: "• La Molina: Av. Alameda del Corregidor N° 1865\n• Comas: Av. Micaela Bastidas, esquina con Av. República de Israel (antes Av. El Porvenir)",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional (Todo lo que tenga que ver con traslado no aplica a Comas)"
         },
         {
-            asesor: "z ",
-            name: 'TURISMO Y HOTELERÍA',
-            id: 19
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "🏨 ¡Conoce el mundo gestionando experiencias únicas con Turismo y Hotelería en la USMP! 🌍 Conviértete en un profesional capaz de liderar empresas turísticas, hoteleras y gastronómicas, desarrollando proyectos sostenibles que promuevan la cultura y el desarrollo económico.",
+            asesor: "Tu Nombre",
+            name: "TURISMO Y HOTELERÍA",
+            id: 19,
+            beneficios: "✅ Plan de estudios moderno, enfocado en gestión hotelera, turismo sostenible, gastronomía, marketing y administración de servicios.\n✅ Laboratorios y talleres especializados en hotelería, cocina, bar y eventos.\n✅ Docentes con experiencia en la industria turística y hotelera nacional e internacional.\n✅ Convenios con hoteles, agencias de viaje, aerolíneas y empresas de eventos para prácticas profesionales.\n✅ Participación en ferias, congresos y proyectos turísticos sostenibles.\n✅ Posibilidad de intercambios académicos internacionales en países de América y Europa.",
+            perfil: "• Diseña, organiza y gestiona experiencias turísticas y hoteleras de alto nivel.\n• Administra hoteles, restaurantes, agencias de viaje y empresas de eventos.\n• Lidera proyectos de turismo sostenible y desarrollo regional.\n• Participa en la promoción y preservación del patrimonio cultural y natural.\n• Se desempeña en el sector privado, público, consultoría, emprendimiento e industria global del turismo.",
+            sedes: "Surquillo",
+            facultad: "CIENCIAS DE LA COMUNICACIÓN, TURISMO Y PSICOLOGÍA",
+            celular: "991 531 274",
+            profesion: "profesion@l",
+            sedesEsp: "• Surquillo: Av. Tomás Marsano N°242",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional"
         },
         {
-            asesor: "z ",
-            name: 'CIENCIAS DE LA COMUNICACIÓN',
-            id: 20
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
+            descripcion1: "📢 ¡Conecta con el mundo y crea impacto estudiando Ciencias de la Comunicación en la USMP! 🎓 Forma parte de una carrera que combina creatividad, estrategia y tecnología para desarrollar proyectos en medios, publicidad, relaciones públicas y comunicación digital.",
+            asesor: "Tu Nombre",
+            name: "CIENCIAS DE LA COMUNICACIÓN",
+            id: 20,
+            beneficios: "✅ Plan de estudios actualizado en marketing, periodismo, publicidad, comunicación digital y audiovisual.\n✅ Laboratorios y estudios de TV, radio y fotografía con equipos de última generación.\n✅ Docentes especialistas en medios y comunicación corporativa.\n✅ Prácticas preprofesionales en agencias, medios de comunicación y empresas líderes.\n✅ Participación en concursos, campañas sociales y proyectos de investigación.",
+            perfil: "• Diseña e implementa estrategias de comunicación para empresas, medios y organizaciones sociales.\n• Produce y gestiona contenidos audiovisuales, digitales y multimedia.\n• Desarrolla proyectos en publicidad, marketing, relaciones públicas y periodismo.\n• Lidera procesos de investigación y análisis de la opinión pública.\n• Se desempeña en medios de comunicación, agencias creativas, consultoras y empresas multinacionales.",
+            sedes: "Surquillo",
+            facultad: "CIENCIAS DE LA COMUNICACIÓN, TURISMO Y PSICOLOGÍA",
+            celular: "991 531 274",
+            profesion: "profesion@l",
+            sedesEsp: "• Surquillo: Av. Tomás Marsano N°242",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros, Traslado Interno, Traslado Interno entre sedes, Traslado Externo Nacional, Traslado Externo Internacional"
         },
         {
-            asesor: "z ",
-            name: 'GESTIÓN DE RECURSOS HUMANOS',
-            id: 21
-            , beneficios: ''
-            , perfil: ''
-            , sedes: ''
-            , facultad: ''
-            , celular: ''
-            , profesion: ''
-            , sedesEsp: ''
-            , modalidad: ''
-        },
-    ],
-]
+            descripcion1: "💼 ¡Lidera el talento que transforma las organizaciones con Gestión de Recursos Humanos en la USMP! Conviértete en un profesional estratégico en la gestión del capital humano, potenciando el desarrollo personal y profesional dentro de empresas e instituciones.",
+            asesor: "Tu Nombre",
+            name: "GESTIÓN DE RECURSOS HUMANOS",
+            id: 21,
+            beneficios: "✅ Plan de estudios moderno, con enfoque en liderazgo, coaching, gestión del talento y legislación laboral.\n✅ Docentes con trayectoria en consultoría y dirección de recursos humanos.\n✅ Prácticas en empresas públicas y privadas, con acceso a convenios corporativos.\n✅ Talleres de liderazgo, negociación y desarrollo organizacional.",
+            perfil: "• Dirige procesos de reclutamiento, selección y desarrollo del talento humano.\n• Diseña planes de capacitación, bienestar y clima laboral en organizaciones.\n• Aplica conocimientos en legislación laboral y gestión estratégica de personas.\n• Lidera equipos multidisciplinarios con enfoque en coaching y liderazgo organizacional.\n• Se desempeña en empresas, consultoras, organismos públicos y privados en el área de gestión de personas.",
+            sedes: "Santa Anita",
+            facultad: "CIENCIAS ADMINISTRATIVAS Y RECURSOS HUMANOS",
+            celular: "991 535 050",
+            profesion: "profesion@l",
+            sedesEsp: "• Santa Anita: Jr. Las Calandrias N° 151",
+            modalidad: "Concurso Ordinario de Admisión, 1° o 2° Puesto de Educación Secundaria, Tercio Superior, Complementación Académica, Titulado o Graduado del Sistema Universitario, Deportista Calificado, Convenio Nacional e Internacional, Colegios afiliados a Bachilleratos Extranjeros"
+        }
+    ]
+];

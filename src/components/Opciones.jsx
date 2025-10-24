@@ -5,7 +5,7 @@ import SidebarNumeros from './SidebarNumeros';
 
 
 
-export default function Opciones4x4({ }) {
+export default function Opciones4x4({ storedList, title, routex }) {
   const ChevronLeft = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -24,31 +24,70 @@ export default function Opciones4x4({ }) {
   // Tamaño de página: cuántas carreras mostrar por página
   const PAGE_SIZE = 16;
   const location = useLocation();
-  const routex = location.state?.routex;
-  const dynamicHome = routex === 'llamada' ? '/LlamadaInicio' : '/chatInicio';
+  const dynamicHome = routex === '/llamada' ? '/LlamadaInicio' : '/chatInicio';
   const routesState = location.state?.routes;
-  const lengthCar = location.state?.lengthCar;
   // Función para navegar cuando se hace clic en una carrera
   const handleCareerClick = (careerIdOrName) => {
     // careerIdOrName can be a number (id) or a name string; encode for the URL
     const value = encodeURIComponent(String(careerIdOrName));
     sessionStorage.setItem('careerId', String(careerIdOrName));
-    navigate(`/${routex}/${value}`);
+    navigate(`${routex}/${value}`);
   };
 
   // Cargar datos desde localStorage o inicializarlos
   useEffect(() => {
+    // If caller passed storedList prop (JS array or JSON string), use it
+    if (storedList) {
+      try {
+        if (Array.isArray(storedList)) {
+          // If it's already paginated (array of pages), use directly
+          if (Array.isArray(storedList[0])) {
+            setCareersPages(storedList);
+            return;
+          }
+          // Otherwise it's a flat array of careers -> paginate
+          const pages = [];
+          for (let i = 0; i < storedList.length; i += PAGE_SIZE) {
+            pages.push(storedList.slice(i, i + PAGE_SIZE));
+          }
+          setCareersPages(pages);
+          return;
+        }
+
+        // if it's a JSON string, try parse
+        if (typeof storedList === 'string') {
+          const parsed = JSON.parse(storedList);
+          if (Array.isArray(parsed)) {
+            if (Array.isArray(parsed[0])) {
+              setCareersPages(parsed);
+              return;
+            }
+            const pages = [];
+            for (let i = 0; i < parsed.length; i += PAGE_SIZE) {
+              pages.push(parsed.slice(i, i + PAGE_SIZE));
+            }
+            setCareersPages(pages);
+            return;
+          }
+        }
+      } catch (e) {
+        console.error('Error parsing storedList prop', e);
+      }
+    }
+
+    // Fallback: try reading from localStorage
     const storageKey = 'careersList';
     const stored = localStorage.getItem(storageKey);
     if (stored) {
       try {
         let parsed = JSON.parse(stored);
-        // Si es array de páginas (array de arrays), lo aplanamos
-        if (Array.isArray(parsed) && parsed.length > 0 && Array.isArray(parsed[0])) {
-          parsed = parsed.flat();
+        // If parsed is already paginated (array of pages), use directly
+        if (Array.isArray(parsed) && Array.isArray(parsed[0])) {
+          setCareersPages(parsed);
+          return;
         }
+        // Otherwise paginate flat array
         if (Array.isArray(parsed) && parsed.length > 0) {
-          // Creamos páginas
           const pages = [];
           for (let i = 0; i < parsed.length; i += PAGE_SIZE) {
             pages.push(parsed.slice(i, i + PAGE_SIZE));
@@ -61,16 +100,12 @@ export default function Opciones4x4({ }) {
       }
     }
 
-
-
-
-    const pages = [];
-
-    setCareersPages(pages);
-
-  }, []);
+    // default empty
+    setCareersPages([]);
+  }, [storedList]);
 
   const totalPages = careersPages.length;
+  const titleC = title;
   const currentCareers = careersPages[currentPage - 1] || [];
 
   const nextPage = () => {
@@ -91,7 +126,7 @@ export default function Opciones4x4({ }) {
     <div className="min-h-[70vh] bg-white flex flex-col">
       <div className="max-w-7xl mx-auto flex-grow flex flex-col">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
-          1. SELECCIONE LA CARRERA UNIVERSITARIA
+          {titleC}
         </h1>
 
         <div className="flex flex-col flex-grow">
