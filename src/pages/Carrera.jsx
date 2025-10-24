@@ -118,7 +118,7 @@ export default function Carrera() {
         routex={'carrera'}
         routes={
           {
-            1: '/derivacion',
+            1: '/carrerasUnivChat',
             2: '/carrera/' + careerId,
             3: '/preguntar/' + careerId,
             4: '/solicitud/' + careerId,

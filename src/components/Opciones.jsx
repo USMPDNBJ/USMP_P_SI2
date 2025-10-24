@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SidebarNumeros from './SidebarNumeros';
 
-
-
 export default function Opciones4x4({ storedList, title, routex }) {
   const ChevronLeft = ({ className }) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,8 +22,7 @@ export default function Opciones4x4({ storedList, title, routex }) {
   // Tamaño de página: cuántas carreras mostrar por página
   const PAGE_SIZE = 16;
   const location = useLocation();
-  const dynamicHome = routex === '/llamada' ? '/LlamadaInicio' : '/chatInicio';
-  const routesState = location.state?.routes;
+  // const routesState = location.state?.routes;
   // Función para navegar cuando se hace clic en una carrera
   const handleCareerClick = (careerIdOrName) => {
     // careerIdOrName can be a number (id) or a name string; encode for the URL
@@ -175,11 +172,90 @@ export default function Opciones4x4({ storedList, title, routex }) {
           </div>
         </div>
       </div>
-      <SidebarNumeros currentPage={1}
-        home={dynamicHome}
-        routes={routesState}
-        routex={routex}
-      />
+    </div>
+  );
+}
+export function Opciones1x1({ storedList, title, routex }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [careersPages, setCareersPages] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Mostrar 2 elementos por página
+  const PAGE_SIZE = 2;
+  const routesState = location.state?.routes;
+
+
+  const parseAndPaginate = (arr) => {
+    if (!Array.isArray(arr)) return [];
+    // si ya es array de páginas
+    if (Array.isArray(arr[0])) return arr;
+    const pages = [];
+    for (let i = 0; i < arr.length; i += PAGE_SIZE) {
+      pages.push(arr.slice(i, i + PAGE_SIZE));
+    }
+    return pages;
+  };
+
+  useEffect(() => {
+    // Priorizar prop storedList
+    if (storedList) {
+      try {
+        if (Array.isArray(storedList)) {
+          setCareersPages(parseAndPaginate(storedList));
+          return;
+        }
+        if (typeof storedList === 'string') {
+          const parsed = JSON.parse(storedList);
+          setCareersPages(parseAndPaginate(parsed));
+          return;
+        }
+      } catch (e) {
+        console.error('Opciones1x1: error parsing storedList', e);
+      }
+    }
+
+    // fallback a localStorage
+    try {
+      const raw = localStorage.getItem('careersList');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        setCareersPages(parseAndPaginate(parsed));
+        return;
+      }
+    } catch (e) {
+      console.error('Opciones1x1: error reading careersList from localStorage', e);
+    }
+
+    setCareersPages([]);
+  }, [storedList]);
+
+  const currentCareers = careersPages[currentPage - 1] || [];
+
+  const handleCareerClick = (careerIdOrName) => {
+    const value = encodeURIComponent(String(careerIdOrName));
+    sessionStorage.setItem('careerId', String(careerIdOrName));
+    navigate(`/${(routex || 'carrera')}/${value}`);
+  };
+
+  return (
+    <div className="min-h-[40vh] bg-white flex flex-col">
+      <div className="max-w-xl mx-auto w-full py-8">
+        <h1 className="text-3xl font-bold text-center text-red-700 mb-8">{title}</h1>
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+          {currentCareers.map(career => (
+            <button
+              key={career.id}
+              onClick={() => handleCareerClick(career.id)}
+              className="text-center bg-red-300 hover:bg-red-400 text-gray-900 font-bold py-8 rounded-2xl shadow-lg
+                         transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 text-left">
+              <div className="text-xl md:text-2xl">{career.name}</div>
+              {career.descripcion1 && <div className="mt-2 text-sm text-gray-700">{career.descripcion1}</div>}
+            </button>
+          ))}
+        </div>
+
+      </div>
     </div>
   );
 }

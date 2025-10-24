@@ -69,7 +69,7 @@ export default function Preguntar() {
       <SidebarNumeros currentPage={3} home={'/chatInicio'}
         routes={
           {
-            1: '/derivacion',
+            1: '/carrerasUnivChat',
             2: '/carrera/' + careerId,
             3: '/preguntar/' + careerId,
             4: '/solicitud/' + careerId,
@@ -164,7 +164,7 @@ export function ChatSolicitud() {
       <SidebarNumeros currentPage={4} home={'/chatInicio'}
         routes={
           {
-            1: '/derivacion',
+            1: '/carrerasUnivChat',
             2: '/carrera/' + careerId,
             3: '/preguntar/' + careerId,
             4: '/solicitud/' + careerId,

@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function SidebarNumeros({ home, currentPage, totalPages, routes = {}, routex }) {
+export default function SidebarNumeros({ home, currentPage, totalPages, routes = {} }) {
   const navigate = useNavigate();
   const lengthReq = Object.keys(routes).length;
   return (
@@ -15,7 +15,7 @@ export default function SidebarNumeros({ home, currentPage, totalPages, routes =
           <button
             key={num}
             onClick={() => {
-              if (target) return navigate(target, { state: { routex, routes } });
+              if (target) return navigate(target, { state: { routes } });
               return null;
             }}
             className={`w-12 h-12 rounded-lg font-bold  text-lg transition-all duration-300 ${num === currentPage

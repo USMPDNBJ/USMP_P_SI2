@@ -12,7 +12,7 @@ export function ChatInicio() {
   const routex = 'carrera';
   const careerId = sessionStorage.getItem('careerId');
   const routes = {
-    1: '/derivacion',
+    1: '/carrerasUnivChat',
     2: '/carrera/' + careerId,
     3: '/preguntar/' + careerId,
     4: '/solicitud/' + careerId,
@@ -71,7 +71,6 @@ export function ChatProtocolIn() {
         routes={
           {
             1: '/protEntr',
-
           }}
       />
     </div>
