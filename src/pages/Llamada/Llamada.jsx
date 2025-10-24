@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import SidebarNumeros, { ButtonReiniciar } from '../../components/SidebarNumeros'; // ajusta la ruta si es necesario
 import Button1 from '../../components/button1';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -284,6 +284,25 @@ export function Modalidades2() {
         setPensionForm(prev => ({ ...prev, [field]: value }));
     };
 
+    // Preserve scroll: when user clicks CONTINUAR we save the current scroll
+    // and after the pension panel renders we restore it to avoid jumping to top.
+    const savedScroll = useRef(null);
+    const continueWithPension = () => {
+        savedScroll.current = window.scrollY || window.pageYOffset || 0;
+        setShowPension(true);
+    };
+
+    useLayoutEffect(() => {
+        if (showPension && savedScroll.current !== null) {
+            // next paint: restore scroll
+            window.requestAnimationFrame(() => {
+                window.scrollTo({ top: savedScroll.current, behavior: 'auto' });
+                // clear saved value
+                savedScroll.current = null;
+            });
+        }
+    }, [showPension]);
+
     const calculatePension = () => {
         const base = parseFloat(pensionForm.basePension);
         const years = parseInt(pensionForm.years, 10) || 1;
@@ -355,14 +374,6 @@ export function Modalidades2() {
                                     ingreso para el ciclo 2026-I. <br />
                                     ¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
                                 </p>
-                                <h1 className='font-bold text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
-                                <div className="flex justify-center">
-                                    <Button1
-                                        nombre={'CONTINUAR'}
-                                        colorC={'px-5 py-3 fw-semibold text-xl '}
-                                        onClick={() => setShowPension(true)}
-                                    />
-                                </div>
 
                             </Section>
 
@@ -386,16 +397,20 @@ export function Modalidades2() {
                                     ingreso para el ciclo 2026-I. <br />
                                     ¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
                                 </p>
+                            </Section>
+                        )}
+
+                        {selected && !showPension && (
+                            <div >
                                 <h1 className='font-bold text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
                                 <div className="flex justify-center">
                                     <Button1
                                         nombre={'CONTINUAR'}
                                         colorC={'px-5 py-3 fw-semibold text-xl '}
-                                        onClick={() => setShowPension(true)}
+                                        onClick={continueWithPension}
                                     />
                                 </div>
-
-                            </Section>
+                            </div>
                         )}
 
                     </>
@@ -457,15 +472,6 @@ export function Modalidades2() {
                                     ingreso para el ciclo 2026-I.<br />
                                     ¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
                                 </p>
-                                <h1 className='font-bold text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
-                                <div className="flex justify-center">
-                                    <Button1
-                                        nombre={'CONTINUAR'}
-                                        colorC={'px-5 py-3 fw-semibold text-xl '}
-                                        onClick={() => setShowPension(true)}
-                                    />
-                                </div>
-
                             </Section>
                         )}
 
@@ -487,14 +493,19 @@ export function Modalidades2() {
                                     Recuerda llevar tu DNI físico al momento de rendir tu examen digital. <br />
                                     Recuerda llevar tu DNI físico y Declaración Jurada impresa el día del examen. <br />
                                 </p>
+                            </Section>
+                        )}
+                        {selected && !showPension && (
+                            <div >
                                 <h1 className='font-bold text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
                                 <div className="flex justify-center">
                                     <Button1
                                         nombre={'CONTINUAR'}
                                         colorC={'px-5 py-3 fw-semibold text-xl '}
+                                        onClick={() => setShowPension(true)}
                                     />
                                 </div>
-                            </Section>
+                            </div>
                         )}
                     </>
 
@@ -512,9 +523,7 @@ export function Modalidades2() {
             {/* PENSION: form + simulator + beneficios */}
             {showPension && (
                 <div className="max-w-4xl mx-auto my-8 bg-gray-50 p-6 rounded-lg">
-                    <h2 className="text-2xl font-bold mb-3">PENSIÓN</h2>
-                    <p className="mb-4">Antes de ingresar a la pensión, preguntas lo siguiente: <strong>¿Por el momento todo claro con la información brindada para continuar?</strong></p>
-
+                    <h1 className="text-center text-2xl font-bold mb-3 text-red-700">PENSIÓN</h1>
                     <h3 className="text-lg font-semibold mt-4">SIMULADOR PENSIÓN APROXIMADA</h3>
                     <p className="mb-2">Por favor, completa los siguientes datos:</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
