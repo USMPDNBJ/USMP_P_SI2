@@ -266,6 +266,38 @@ export function Modalidades2() {
     const careerId = sessionStorage.getItem('careerId');
     const goBack = () => navigate('/modalidades');
     const [selected, setSelected] = useState(null);
+    const [showPension, setShowPension] = useState(false);
+    const [pensionForm, setPensionForm] = useState({
+        codigo: '',
+        colegio: '',
+        departamento: '',
+        provincia: '',
+        distrito: '',
+        sameSchool: 'si',
+        basePension: '',
+        years: '1',
+        annualIncrease: '6'
+    });
+    const [simulationResult, setSimulationResult] = useState(null);
+
+    const handlePensionChange = (field, value) => {
+        setPensionForm(prev => ({ ...prev, [field]: value }));
+    };
+
+    const calculatePension = () => {
+        const base = parseFloat(pensionForm.basePension);
+        const years = parseInt(pensionForm.years, 10) || 1;
+        const inc = parseFloat(pensionForm.annualIncrease) / 100 || 0.06;
+        if (Number.isNaN(base) || base <= 0) {
+            setSimulationResult({ error: 'Ingrese una pensión base válida (número mayor a 0).' });
+            return;
+        }
+        let value = base;
+        for (let i = 0; i < years; i++) {
+            value = value * (1 + inc);
+        }
+        setSimulationResult({ projected: value.toFixed(2), years });
+    };
     const onClick = '';
     // Helper small UI pieces
     const Section = ({ title, children }) => (
@@ -326,8 +358,9 @@ export function Modalidades2() {
                                 <h1 className='font-bold text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
                                 <div className="flex justify-center">
                                     <Button1
-                                        nombre={'SIGUIENTE'}
+                                        nombre={'CONTINUAR'}
                                         colorC={'px-5 py-3 fw-semibold text-xl '}
+                                        onClick={() => setShowPension(true)}
                                     />
                                 </div>
 
@@ -356,8 +389,9 @@ export function Modalidades2() {
                                 <h1 className='font-bold text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
                                 <div className="flex justify-center">
                                     <Button1
-                                        nombre={'SIGUIENTE'}
+                                        nombre={'CONTINUAR'}
                                         colorC={'px-5 py-3 fw-semibold text-xl '}
+                                        onClick={() => setShowPension(true)}
                                     />
                                 </div>
 
@@ -426,8 +460,9 @@ export function Modalidades2() {
                                 <h1 className='font-bold text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
                                 <div className="flex justify-center">
                                     <Button1
-                                        nombre={'SIGUIENTE'}
+                                        nombre={'CONTINUAR'}
                                         colorC={'px-5 py-3 fw-semibold text-xl '}
+                                        onClick={() => setShowPension(true)}
                                     />
                                 </div>
 
@@ -455,7 +490,7 @@ export function Modalidades2() {
                                 <h1 className='font-bold text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
                                 <div className="flex justify-center">
                                     <Button1
-                                        nombre={'SIGUIENTE'}
+                                        nombre={'CONTINUAR'}
                                         colorC={'px-5 py-3 fw-semibold text-xl '}
                                     />
                                 </div>
@@ -474,6 +509,89 @@ export function Modalidades2() {
                     </div>
                 )}
             </div>
+            {/* PENSION: form + simulator + beneficios */}
+            {showPension && (
+                <div className="max-w-4xl mx-auto my-8 bg-gray-50 p-6 rounded-lg">
+                    <h2 className="text-2xl font-bold mb-3">PENSIÓN</h2>
+                    <p className="mb-4">Antes de ingresar a la pensión, preguntas lo siguiente: <strong>¿Por el momento todo claro con la información brindada para continuar?</strong></p>
+
+                    <h3 className="text-lg font-semibold mt-4">SIMULADOR PENSIÓN APROXIMADA</h3>
+                    <p className="mb-2">Por favor, completa los siguientes datos:</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                            <label className="block text-sm font-medium">Código modular del colegio:</label>
+                            <input className="w-full border p-2 rounded" value={pensionForm.codigo} onChange={e => handlePensionChange('codigo', e.target.value)} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Nombre del colegio:</label>
+                            <input className="w-full border p-2 rounded" value={pensionForm.colegio} onChange={e => handlePensionChange('colegio', e.target.value)} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Departamento:</label>
+                            <input className="w-full border p-2 rounded" value={pensionForm.departamento} onChange={e => handlePensionChange('departamento', e.target.value)} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Provincia:</label>
+                            <input className="w-full border p-2 rounded" value={pensionForm.provincia} onChange={e => handlePensionChange('provincia', e.target.value)} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Distrito:</label>
+                            <input className="w-full border p-2 rounded" value={pensionForm.distrito} onChange={e => handlePensionChange('distrito', e.target.value)} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">¿Estudiaste en el mismo colegio durante 3°, 4° y 5°?</label>
+                            <select className="w-full border p-2 rounded" value={pensionForm.sameSchool} onChange={e => handlePensionChange('sameSchool', e.target.value)}>
+                                <option value="si">Sí</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Pensión base aproximada (S/):</label>
+                            <input type="number" className="w-full border p-2 rounded" value={pensionForm.basePension} onChange={e => handlePensionChange('basePension', e.target.value)} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Años a proyectar:</label>
+                            <input type="number" min="1" className="w-full border p-2 rounded" value={pensionForm.years} onChange={e => handlePensionChange('years', e.target.value)} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium">Incremento anual (%) (5-8% recomendable):</label>
+                            <input type="number" className="w-full border p-2 rounded" value={pensionForm.annualIncrease} onChange={e => handlePensionChange('annualIncrease', e.target.value)} />
+                        </div>
+                    </div>
+
+                    <div className="mt-4 flex justify-center gap-3">
+                        <Button1 nombre={'Calcular simulación'} onClick={calculatePension} colorC={'px-5 py-3 fw-semibold text-xl '} />
+                        <Button1 nombre={'Cerrar'} onClick={() => setShowPension(false)} colorC={'px-5 py-3 fw-semibold text-xl '} />
+                    </div>
+
+                    {simulationResult && (
+                        <div className="mt-4 bg-white border p-3 rounded">
+                            {simulationResult.error ? (
+                                <div className="text-red-600">{simulationResult.error}</div>
+                            ) : (
+                                <div>
+                                    <div className="font-bold">Pensión proyectada después de {simulationResult.years} año(s):</div>
+                                    <div className="text-xl">S/ {simulationResult.projected}</div>
+                                    <p className="text-sm text-gray-600 mt-2">⚠ Nota: La pensión incrementa anualmente entre un 5% y 8%.</p>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    <div className="mt-6">
+                        <h3 className="text-lg font-semibold">BENEFICIOS ECONÓMICOS</h3>
+                        <ul className="list-disc pl-5 mt-2 text-gray-700">
+                            <li>Padres o titular egresados de la USMP - <strong>BENEFICIO 10%</strong>.</li>
+                            <li>Padres o titular de MININTER (PNP)-FAP-MGP-MINDEF.</li>
+                            <li>Becas por rendimiento académico a partir del 2do ciclo de la carrera universitaria.</li>
+                        </ul>
+                        <p className="mt-3">✓ Cronograma por cada beneficio: <a className="text-blue-600 underline" href="https://usmp.edu.pe/categorizacion/" target="_blank" rel="noreferrer">https://usmp.edu.pe/categorizacion/</a></p>
+                        <p>✓ Correo electrónico para consulta y asesoría: <strong>categorizacion@usmp.pe</strong></p>
+                        <p>✓ Correo electrónico para envío de documentos para aplicar el beneficio: <strong>categorizacion_recepcion@usmp.pe</strong></p>
+                    </div>
+                </div>
+            )}
+
             <SidebarNumeros
                 currentPage={4}
                 home={'/LlamadaInicio'}
