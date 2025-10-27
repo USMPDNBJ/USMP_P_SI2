@@ -2,8 +2,9 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import SidebarNumeros, { ButtonReiniciar } from '../../components/SidebarNumeros'; // ajusta la ruta si es necesario
 import Button1, { Button2 } from '../../components/button1';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import Opciones4x4, { Opciones1x1 } from '../../components/Opciones';
+import { Navigation } from 'lucide-react';
 
 export default function LlamadaInicio() {
     const navigate = useNavigate();
@@ -433,7 +434,8 @@ export function Modalidades2() {
 
                         <div className="flex gap-3 my-6">
                             <div
-                                className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center ${selected === 'primera' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
+                                className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center 
+                                    ${selected === 'primera' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
                                     }`}
                                 onClick={() => setSelected('primera')}
                             >
@@ -625,11 +627,11 @@ export function Modalidades2() {
 
                         {generateReceipt === 'si' && (
                             <div className="mb-5 mt-6 max-w-3xl mx-auto bg-white p-4 rounded shadow">
-                                <h1 className='text-xl font-bold'>MENSAJE</h1>
+                                <h1 className='text-xl font-bold'>MENSAJE INICIAL</h1>
                                 <p className=' mt-1'>¡Qué buena noticia saber que estás interesado en estudiar con nosotros en la USMP!</p>
                                 <p>Y que ya deseas rendir tu examen digital de admisión</p>
                                 <p>Para poder generarte tu recibo, solo necesito que me envíes los siguientes datos:</p>
-                                <p>
+                                <p className='mb-2'>
                                     − Foto de tu DNI (frontal y posterior) <br />
                                     − Modalidad de ingreso:<br />
                                     − Sede donde deseas estudiar: (Te detallo las opciones según tu carrera)<br />
@@ -637,12 +639,27 @@ export function Modalidades2() {
                                     − Celular:<br />
                                 </p>
                                 {selected === 'primera' && (
-                                    <div>
+                                    <div >
                                         <h2 className="text-xl font-bold mb-2">SELECCIONE MODALIDAD</h2>
-                                        <div className="grid grid-cols-3 md:grid-cols-3 gap-6">
-                                            <Button2 nombre={'Ordinario'} onClick={() => setModalidadReceipt('Ordinario')}></Button2>
-                                            <Button2 nombre={'Primeros Puestos'} onClick={() => setModalidadReceipt('Primeros Puestos')}></Button2>
-                                            <Button2 nombre={'Tercio Superior'} onClick={() => setModalidadReceipt('Tercio Superior')}></Button2>
+                                        <div className="grid grid-cols-3 md:grid-cols-3 gap-6 mb-4">
+                                            <Button2 nombre={'Ordinario'} onClick={() => setModalidadReceipt('Ordinario')}
+                                                classes={
+                                                    `${modalidadReceipt === 'Ordinario' ? 'bg-red-300 text-black' : 'bg-white text-gray-800'
+                                                    }`
+                                                }
+                                            ></Button2>
+                                            <Button2 nombre={'Primeros Puestos'} onClick={() => setModalidadReceipt('Primeros Puestos')}
+                                                classes={
+                                                    `${modalidadReceipt === 'Primeros Puestos' ? 'bg-red-300 text-black' : 'bg-white text-gray-800'
+                                                    }`
+                                                }
+                                            ></Button2>
+                                            <Button2 nombre={'Tercio Superior'} onClick={() => setModalidadReceipt('Tercio Superior')}
+                                                classes={
+                                                    `${modalidadReceipt === 'Tercio Superior' ? 'bg-red-300 text-black' : 'bg-white text-gray-800'
+                                                    }`
+                                                }
+                                            ></Button2>
                                         </div>
                                         {modalidadReceipt === 'Ordinario' && (
                                             <div>
@@ -658,8 +675,6 @@ export function Modalidades2() {
                                                     terrorismo.
                                                     <br />4. A parte la foto JPG con las
                                                     medidas especificadas en el documento de Instrucciones.
-                                                    Lo envías al correo electrónico (CORREO DE LA FACULTAD), asunto: Datos
-                                                    completos- DNI Y Modalidad a la que está postuland
                                                     <br />5. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
                                                     asunto: Datos completos- DNI y Modalidad a la que está postulando.
                                                 </p>
@@ -673,13 +688,55 @@ export function Modalidades2() {
                                         }
                                         {modalidadReceipt === 'Primeros Puestos' && (
                                             <div>
-
+                                                <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
+                                                    la modalidad PRIMEROS PUESTOS</h3>
+                                                <p className=' mt-1'>
+                                                    Tienes que enviar un PDF con los siguientes documentos:
+                                                    <br />1. Copia de DNI (ambos lados)
+                                                    <br />2. Certificado Oficial de Estudios original de los cinco años de
+                                                    estudios secundarios que acrediten haber aprobado todos los cursos,
+                                                    firmados y sellados por la Dirección del plantel y visado por la dependencia
+                                                    del Ministerio de Educación, en cuyo reverso conste el haber ocupado el
+                                                    primer o segundo puesto en el orden de mérito general de su promoción
+                                                    <br />3. La
+                                                    Declaración Jurada de prevención de lavado de activos y financiamiento del
+                                                    terrorismo.
+                                                    <br />4.  A parte la foto JPG con las medidas especificadas en el documento de
+                                                    Instrucciones.
+                                                    <br />5. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
+                                                    asunto: Datos completos- DNI y Modalidad a la que está postulando.
+                                                </p>
+                                                <p>
+                                                    <strong>PAGINA: </strong>
+                                                    <br />
+                                                    <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
+                                                </p>
                                             </div>
                                         )
                                         }
                                         {modalidadReceipt === 'Tercio Superior' && (
                                             <div>
-
+                                                <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
+                                                    la modalidad TERCIO SUPERIOR</h3>
+                                                <p className=' mt-1'>
+                                                    Tienes que enviar un PDF con los siguientes documentos:
+                                                    <br />1. Copia de DNI (ambos lados)
+                                                    <br />2. , Certificado Oficial de Estudios original o Constancia de Logros
+                                                    de Aprendizaje de la secundaria completa
+                                                    <br />3. Constancia de tercio superior
+                                                    <br />4. la
+                                                    Declaración Jurada y la Declaración Jurada de prevención de lavado de
+                                                    activos y financiamiento del terrorismo.
+                                                    <br />5. A parte la foto JPG con las
+                                                    medidas especificadas en el documento de Instrucciones.
+                                                    <br />6. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
+                                                    asunto: Datos completos- DNI y Modalidad a la que está postulando.
+                                                </p>
+                                                <p>
+                                                    <strong>PAGINA: </strong>
+                                                    <br />
+                                                    <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
+                                                </p>
                                             </div>
                                         )
                                         }
@@ -694,10 +751,13 @@ export function Modalidades2() {
                                             Tienes que enviar un PDF con los siguientes documentos:
                                             <br />1. Copia de DNI (ambos lados)
                                             <br />2. Certificado de estudios originales que acrediten haber
-                                            aprobado por lo menos setenta y dos (72) créditos <br />3. Constancia original de no
+                                            aprobado por lo menos setenta y dos (72) créditos
+                                            <br />3. Constancia original de no
                                             haber sido separado por medida disciplinaria de la universidad de
-                                            procedencia <br />4. Declaración Jurada y Declaración Jurada de prevención de
-                                            lavado de activos y financiamiento del terrorismo. <br />5. A parte la foto JPG con las
+                                            procedencia
+                                            <br />4. Declaración Jurada y Declaración Jurada de prevención de
+                                            lavado de activos y financiamiento del terrorismo.
+                                            <br />5. A parte la foto JPG con las
                                             medidas especificadas en el documento de Instrucciones.
                                             Lo envías al correo electrónico (CORREO DE LA FACULTAD), asunto: Datos
                                             completos- DNI Y Modalidad a la que está postuland
@@ -740,15 +800,24 @@ export function Modalidades2() {
                                 )}
                             </div>
                         )}
-                        {generateReceipt === 'no' && (
+                        {(generateReceipt === 'no' || (generateReceipt === 'si' && selected !== 'primera') || (selected === 'primera' && modalidadReceipt)) && (
                             <div className="mb-5 mt-6 max-w-3xl mx-auto bg-white p-4 rounded shadow">
                                 <h2 className="text-xl font-bold mb-2">MENSAJE DE DESPEDIDA</h2>
-                                <p>
+                                <p className='mb-4'>
                                     Muchas gracias por su tiempo, si tiene alguna consulta o duda, me indicas por este
                                     medio para poder ayudarte. Gracias por comunicarte con la Universidad de San Martín
                                     de Porres
                                 </p>
-
+                                <h3 className="text-xl font-bold mb-2">OPCIONAL</h3>
+                                <p>
+                                    Si te indica el usuario, gracias por la información. Podemos responder:
+                                    Igualmente, para usted, muchas gracias por su tiempo, de igual manera si tiene alguna
+                                    consulta o duda, me indicas por este medio. Gracias por comunicarte con la Universidad
+                                    de San Martín de Porres
+                                </p>
+                                <div className="flex justify-center mt-3">
+                                    <Button1 nombre={'Finalizar'} onClick={() => navigate('/')}></Button1>
+                                </div>
                             </div>
                         )}
                     </div>

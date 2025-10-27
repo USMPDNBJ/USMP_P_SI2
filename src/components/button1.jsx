@@ -18,13 +18,13 @@ export default function Button1({ colorC, nombre, onClick }) {
         </button>
     );
 }
-export function Button2({ nombre, onClick }) {
+export function Button2({ nombre, onClick, classes }) {
     return (
         <button
             // key={career.id}
             onClick={onClick}
-            className="text-center bg-red-300 hover:bg-red-400 text-gray-900 font-bold py-8 rounded-2xl shadow-lg
-                         transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 text-left">
+            className={`text-center bg-red-300 hover:bg-red-400 text-gray-900 font-bold py-8 rounded-2xl shadow-lg
+                         transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 text-left ${classes}`}>
             {nombre}
         </button>
     );
