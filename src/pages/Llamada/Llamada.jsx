@@ -652,8 +652,8 @@ export function Modalidades2() {
                                     <h1 className='text-xl text-center'> <strong>¿Desea generar su recibo ahora mismo?</strong></h1>
                                 </div>
                                 <div className="mt-4 flex justify-center">
-                                    <Button1 nombre={'SI'} onClick={() => setGenerateReceipt('si')} colorC={'px-8 py-3 fw-semibold text-xl '} />
-                                    <Button1 nombre={'NO'} onClick={() => { setGenerateReceipt('no'); }} colorC={'px-8 py-3 fw-semibold text-xl ml-5'} />
+                                    <Button1 nombre={'SI'} onClick={() => setGenerateReceipt('si')} colorC={`${generateReceipt === 'si' ? 'bg-red-300 text-white' : 'bg-white text-zinc-700'}`} />
+                                    <Button1 nombre={'NO'} onClick={() => { setGenerateReceipt('no'); }} colorC={`${generateReceipt === 'no' ? 'bg-red-300 text-white' : 'bg-white text-zinc-700'}`} />
                                 </div>
                             </div>
 
@@ -678,19 +678,19 @@ export function Modalidades2() {
                                             <div className="grid grid-cols-3 md:grid-cols-3 gap-6 mb-4">
                                                 <Button2 nombre={'Ordinario'} onClick={() => setModalidadReceipt('Ordinario')}
                                                     classes={
-                                                        `${modalidadReceipt === 'Ordinario' ? 'bg-red-300 text-black' : 'bg-white text-gray-800'
+                                                        `${modalidadReceipt === 'Ordinario' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
                                                         }`
                                                     }
                                                 ></Button2>
                                                 <Button2 nombre={'Primeros Puestos'} onClick={() => setModalidadReceipt('Primeros Puestos')}
                                                     classes={
-                                                        `${modalidadReceipt === 'Primeros Puestos' ? 'bg-red-300 text-black' : 'bg-white text-gray-800'
+                                                        `${modalidadReceipt === 'Primeros Puestos' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
                                                         }`
                                                     }
                                                 ></Button2>
                                                 <Button2 nombre={'Tercio Superior'} onClick={() => setModalidadReceipt('Tercio Superior')}
                                                     classes={
-                                                        `${modalidadReceipt === 'Tercio Superior' ? 'bg-red-300 text-black' : 'bg-white text-gray-800'
+                                                        `${modalidadReceipt === 'Tercio Superior' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
                                                         }`
                                                     }
                                                 ></Button2>
