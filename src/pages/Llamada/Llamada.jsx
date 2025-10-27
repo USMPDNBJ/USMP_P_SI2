@@ -652,7 +652,7 @@ export function Modalidades2() {
                                     <h1 className='text-xl text-center'> <strong>¿Desea generar su recibo ahora mismo?</strong></h1>
                                 </div>
                                 <div className="mt-4 flex justify-center">
-                                    <Button1 nombre={'SI'} onClick={() => setGenerateReceipt('si')} colorC={`${generateReceipt === 'si' ? 'bg-red-300 text-white' : 'bg-white text-zinc-700'}`} />
+                                    <Button1 nombre={'SI'} onClick={() => setGenerateReceipt('si')} colorC={`${generateReceipt === 'si' ? 'bg-red-300 text-white mr-5' : 'bg-white text-zinc-700 mr-5'}`} />
                                     <Button1 nombre={'NO'} onClick={() => { setGenerateReceipt('no'); }} colorC={`${generateReceipt === 'no' ? 'bg-red-300 text-white' : 'bg-white text-zinc-700'}`} />
                                 </div>
                             </div>
