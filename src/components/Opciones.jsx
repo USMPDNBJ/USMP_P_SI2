@@ -254,7 +254,6 @@ export function Opciones1x1({ storedList, title, routex }) {
             </button>
           ))}
         </div>
-
       </div>
     </div>
   );
