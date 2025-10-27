@@ -836,8 +836,12 @@ export function Modalidades2() {
                             )}
                             {(generateReceipt === 'no' || (generateReceipt === 'si' && selected !== 'primera') || (selected === 'primera' && modalidadReceipt)) && (
                                 <div className="mb-5 mt-6 max-w-3xl mx-auto bg-white p-4 rounded shadow">
-                                    <h2 className="text-xl font-bold mb-2">MENSAJE DE DESPEDIDA</h2>
+                                    <h2 className="text-xl font-bold mb-2">MENSAJES DE DESPEDIDA</h2>
                                     <p className='mb-4'>
+                                        <h3 className='font-bold'>OPCION 1</h3>
+                                        Gracias por comunicarte con la Universidad de San Martín de Porres . ¡Que tengas
+                                        un excelente día!
+                                        <h3 className='font-bold mt-3'>OPCION 2</h3>
                                         Muchas gracias por su tiempo, si tiene alguna consulta o duda, me indicas por este
                                         medio para poder ayudarte. Gracias por comunicarte con la Universidad de San Martín
                                         de Porres
