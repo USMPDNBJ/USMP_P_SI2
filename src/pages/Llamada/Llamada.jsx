@@ -646,7 +646,6 @@ export function Modalidades2() {
                         </div>
                         <div>
 
-
                             <div>
                                 <div>
                                     <h1 className='text-xl text-center'> <strong>¿Desea generar su recibo ahora mismo?</strong></h1>
@@ -656,8 +655,6 @@ export function Modalidades2() {
                                     <Button1 nombre={'NO'} onClick={() => { setGenerateReceipt('no'); }} colorC={`${generateReceipt === 'no' ? 'bg-red-300 text-white' : 'bg-white text-zinc-700'}`} />
                                 </div>
                             </div>
-
-
 
                             {generateReceipt === 'si' && (
                                 <div className="mb-5 mt-6 max-w-3xl mx-auto bg-white p-4 rounded shadow">

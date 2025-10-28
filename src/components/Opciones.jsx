@@ -1,35 +1,27 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import SidebarNumeros from './SidebarNumeros';
+import { Button2 } from './button1';
+export default function Opciones4x4({ storedList, title, routex, selectedCareerId, onSelectCareer }) {
+  // const ChevronLeft = ({ className }) => (
+  //   <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  //     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+  //   </svg>
+  // );
 
-export default function Opciones4x4({ storedList, title, routex }) {
-  const ChevronLeft = ({ className }) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-    </svg>
-  );
-
-  const ChevronRight = ({ className }) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
-  );
+  // const ChevronRight = ({ className }) => (
+  //   <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  //     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  //   </svg>
+  // );
   const navigate = useNavigate();
   const [careersPages, setCareersPages] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-
   // Tamaño de página: cuántas carreras mostrar por página
-  const PAGE_SIZE = 16;
-  const location = useLocation();
+  const PAGE_SIZE = 21;
+  // const location = useLocation();
   // const routesState = location.state?.routes;
-  // Función para navegar cuando se hace clic en una carrera
-  const handleCareerClick = (careerIdOrName) => {
-    // careerIdOrName can be a number (id) or a name string; encode for the URL
-    const value = encodeURIComponent(String(careerIdOrName));
-    sessionStorage.setItem('careerId', String(careerIdOrName));
-    navigate(`${routex}/${value}`);
-  };
+  // Función para navegar cuando se hace clic en una carrer
 
   // Cargar datos desde localStorage o inicializarlos
   useEffect(() => {
@@ -105,19 +97,13 @@ export default function Opciones4x4({ storedList, title, routex }) {
   const titleC = title;
   const currentCareers = careersPages[currentPage - 1] || [];
 
-  const nextPage = () => {
-    setCurrentPage(prev => (prev < totalPages ? prev + 1 : prev));
-  };
+  // const nextPage = () => {
+  //   setCurrentPage(prev => (prev < totalPages ? prev + 1 : prev));
+  // };
 
-  const prevPage = () => {
-    setCurrentPage(prev => (prev > 1 ? prev - 1 : prev));
-  };
-
-  const goToPage = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
+  // const prevPage = () => {
+  //   setCurrentPage(prev => (prev > 1 ? prev - 1 : prev));
+  // };
 
   return (
     <div className="min-h-[70vh] bg-white flex flex-col">
@@ -129,19 +115,16 @@ export default function Opciones4x4({ storedList, title, routex }) {
         <div className="flex flex-col flex-grow">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-3 flex-grow">
             {currentCareers.map(career => (
-              <button
+              <Button2
                 key={career.id}
-                onClick={() => handleCareerClick(career.id)}
-                className="bg-red-300 hover:bg-red-400 text-gray-900 font-bold px-6 py-4 rounded-2xl shadow-lg
-                           transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 text-center
-                           text-sm md:text-base leading-tight"
-              >
-                {career.name}
-              </button>
+                nombre={career.name}
+                onClick={() => onSelectCareer(career.id)}
+                classes={selectedCareerId === career.id}
+              />
             ))}
           </div>
 
-          <div className="flex items-center justify-center gap-6 mt-6">
+          {/* <div className="flex items-center justify-center gap-6 mt-6">
             <button
               onClick={prevPage}
               disabled={currentPage === 1}
@@ -165,11 +148,7 @@ export default function Opciones4x4({ storedList, title, routex }) {
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
-          </div>
-
-          <div className="text-center mt-4 text-gray-600">
-            Página {currentPage} de {totalPages}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

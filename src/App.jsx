@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import Headerx from './components/header';
 import Inicio from './pages/Inicio';
-import { ChatInicio, ChatProtocolIn, ChatProtocolInNo, ChatProtocolInSi, TiempoEspera } from './pages/Chat';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Carrera from './pages/Carrera';
@@ -10,7 +9,9 @@ import React, { useState, useEffect } from 'react';
 import Preguntar, { ChatSolicitud } from './pages/Solicitud';
 import LlamadaInicio, { Llamada, LlamadaDesicion, LlamadaProtocolInNo, LlamadaProtocolSi, Modalidades, Modalidades2 } from './pages/Llamada/Llamada';
 import { carrerasJS } from './assets/ListaCarreras';
-import CarrerasUnivChat from './pages/Carreras';
+import { ChatProtocolIn } from './pages/Mensajeria/ProtocoloEntrada';
+import ChatInicio from './pages/Chat';
+import CarrerasUnivChat from './pages/Mensajeria/Derivacion';
 
 function App() {
   const [initialCareers, setCareers] = useState([]);
@@ -39,11 +40,7 @@ function App() {
           <Route path="/chatInicio" element={<ChatInicio />} />
           <Route path="/protEntr" element={<ChatProtocolIn />} />
           <Route path="/carrerasUnivChat" element={<CarrerasUnivChat />} />
-          <Route path="/derivarAsesor" element={<TiempoEspera />} />
-          <Route path="/protEntrNo" element={<ChatProtocolInNo />} />
-          <Route path="/protEntrSi" element={<ChatProtocolInSi />} />
           <Route path="/carrera/:nombre" element={<Carrera />} />
-          <Route path="/preguntar/:nombre" element={<Preguntar />} />
           <Route path="/solicitud/:nombre" element={<ChatSolicitud />} />
           //*LLAMADA
           <Route path="/LlamadaDesicion" element={<LlamadaDesicion />} />

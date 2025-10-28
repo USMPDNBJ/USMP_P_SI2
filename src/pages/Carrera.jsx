@@ -64,7 +64,6 @@ export default function Carrera() {
         <p className="text-2xl text-gray-600 mb-6">
           {career?.descripcion1 || ''}
         </p>
-
       </div>
 
       <p className='font-bold text-3xl'>
