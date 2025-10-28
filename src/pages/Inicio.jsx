@@ -24,6 +24,9 @@ export default function Inicio() {
           <Button1 nombre='Chat Mensajería' onClick={ChatInicio} />
           <Button1 nombre='Llamada Telefónica' onClick={LlamadaInicio} />
         </div>
+        <SidebarNumeros
+          home={'/'}
+        />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import Opciones4x4 from "../../components/Opciones";
 import SidebarNumeros from "../../components/SidebarNumeros";
 import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from 'react-router-dom';
+
 export default function CarrerasUnivChat() {
   const storageKey = 'careersList';
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ export default function CarrerasUnivChat() {
     const data = localStorage.getItem(storageKey);
     return data ? JSON.parse(data) : [];
   }, [storageKey]);
+
   const inicio = () => {
     navigate('/');
   };
@@ -33,7 +35,7 @@ export default function CarrerasUnivChat() {
   return (
     <div>
       <Opciones4x4
-        title={'1. SELECCIONE LA CARRERA UNIVERSITARIA'}
+        title={'3. SELECCIONE LA CARRERA UNIVERSITARIA'}
         storedList={JSON.stringify(storedList)} // pasa como string si el componente lo espera así
         selectedCareerId={selectedCareerId}
         onSelectCareer={setSelectedCareerId}
@@ -42,8 +44,8 @@ export default function CarrerasUnivChat() {
 
       {selectedCareerId && selectedCareerData && (
         <div className=" bg-white flex flex-col items-center py-10">
-          <h1 className="text-4xl text-center font-bold text-red-700 mb-6">
-            2. SALUDO DEL ASESOR Y FORTALEZAS DE LA CARRERA
+          <h1 className="text-3xl text-center font-bold text-red-700 mb-6">
+            4. SALUDO DEL ASESOR Y FORTALEZAS DE LA CARRERA
           </h1>
 
           <p className='font-bold text-3xl my-5'>SALUDO INICIAL</p>
@@ -108,13 +110,14 @@ export default function CarrerasUnivChat() {
 
       {pregunta3 === 'si' && (
         <div className="bg-white flex flex-col items-center mb-10">
-          <h1 className="text-4xl text-center font-bold text-red-700 mb-6">
-            3. PREGUNTAR SI ESTÁ EN 5TO O ES EGRESADO
+          <h1 className="text-3xl text-center font-bold text-red-700 mb-6">
+            5. PREGUNTAR SI ESTÁ EN 5TO O ES EGRESADO
           </h1>
           <p className='font-bold text-3xl my-5'>PREGUNTA</p>
           <div className="max-w-3xl w-full px-4 my-5">
-            <p className="text-2xl text-gray-600">
+            <p className="text-2xl text-gray-600 text-center">
               ¿Te encuentras cursando 5to de secundaria o ya terminaste el colegio?
+              <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
             </p>
             <div className="flex justify-center mt-5">
               {!pregunta4 && (
@@ -130,15 +133,16 @@ export default function CarrerasUnivChat() {
       {pregunta4 === 'si' && (
         <div className="bg-white flex flex-col items-center mb-10">
           <div className="max-w-3xl w-full px-4">
-            <h1 className="text-4xl text-center font-bold text-red-700 mb-10">
-              4. SOLICITUD DE LLAMADA
+            <h1 className="text-3xl text-center font-bold text-red-700 mb-10">
+              6. SOLICITUD DE LLAMADA
             </h1>
             <p className='font-bold text-3xl my-5 text-center'>
               PREGUNTA
             </p>
-            <p className="text-2xl text-gray-600 mb-10">
-              ¿Qué te parece si te llamo unos minutos? Así te cuento todos los beneficios de
+            <p className="text-2xl text-gray-600 mb-10 text-center">
+              ¿Qué te parece si te llamo en unos minutos? Así te cuento todos los beneficios de
               estudiar en nuestra universidad
+              <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
             </p>
 
             <p className='font-bold text-3xl text-center'>
@@ -148,7 +152,7 @@ export default function CarrerasUnivChat() {
               ¡Perfecto! Me comunicaré contigo a través de nuestra central <br /> (01) 748 4747
             </p>
             <p className="text-2xl text-gray-600 mb-6 my-5">
-              Soy {selectedCareerData?.asesor || ''}, tu asesor de la Facultad de {selectedCareerData?.facultad || ''} de la USMP
+              Soy [Tu nombre], tu asesor de la Facultad de {selectedCareerData?.facultad || ''} de la USMP
             </p>
             <p className="text-2xl text-gray-600 mb-6 my-5">
               Te dejo mi número {selectedCareerData?.celular || ''} para que lo puedas agendar, ya que por ese medio te
@@ -157,7 +161,7 @@ export default function CarrerasUnivChat() {
             <p className="text-2xl text-gray-600 mb-6 ">
               Ante cualquier duda o consulta, no dudes en escribirme <br />
               ¡Gracias por comunicarte con la Universidad de San Martín de Porres! <br />
-              (PROCEDES A CERRAR EL CHAT)
+              <br /><p className='text-gray-400 text-center'>(PROCEDES A CERRAR EL CHAT)</p>
             </p> <br />
 
           </div>
@@ -165,8 +169,6 @@ export default function CarrerasUnivChat() {
           <Button1 nombre="Finalizar" onClick={inicio} />
         </div>
       )}
-
-      <SidebarNumeros currentPage={1} home={'/chatInicio'} routes={{ 1: '' }} />
     </div>
   );
 }

@@ -108,7 +108,7 @@ export default function Opciones4x4({ storedList, title, routex, selectedCareerI
   return (
     <div className="min-h-[70vh] bg-white flex flex-col">
       <div className="max-w-7xl mx-auto flex-grow flex flex-col">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-red-700 mb-12 tracking-tight">
+        <h1 className="text-3xl md:text-3xl font-bold text-center text-red-700 mb-12 tracking-tight">
           {titleC}
         </h1>
 

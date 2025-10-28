@@ -4,7 +4,6 @@ import SidebarNumeros from '../components/SidebarNumeros'; // ajusta la ruta si 
 import Button1 from '../components/button1';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import Opciones4x4 from '../components/Opciones';
 
 export function ChatSolicitud() {
   // Route uses `/carrera/:nombre` in App.jsx — nombre may be an id or an encoded name
