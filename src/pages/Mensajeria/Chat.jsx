@@ -21,7 +21,7 @@ export default function ChatInicio() {
     <div className="h-auto min-h-[70vh] bg-white">
       <div className=" max-w-7xl mx-auto">
         {/* Header */}
-        <h1 className=" text-5xl md:text-5xl font-bold text-center text-red-800 mb-12 tracking-tight">
+        <h1 className=" text-5xl md:text-5xl font-bold text-center text-red-800 mb-12 tracking-tight mt-14">
           CHAT MENSAJERÍA
         </h1>
         <h1 className="text-3xl md:text-3xl font-bold text-center text-red-700 mb-12 tracking-tight">

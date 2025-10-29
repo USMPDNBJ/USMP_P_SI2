@@ -29,7 +29,7 @@ export default function LlamadaInicio() {
                 <h1 className="text-5xl md:text-5xl font-bold text-center text-red-800 mb-12 tracking-tight">
                     LLAMADA TELEFÓNICA
                 </h1>
-                <h1 className="text-3xl md:text-3xl font-bold text-center text-gray-800 mb-6 tracking-tight">
+                <h1 className="text-3xl md:text-3xl font-bold text-center text-red-700 mb-6 tracking-tight">
                     1. ¿QUIÉN REALIZÓ LA LLAMADA?
                 </h1>
                 <div className='flex justify-center gap-4'>
@@ -38,7 +38,7 @@ export default function LlamadaInicio() {
                 </div>
                 {pregunta1 && (
                     <div>
-                        <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-6 tracking-tight mt-5">
+                        <h1 className="text-2xl md:text-3xl font-bold text-center text-red-700 mb-6 tracking-tight mt-5">
                             2. ¿CONTESTÓ LA LLAMADA?
                         </h1>
                         <div className='flex  justify-center gap-4'>
@@ -59,7 +59,7 @@ export default function LlamadaInicio() {
                                 ¿Podrías brindarme unos minutos de tu tiempo para contarte sobre las oportunidades y beneficios que ofrece la carrera y nuestra universidad?
                                 <br /><p className='text-gray-400 text-center'>(Esperar respuesta del usuario)</p>
                             </p>
-                            <h1 className='font-bold text-3xl text-center mt-5'>3. ¿EL POSTULANTE DESEA CONTINUAR?</h1>
+                            <h1 className='font-bold text-3xl text-red-700 text-center mt-5'>3. ¿EL POSTULANTE DESEA CONTINUAR?</h1>
                             <div className='flex justify-center mt-5 gap-4 mb-5'>
                                 <Button1 nombre={"Si"} onClick={() => setPregunta3('si')} colorC={`text-[20px] ${pregunta3 === 'si' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
                                 <Button1 nombre={"No"} onClick={() => setPregunta3('no')} colorC={`text-[20px] ${pregunta3 === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
@@ -67,6 +67,7 @@ export default function LlamadaInicio() {
                             {pregunta3 === 'si' && (
                                 <div className='mt-  flex justify-center'>
                                     <div className='w-[700px]'>
+                                        <h1 className='text-center font-bold text-2xl mb-3'>MENSAJE</h1>
                                         <p className='text-xl'>
                                             Perfecto, antes de continuar, ¿me autorizas el uso de tus datos personales para poder brindarte información sobre el proceso de admisión y beneficios que ofrece la USMP?
                                         </p>
@@ -76,6 +77,7 @@ export default function LlamadaInicio() {
                             {pregunta3 === 'no' && (
                                 <div className='mt-  flex justify-center'>
                                     <div className='w-[700px]'>
+                                        <h1 className='text-center font-bold text-2xl mb-3'>MENSAJE</h1>
                                         <p className='text-xl'>
                                             No te preocupes, gracias por tu tiempo.
                                             Igual recuerda que las inscripciones en la USMP están abiertas por si más adelante deseas postular.
