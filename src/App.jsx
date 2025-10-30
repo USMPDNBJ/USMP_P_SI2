@@ -6,7 +6,7 @@ import Inicio from './pages/Inicio';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Carrera from './pages/Carrera';
 import React, { useState, useEffect } from 'react';
-import LlamadaInicio, { Llamada, LlamadaProtocolInNo, LlamadaProtocolSi, Modalidades, Modalidades2 } from './pages/Llamada/Llamada';
+import LlamadaInicio, { Llamada, Modalidades, Modalidades2 } from './pages/Llamada/Llamada';
 import { carrerasJS } from './assets/ListaCarreras';
 import { ChatProtocolIn } from './pages/Mensajeria/ProtocoloEntrada';
 import ChatInicio, { Chat } from './pages/Mensajeria/Chat';
@@ -40,8 +40,6 @@ function App() {
           <Route path="/carrera/:nombre" element={<Carrera />} />
           //*LLAMADA
           <Route path="/LlamadaInicio" element={<LlamadaInicio />} />
-          <Route path="/LlamadaProtocolSi" element={<LlamadaProtocolSi />} />
-          <Route path="/LlamadaProtocolInNo" element={<LlamadaProtocolInNo />} />
           <Route path="/llamada/:nombre" element={<Llamada />} />
           <Route path="/modalidades" element={<Modalidades />} />
           <Route path="/modalidades2/:id" element={<Modalidades2 />} />

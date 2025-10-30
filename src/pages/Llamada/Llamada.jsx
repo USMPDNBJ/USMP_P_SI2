@@ -5,12 +5,32 @@ import Button1, { Button2 } from '../../components/button1';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import Opciones4x4, { Opciones1x1 } from '../../components/Opciones';
 import { Navigation } from 'lucide-react';
+import PreguntasBasicas from '../../components/Preguntas';
 
 export default function LlamadaInicio() {
+    const storageKey = 'careersList';
+    const storedList = useMemo(() => {
+        const data = localStorage.getItem(storageKey);
+        return data ? JSON.parse(data) : [];
+    }, [storageKey]);
+
     const navigate = useNavigate();
     const [pregunta1, setPregunta1] = useState(null);
     const [pregunta2, setPregunta2] = useState(null);
     const [pregunta3, setPregunta3] = useState(null);
+    const [protocolIn, setProtocol] = useState(null);
+    const [selectedCareerId, setSelectedCareerId] = useState(null);
+    const [selectedCareerData, setSelectedCareerData] = useState(null);
+
+    useEffect(() => {
+        if (selectedCareerId && storedList.length > 0) {
+            const career = storedList.find(item => item.id === selectedCareerId);
+            setSelectedCareerData(career || null);
+        } else {
+            setSelectedCareerData(null);
+        }
+    }, [selectedCareerId, storedList]);
+
     const Asesor = () => {
         sessionStorage.setItem('emisor', 'asesor');
         setPregunta1('asesor');
@@ -22,171 +42,201 @@ export default function LlamadaInicio() {
 
 
     return (
-        <div className="h-auto min-h-[10vh]  bg-white ">
-            <div className="max-w-7xl mx-auto my-20 relative">
-                {/* Header */}
 
-                <h1 className="text-5xl md:text-5xl font-bold text-center text-red-800 mb-12 tracking-tight">
-                    LLAMADA TELEFÓNICA
-                </h1>
-                <h1 className="text-3xl md:text-3xl font-bold text-center text-red-700 mb-6 tracking-tight">
-                    1. ¿QUIÉN REALIZÓ LA LLAMADA?
-                </h1>
-                <div className='flex justify-center gap-4'>
-                    <Button1 nombre='Asesor' onClick={Asesor} colorC={`text-[20px] ${pregunta1 === 'asesor' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
-                    <Button1 nombre='Postulante' onClick={Postulante} colorC={`text-[20px] ${pregunta1 === 'postulante' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
-                </div>
-                {pregunta1 && (
-                    <div>
-                        <h1 className="text-2xl md:text-3xl font-bold text-center text-red-700 mb-6 tracking-tight mt-5">
-                            2. ¿CONTESTÓ LA LLAMADA?
-                        </h1>
-                        <div className='flex  justify-center gap-4'>
-                            <Button1 nombre="Si" onClick={() => setPregunta2('si')} colorC={`text-[20px] ${pregunta2 === 'si' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
-                            <Button1 nombre='No' onClick={() => setPregunta2('no')} colorC={`text-[20px] ${pregunta2 === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
-                        </div>
+        <div className="max-w-7xl mx-auto my-20">
+            {/* Header */}
 
-                    </div>
-                )}
-                {pregunta2 === "si" && (
-                    <div className='mt-10  flex justify-center'>
-                        <div className='w-[700px]'>
-                            <h1 className='text-center font-bold text-2xl mb-3'>MENSAJE</h1>
-                            <p className='text-xl'>
-                                Hola, ¿qué tal? <br />
-                                Te saluda Joice Urrutia, asesora de admisión de la Universidad San Martín de Porres (USMP), de la carrera de [nombre de la carrera]. <br />
-                                El motivo de mi llamada es porque realizamos una visita a tu colegio [nombre del colegio], donde nos brindaste tus datos y mostraron interés en postular a nuestra universidad. <br />
-                                ¿Podrías brindarme unos minutos de tu tiempo para contarte sobre las oportunidades y beneficios que ofrece la carrera y nuestra universidad?
-                                <br /><p className='text-gray-400 text-center'>(Esperar respuesta del usuario)</p>
-                            </p>
-                            <h1 className='font-bold text-3xl text-red-700 text-center mt-5'>3. ¿EL POSTULANTE DESEA CONTINUAR?</h1>
-                            <div className='flex justify-center mt-5 gap-4 mb-5'>
-                                <Button1 nombre={"Si"} onClick={() => setPregunta3('si')} colorC={`text-[20px] ${pregunta3 === 'si' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
-                                <Button1 nombre={"No"} onClick={() => setPregunta3('no')} colorC={`text-[20px] ${pregunta3 === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
-                            </div>
-                            {pregunta3 === 'si' && (
-                                <div className='mt-  flex justify-center'>
-                                    <div className='w-[700px]'>
-                                        <h1 className='text-center font-bold text-2xl mb-3'>MENSAJE</h1>
-                                        <p className='text-xl'>
-                                            Perfecto, antes de continuar, ¿me autorizas el uso de tus datos personales para poder brindarte información sobre el proceso de admisión y beneficios que ofrece la USMP?
-                                        </p>
-                                    </div>
-                                </div>
-                            )}
-                            {pregunta3 === 'no' && (
-                                <div className='mt-  flex justify-center'>
-                                    <div className='w-[700px]'>
-                                        <h1 className='text-center font-bold text-2xl mb-3'>MENSAJE</h1>
-                                        <p className='text-xl'>
-                                            No te preocupes, gracias por tu tiempo.
-                                            Igual recuerda que las inscripciones en la USMP están abiertas por si más adelante deseas postular.
-                                            ¡Éxitos y que tengas un buen día!
-
-                                        </p>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-
-                    </div>
-                )}
-
-                {pregunta2 === "no" && (
-                    <div className='mt-10  flex justify-center'>
-                        <div className='w-[700px]'>
-                            <h1 className='text-center font-bold text-2xl mb-3'>MENSAJE</h1>
-                            <p className='text-xl'>
-                                Hola 👋, te saluda Joice, asesora de admisión de la Universidad San Martín de Porres (USMP). <br />
-                                Te estuvimos llamando desde el número ☎️ 748 4747, pero no obtuvimos respuesta.<br />
-                                El motivo de nuestra llamada es para brindarte información sobre el proceso de admisión, ya que realizamos una visita a tu colegio [nombre del colegio] y completaste una ficha mostrando interés en la carrera de [nombre de la carrera].<br />
-                                ¿Aún estás interesado(a) en postular con nosotros? 🎓✨
-                            </p>
-                        </div>
-                    </div>
-                )}
+            <h1 className="text-5xl md:text-5xl font-bold text-center text-red-800 mb-12 tracking-tight">
+                LLAMADA TELEFÓNICA
+            </h1>
+            <h1 className="text-3xl md:text-3xl font-bold text-center text-red-700 mb-6 tracking-tight">
+                1. ¿QUIÉN REALIZÓ LA LLAMADA?
+            </h1>
+            <div className='flex justify-center gap-4'>
+                <Button1 nombre='Asesor' onClick={Asesor} colorC={`text-[20px] ${pregunta1 === 'asesor' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
+                <Button1 nombre='Postulante' onClick={Postulante} colorC={`text-[20px] ${pregunta1 === 'postulante' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
             </div>
+            {pregunta1 === 'asesor' && (
+                <div>
+                    <h1 className="text-2xl md:text-3xl font-bold text-center text-red-700 mb-6 tracking-tight mt-10">
+                        2. ¿CONTESTÓ LA LLAMADA?
+                    </h1>
+                    <div className='flex  justify-center gap-4'>
+                        <Button1 nombre="Si" onClick={() => setPregunta2('si')} colorC={`text-[20px] ${pregunta2 === 'si' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
+                        <Button1 nombre='No' onClick={() => setPregunta2('no')} colorC={`text-[20px] ${pregunta2 === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
+                    </div>F
+
+                </div>
+            )}
+            {pregunta1 === 'asesor' && pregunta2 === "si" && (
+                <div className='mt-10 flex justify-center'>
+                    <div className='w-[800px]'>
+                        <h1 className='text-center font-bold text-xl mb-3'>MENSAJE</h1>
+                        <p className='text-xl'>
+                            <strong>Asesora:</strong> Hola, ¿qué tal?, te saluda <span className='text-gray-400 text-center'>(Tu nombre)</span>, asesora de admisión de la Universidad San Martín de Porres (USMP), de la carrera de <span className='text-gray-400 text-center'>(Nombre de la carrera)</span>. <br />
+                            El motivo de mi llamada es porque realizamos una visita a tu colegio <span className='text-gray-400 text-center'>(Nombre del colegio)</span>, donde nos brindaste tus datos y mostraron interés en postular a nuestra universidad. <br />
+                            ¿Podrías brindarme unos minutos de tu tiempo para contarte sobre las oportunidades y beneficios que ofrece la carrera y nuestra universidad?
+                            <br /><p className='text-gray-400 text-center'>(Esperar respuesta del usuario)</p>
+                        </p>
+                        <h1 className='font-bold text-xl text-center mt-5'>¿EL POSTULANTE DESEA CONTINUAR?</h1>
+                        <div className='flex justify-center mt-5 gap-4 mb-5'>
+                            <Button1 nombre={"Si"} onClick={() => setPregunta3('si')} colorC={`text-[20px] ${pregunta3 === 'si' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
+                            <Button1 nombre={"No"} onClick={() => setPregunta3('no')} colorC={`text-[20px] ${pregunta3 === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
+                        </div>
+                        {pregunta3 === 'si' && (
+                            <div className='w-[800px] mt-10'>
+                                <h1 className='font-bold text-3xl text-red-700 text-center '>3. PROTOCOLO DE ENTRADA</h1>
+                                <h1 className='text-center font-bold text-xl mb-3 mt-5'>MENSAJE</h1>
+                                <p className='text-xl'>
+                                    Perfecto, antes de continuar, ¿me autorizas el uso de tus datos personales para poder brindarte información sobre el proceso de admisión y beneficios que ofrece la USMP?
+                                </p>
+                                <p className='text-xl text-gray-400 text-center'>(Esperar respuesta del usuario al asesor)</p>
+                                {/* <PreguntasBasicas classArg={'text-xl'}/> */}
+
+                                <div className='flex justify-center gap-4 mt-5'>
+                                    <Button1 nombre="SI" onClick={() => setProtocol('SI')} colorC={`${protocolIn === 'SI' ? "bg-red-700 text-white" : "bg-white text-zinc-800"}`} />
+                                    <Button1 nombre="NO" onClick={() => setProtocol('NO')} colorC={`${protocolIn === 'NO' ? "bg-red-700 text-white" : "bg-white text-zinc-800"}`} />
+                                </div>
+
+
+
+                                {protocolIn === 'SI' && (
+
+                                    <div className="my-20 max-w-3xl w-full px-4">
+                                        <h1 className="text-3xl text-center font-bold text-red-700 mb-6">4. COMUNICACIÓN PERMITIDA</h1>
+                                        <PreguntasBasicas classArg={'text-xl'} />
+
+                                    </div>
+
+                                )}
+
+                                {protocolIn === 'NO' && (
+                                    <div className="my-20 max-w-3xl w-full px-4 text-center text-xl">
+                                        <h1 className="text-3xl font-bold text-red-700 mb-6">4. COMUNICACIÓN DENEGADA</h1>
+                                        <h1 className="font-bold mb-6">MENSAJE</h1>
+                                        <p className="text-gray-600 mb-6">
+                                            • Gracias por tu respuesta. Lamentamos no poder ayudarte.
+                                        </p>
+                                        <p className="text-gray-600 mb-6">
+                                            • De igual manera podrás acceder contar con información general de la universidad a
+                                            través de la siguiente URL: https://www.admision.usmp.edu.pe o podrás comunicarte
+                                            con nosotros vía telefónica a nuestra central 01-7484747
+                                        </p>
+                                        <Button1 nombre="Finalizar" onClick={() => navigate('/')} colorC={'mb-10'} />
+                                        {/* <div ref={finalRef} /> */}
+                                    </div>
+
+                                )}
+                            </div>
+                        )}
+                        {pregunta3 === 'no' && (
+                            <div className='mt-  flex justify-center'>
+                                <div className='w-[800px]'>
+                                    <h1 className='text-center font-bold text-xl mb-3'>MENSAJE</h1>
+                                    <p className='text-xl'>
+                                        No te preocupes, gracias por tu tiempo.
+                                        Igual recuerda que las inscripciones en la USMP están abiertas por si más adelante deseas postular.
+                                        ¡Éxitos y que tengas un buen día!
+
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                </div>
+            )}
+
+            {pregunta1 === 'postulante' && (
+                <div className='mt-10 flex justify-center'>
+                    <div className='w-[800px]'>
+                        <h1 className='text-center font-bold text-xl mb-3'>MENSAJE</h1>
+                        <p className='text-xl'>
+                            Asesora: Hola, muy buenos días/tardes. Le saluda <span className='text-gray-400 text-center'>(Tu nombre)</span>, asesora de la Universidad San Martín de Porres. ¿Con quién tengo el gusto de hablar?
+                            <br /><p className='text-gray-400 text-center mt-2 mb-5'>(Postulante responde con su nombre)</p>
+
+
+                        </p>
+                        <h1 className='font-bold text-3xl text-red-700 text-center '>2. PROTOCOLO DE ENTRADA</h1>
+                        <h1 className='text-center font-bold text-xl mb-3 mt-5'>MENSAJE</h1>
+                        <p className='text-xl mt-5'>
+                            Asesora: Un gusto, <span className='text-gray-400 text-center'>(Nombre del postulante)</span>. Antes de brindarle toda la información, ¿me autoriza el uso y tratamiento de sus datos personales durante esta llamada con fines informativos y de orientación académica?
+                        </p>
+                        <p className='text-gray-400 text-xl text-center mb-5'>(Esperar respuesta del Postulante)</p>
+                        <h1 className='font-bold text-xl text-center mt-5'>¿EL POSTULANTE AUTORIZÓ EL USO DE SUS DATOS?</h1>
+                        <div className='flex justify-center mt-5 gap-4 mb-5'>
+                            <Button1 nombre={"Si"} onClick={() => setPregunta2('si')} colorC={`text-[20px] ${pregunta2 === 'si' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
+                            <Button1 nombre={"No"} onClick={() => setPregunta2('no')} colorC={`text-[20px] ${pregunta2 === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
+                        </div>
+
+                        {pregunta1 === 'postulante' && pregunta2 === 'no' && (
+                            <div className='mt-  flex justify-center'>
+                                <div className='w-[800px]'>
+                                    <h1 className='font-bold text-3xl text-red-700 text-center mt-5'>2. COMUNICACIÓN DENEGADA</h1>
+                                    <h1 className='text-center font-bold text-xl mb-3 mt-5'>MENSAJE</h1>
+                                    <p className='text-xl'>
+                                        Entiendo y respeto su decisión. Sin la autorización no puedo continuar con el proceso informativo.
+                                        Si en algún momento desea recibir información sobre nuestra universidad, con gusto podremos asistirle.
+                                        Que tenga un excelente día.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                </div>
+            )}
+
+            {pregunta1 === 'asesor' && pregunta2 === "no" && (
+                <div className='mt-10 flex justify-center'>
+                    <div className='w-[800px]'>
+
+                        <h1 className='text-center font-bold text-xl mb-3'>MENSAJE</h1>
+                        <p className='text-xl'>
+                            Asesora: Hola 👋, te saluda Joice, asesora de admisión de la Universidad San Martín de Porres (USMP). <br />
+                            Te estuvimos llamando desde el número ☎️ 748 4747, pero no obtuvimos respuesta.<br />
+                            El motivo de nuestra llamada es para brindarte información sobre el proceso de admisión, ya que realizamos una visita a tu colegio [nombre del colegio] y completaste una ficha mostrando interés en la carrera de [nombre de la carrera].<br />
+                            ¿Aún estás interesado(a) en postular con nosotros? 🎓✨
+                        </p>
+                    </div>
+                </div>
+            )}
+            {pregunta1 === 'postulante' && pregunta2 === 'si' && (
+                <div>
+                    <h1 className='font-bold text-3xl text-red-700 text-center mt-5'>3. COMUNICACIÓN PERMITIDA</h1>
+                    <div className='flex justify-center mt-5'>
+                        <PreguntasBasicas classArg={'text-center w-[800px] text-xl'} />
+
+                        {/* <h1 className='text-center font-bold text-xl mb-3'>MENSAJE</h1>
+                    <div className='flex justify-center mb-10'>
+                        <div className='w-[800px]'>
+                            <p className='text-xl'>
+                                Muchas gracias. Perfecto, <span className='text-gray-400 text-center'>(Nombre del postulante )</span>, cuénteme por favor, ¿para qué carrera está interesado(a) o qué información le gustaría recibir?
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+
+                        <Opciones4x4
+                            title={'3. SELECCIONE LA CARRERA UNIVERSITARIA'}
+                            storedList={JSON.stringify(storedList)} // pasa como string si el componente lo espera así
+                            selectedCareerId={selectedCareerId}
+                            onSelectCareer={setSelectedCareerId}
+                            routex={'/carrera'}
+                        />
+                    </div> */}
+                    </div>
+                </div>
+            )}
             <SidebarNumeros
                 home={'/'}
                 routes={{ 1: '/LlamadaInicio' }}
                 currentPage={1}
             />
         </div>
+
+
     );
-}
-
-export function LlamadaProtocolSi() {
-    const [selectedCareerId, setSelectedCareerId] = useState(null);
-    const [selectedCareerData, setSelectedCareerData] = useState(null);
-    const storageKey = 'careersList';
-
-    const storedList = useMemo(() => {
-        const data = localStorage.getItem(storageKey);
-        return data ? JSON.parse(data) : [];
-    }, [storageKey]);
-
-    useEffect(() => {
-        if (selectedCareerId && storedList.length > 0) {
-            const career = storedList.find(item => item.id === selectedCareerId);
-            setSelectedCareerData(career || null);
-        } else {
-            setSelectedCareerData(null);
-        }
-    }, [selectedCareerId, storedList]);
-    return (
-        <div>
-            <Opciones4x4
-                title={'1. SELECCIONE LA CARRERA UNIVERSITARIA'}
-                storedList={JSON.stringify(storedList)} // pasa como string si el componente lo espera así
-                selectedCareerId={selectedCareerId}
-                onSelectCareer={setSelectedCareerId}
-                routex={'/llamada'}
-            />
-            <SidebarNumeros
-                currentPage={1}
-                home={'/LlamadaInicio'}
-                routes={
-                    {
-                        1: '/LlamadaProtocolSi'
-                    }
-                }
-            />
-        </div>
-    );
-}
-export function LlamadaProtocolInNo() {
-    const Inicio = () => {
-        navigate('/');
-    };
-    const navigate = useNavigate();
-    return (
-        <div className="h-auto min-h-[10vh] bg-white">
-            {/* Contenedor del ButtonReiniciar centrado */}
-            <div className='absolute top-100 right-0 w-16'>
-                <ButtonReiniciar />
-            </div>
-
-            <div className="max-w-7xl mx-auto my-20 bg-white text-center relative w-[1000px]">
-                <h1 className="text-4xl font-bold text-gray-800 mb-6">NO CONTESTÓ LA LLAMADA</h1>
-                <p className="text-2xl text-gray-600 mb-6">
-                    Hola 👋, te saluda Joice, asesora de admisión de la Universidad San Martín de Porres (USMP).
-                    Te estuvimos llamando desde el número ☎️ 748 4747, pero no obtuvimos respuesta.
-                </p>
-                <p className="text-2xl text-gray-600 mb-6">
-                    El motivo de nuestra llamada es para brindarte información sobre el proceso de admisión, ya que realizamos una visita a tu colegio [nombre del colegio] y completaste una ficha mostrando interés en la carrera de [nombre de la carrera].
-                </p>
-
-                {/* Botón Volver centrado */}
-                <div className="flex justify-center">
-                    <Button1 nombre="Volver" onClick={Inicio} />
-                </div>
-            </div>
-        </div>
-    );
-
-}
-export function ProtocoloEntrada() {
-
 }
 
 export function Llamada() {
@@ -241,7 +291,7 @@ export function Llamada() {
     return (
         <div className="min-h-screen bg-white flex flex-col items-center py-10 ">
             <div className="max-w-3xl w-full text-center px-4">
-                <h1 className="text-4xl font-bold text-red-700 mb-10">2. COMUNICACIÓN ACEPTADA</h1>
+                <h1 className="text-3xl font-bold text-red-700 mb-10">2. COMUNICACIÓN ACEPTADA</h1>
                 <h1 className='font-bold text-3xl mb-5'>MENSAJE</h1>
                 <p className="text-2xl text-gray-600 mb-6">
                     ¡Perfecto! Ya te veo como un/una gran  {career?.profesion} <br /> <br />
