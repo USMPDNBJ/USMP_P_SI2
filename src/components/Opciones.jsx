@@ -105,24 +105,24 @@ export default function Opciones4x4({ storedList, title, routex, selectedCareerI
   // };
 
   return (
-      <div className=" mx-auto flex-grow flex flex-col">
-        <h1 className="text-3xl md:text-3xl font-bold text-center text-red-700 mb-12 tracking-tight">
-          {titleC}
-        </h1>
+    <div className=" mx-auto flex-grow flex flex-col">
+      <h1 className="text-3xl md:text-3xl font-bold text-center text-red-700 mb-12 tracking-tight">
+        {titleC}
+      </h1>
 
-        <div className="flex flex-col flex-grow">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-3 flex-grow">
-            {currentCareers.map(career => (
-              <Button2
-                key={career.id}
-                nombre={career.name}
-                onClick={() => onSelectCareer(career.id)}
-                classes={selectedCareerId === career.id}
-              />
-            ))}
-          </div>
+      <div className="flex flex-col flex-grow">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-3 flex-grow">
+          {currentCareers.map(career => (
+            <Button2
+              key={career.id}
+              nombre={career.name}
+              onClick={() => onSelectCareer(career.id)}
+              classes={selectedCareerId === career.id}
+            />
+          ))}
+        </div>
 
-          {/* <div className="flex items-center justify-center gap-6 mt-6">
+        {/* <div className="flex items-center justify-center gap-6 mt-6">
             <button
               onClick={prevPage}
               disabled={currentPage === 1}
@@ -147,8 +147,8 @@ export default function Opciones4x4({ storedList, title, routex, selectedCareerI
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
           </div> */}
-        </div>
       </div>
+    </div>
   );
 }
 export function Opciones1x1({ storedList, title, routex }) {

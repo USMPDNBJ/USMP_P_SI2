@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import SidebarNumeros, { ButtonHome, ButtonReiniciar } from '../../components/SidebarNumeros'; // ajusta la ruta si es necesario
 import Button1 from '../../components/button1';
 import { useNavigate } from 'react-router-dom';
 import { ChatProtocolIn } from './ProtocoloEntrada';
 import CarrerasUnivChat from './Derivacion';
 import PreguntasBasicas from '../../components/Preguntas';
+import Opciones4x4 from '../../components/Opciones';
 
 export default function ChatInicio() {
   const navigate = useNavigate();
+  // Memoizar storedList para que no cambie en cada render
+
 
   const emisor = sessionStorage.getItem('emisor');
   const [protocolIn, setProtocol] = useState(null);
   const [derivarAsesor, setderivarAsesor] = useState(null);
   const [respuesta, setRespuesta] = useState('si');
   const [secondsLeft, setSecondsLeft] = useState(10 * 60);
+
   useEffect(() => {
 
     const interval = setInterval(() => {
@@ -27,7 +31,6 @@ export default function ChatInicio() {
   const seconds = secondsLeft % 60;
   const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   const [pregunta1, setPregunta1] = useState(null);
-  const [pregunta2, setPregunta2] = useState(null);
   const Asesor = () => {
     sessionStorage.setItem('emisor', 'asesor');
     setPregunta1('asesor');
@@ -56,7 +59,7 @@ export default function ChatInicio() {
               {pregunta1 && (
 
                 <div className='bg-white flex flex-col items-center text-center text-xl'>
-                  <div className=" text-3xl font-bold fixed top-[24vh] right-[20vh]">
+                  <div className=" text-3xl font-bold fixed top-[25vh] right-[10vh]">
                     <h1>
                       {formattedTime}
                     </h1>
@@ -95,9 +98,12 @@ export default function ChatInicio() {
                       <div className="my-20 max-w-3xl w-full px-4">
                         <h1 className="text-3xl text-center font-bold text-red-700 mb-6">3. COMUNICACIÓN PERMITIDA</h1>
                         <PreguntasBasicas classArg={'text-xl'} />
-                        {!derivarAsesor && (
+
+                        <div className='flex justify-center gap-4'>
                           <Button1 nombre='Derivar Asesor' onClick={() => setderivarAsesor('SI')} colorC={`${derivarAsesor === 'SI' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
-                        )}
+                          <Button1 nombre='Continuar' onClick={() => setderivarAsesor('NO')} colorC={`${derivarAsesor === 'NO' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
+                        </div>
+
                         {derivarAsesor === 'SI' && (
                           <div className='mt-10'>
                             <h1 className="text-3xl text-center font-bold text-red-700">
@@ -113,9 +119,10 @@ export default function ChatInicio() {
                           </div>
                         )}
 
+
+
                         {/* <div ref={finalRef} /> */}
                       </div>
-
                     )}
 
                     {protocolIn === 'NO' && (
@@ -134,17 +141,25 @@ export default function ChatInicio() {
                       </div>
 
                     )}
+
                   </div>
+
+                </div>
+
+              )}
+              {protocolIn === 'SI' && derivarAsesor === 'NO' && (
+                <div>
+                  <CarrerasUnivChat
+                    titleArg={'4. SELECCIONAR CARRERA UNIVERSITARIA'}
+                    titleArg2={'5. SALUDO DEL ASESOR Y FORTALEZAS DE LA CARRERA'}
+                    titleArg3={'6. PREGUNTAR SI ESTÁ EN 5TO O ES EGRESADO'}
+                    titleArg4={'7. SOLICITUD DE LLAMADA'}
+                  />
                 </div>
               )}
-
-
             </div>
-
-
           </div>
         )
-
       }
       {respuesta === 'no' && (
         <div className='bg-white flex flex-col items-center text-center text-xl'>

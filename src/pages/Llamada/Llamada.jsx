@@ -64,7 +64,7 @@ export default function LlamadaInicio() {
                     <div className='flex  justify-center gap-4'>
                         <Button1 nombre="Si" onClick={() => setPregunta2('si')} colorC={`text-[20px] ${pregunta2 === 'si' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
                         <Button1 nombre='No' onClick={() => setPregunta2('no')} colorC={`text-[20px] ${pregunta2 === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
-                    </div>F
+                    </div>
 
                 </div>
             )}

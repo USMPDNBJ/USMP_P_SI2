@@ -4,7 +4,7 @@ import SidebarNumeros from "../../components/SidebarNumeros";
 import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from 'react-router-dom';
 
-export default function CarrerasUnivChat() {
+export default function CarrerasUnivChat({ titleArg, titleArg2, titleArg3, titleArg4 }) {
   const storageKey = 'careersList';
   const navigate = useNavigate();
   // Memoizar storedList para que no cambie en cada render
@@ -35,7 +35,7 @@ export default function CarrerasUnivChat() {
   return (
     <div>
       <Opciones4x4
-        title={'3. SELECCIONE LA CARRERA UNIVERSITARIA'}
+        title={titleArg}
         storedList={JSON.stringify(storedList)} // pasa como string si el componente lo espera así
         selectedCareerId={selectedCareerId}
         onSelectCareer={setSelectedCareerId}
@@ -45,7 +45,7 @@ export default function CarrerasUnivChat() {
       {selectedCareerId && selectedCareerData && (
         <div className=" bg-white flex flex-col items-center py-10">
           <h1 className="text-3xl text-center font-bold text-red-700 mb-6">
-            4. SALUDO DEL ASESOR Y FORTALEZAS DE LA CARRERA
+            {titleArg2}
           </h1>
 
           <p className='font-bold text-3xl my-5'>SALUDO INICIAL</p>
@@ -111,7 +111,7 @@ export default function CarrerasUnivChat() {
       {pregunta3 === 'si' && (
         <div className="bg-white flex flex-col items-center mb-10">
           <h1 className="text-3xl text-center font-bold text-red-700 mb-6">
-            5. PREGUNTAR SI ESTÁ EN 5TO O ES EGRESADO
+            {titleArg3}
           </h1>
           <p className='font-bold text-3xl my-5'>PREGUNTA</p>
           <div className="max-w-3xl w-full px-4 my-5">
@@ -134,7 +134,7 @@ export default function CarrerasUnivChat() {
         <div className="bg-white flex flex-col items-center mb-10">
           <div className="max-w-3xl w-full px-4">
             <h1 className="text-3xl text-center font-bold text-red-700 mb-10">
-              6. SOLICITUD DE LLAMADA
+              {titleArg4}
             </h1>
             <p className='font-bold text-3xl my-5 text-center'>
               PREGUNTA
