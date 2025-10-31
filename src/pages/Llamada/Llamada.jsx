@@ -373,7 +373,6 @@ export function Modalidades2() {
     const navigate = useNavigate();
     const careerId = sessionStorage.getItem('careerId');
     const situacionId = sessionStorage.getItem('situacionId');
-    const goBack = () => navigate('/modalidades');
     const [selected, setSelected] = useState(null);
     const [showPension, setShowPension] = useState(false);
     const [pensionForm, setPensionForm] = useState({
@@ -445,7 +444,6 @@ export function Modalidades2() {
     return (
         <div className="h-auto min-h-[10vh]">
             <div className="max-w-4xl mx-auto px-4">
-
 
                 {id === '1' && (
                     <>
