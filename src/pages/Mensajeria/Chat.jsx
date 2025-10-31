@@ -11,24 +11,24 @@ export default function ChatInicio() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(null);
   const [showPRI, setShowPRI] = useState(false);
-  const [pensionForm, setPensionForm] = useState({
-    codigo: '',
-    colegio: '',
-    departamento: '',
-    provincia: '',
-    distrito: '',
-    sameSchool: 'si',
-    basePension: '',
-    years: '1',
-    annualIncrease: '6'
-  });
+  // const [pensionForm, setPensionForm] = useState({
+  //   codigo: '',
+  //   colegio: '',
+  //   departamento: '',
+  //   provincia: '',
+  //   distrito: '',
+  //   sameSchool: 'si',
+  //   basePension: '',
+  //   years: '1',
+  //   annualIncrease: '6'
+  // });
   // const [simulationResult, setSimulationResult] = useState(null);
   const [generateReceipt, setGenerateReceipt] = useState(null);
   const [modalidadReceipt, setModalidadReceipt] = useState(null);
 
-  const handlePensionChange = (field, value) => {
-    setPensionForm(prev => ({ ...prev, [field]: value }));
-  };
+  // const handlePensionChange = (field, value) => {
+  //   setPensionForm(prev => ({ ...prev, [field]: value }));
+  // };
 
   // Preserve scroll: when user clicks CONTINUAR we save the current scroll
   // and after the pension panel renders we restore it to avoid jumping to top.
@@ -48,7 +48,6 @@ export default function ChatInicio() {
   //   setSimulationResult({ projected: value.toFixed(2), years });
   // };
 
-  const onClick = '';
   // Helper small UI pieces
   const Section = ({ title, children }) => (
     <div className="max-w-3xl mx-auto my-8 text-left">
@@ -542,33 +541,33 @@ export default function ChatInicio() {
                                           </p>
                                         </Section>
                                       )}
-                                      {!situacion && selected &&(
-                                        <div className="text-center py-8">
-                                          <p className="text-lg">No se recibió una modalidad. Seleccione una modalidad en la sección anterior.</p>
-                                          <div className="mt-6 flex justify-center">
-                                            <Button1 nombre="Ir a Modalidades" onClick={() => navigate('/modalidades')} />
-                                          </div>
-                                        </div>
-                                      )}
-                                      {situacion && selected &&(
-                                        <div className="text-center py-8">
-                                          <h1 className="text-3xl font-bold text-center text-red-700 mb-6">9. PREGUNTAR SI NECESITA ALGO ADICIONAL</h1>
-                                          <h1 className="text-lg font-bold text-center">PREGUNTA</h1>
-                                          <h1 className='text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
-                                          <h1 className="text-lg ">Desea saber algo adicional?</h1>
-                                          <div className="mt-6 flex justify-center gap-6">
-                                            <Button1 nombre="PENSIÓN" onClick={() => setShowPRI('pension')} colorC={`${showPRI === 'pension' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
-                                            <Button1 nombre="GENERAR RECIBO" onClick={() => setShowPRI('recibo')} colorC={`${showPRI === 'recibo' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
-                                            {selectedCareerId === 3 && (
-                                              <Button1 nombre="INSCRIBIRSE" onClick={() => setShowPRI('inscripcion')} colorC={`${showPRI === 'inscripcion' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
-                                            )}
-                                          </div>
-                                        </div>
-                                      )}
                                     </>
 
                                   )}
 
+                                  {!situacion && selected && (
+                                    <div className="text-center py-8">
+                                      <p className="text-lg">No se recibió una modalidad. Seleccione una modalidad en la sección anterior.</p>
+                                      <div className="mt-6 flex justify-center">
+                                        <Button1 nombre="Ir a Modalidades" onClick={() => navigate('/modalidades')} />
+                                      </div>
+                                    </div>
+                                  )}
+                                  {selected && (
+                                    <div className="text-center py-8">
+                                      <h1 className="text-3xl font-bold text-center text-red-700 mb-6">9. PREGUNTAR SI NECESITA ALGO ADICIONAL</h1>
+                                      <h1 className="text-lg font-bold text-center">PREGUNTA</h1>
+                                      <h1 className='text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
+                                      <h1 className="text-lg ">Desea saber algo adicional?</h1>
+                                      <div className="mt-6 flex justify-center gap-6">
+                                        <Button1 nombre="PENSIÓN" onClick={() => setShowPRI('pension')} colorC={`${showPRI === 'pension' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
+                                        <Button1 nombre="GENERAR RECIBO" onClick={() => setShowPRI('recibo')} colorC={`${showPRI === 'recibo' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
+                                        {selectedCareerId === 3 && (
+                                          <Button1 nombre="INSCRIBIRSE" onClick={() => setShowPRI('inscripcion')} colorC={`${showPRI === 'inscripcion' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
+                                        )}
+                                      </div>
+                                    </div>
+                                  )}
 
                                 </div>
                                 {/* PENSION: form + simulator + beneficios */}
@@ -860,10 +859,49 @@ export default function ChatInicio() {
                                     )}
                                   </div>
                                 )}
+                                {showPRI === 'inscripcion' && (
+                                  <div className='mt-10'>
+                                    <h1 className="text-center text-2xl font-bold mb-3 text-red-700">INSCRIBIRSE</h1>
+                                    <p>
+                                      PASOS DE INSCRIPCIÓN Y ENVIO DE DOCUMENTOS ¡Listo para iniciar tu inscripción la USMP!
+                                    </p>
+                                    <p>
+                                      <strong>GENERAR TU RECIBO:</strong> en el siguiente link:
+                                    </p>
+                                    <a className='text-blue-700' href="https://preinscripcion.usmp.edu.pe/Preinscripcion/GenerarRecibo.aspx">
+                                      https://preinscripcion.usmp.edu.pe/Preinscripcion/GenerarRecibo.aspx
+                                    </a>
+                                    <p>
+                                      <strong>REALIZA EL PAGO:</strong> Realiza el pago en bancos, agentes, banca móvil y yape (en PAGO
+                                      DE SERVICIOS {'>>'} USMP {'>>'} CÓDIGO "DNI del postulante"), luego continua con el
+                                      siguiente paso.
+                                    </p>
+                                    <p>
+                                      <strong>REGISTRA TUS DATOS:</strong> Completa todos tus datos correctamente, en el siguiente
+                                      enlace:
+                                    </p>
+                                    <a className='text-blue-700' href="https://preinscripcion.usmp.edu.pe/Preinscripcion/Acceso.aspx">
+                                      https://preinscripcion.usmp.edu.pe/Preinscripcion/Acceso.aspx
+                                    </a>
+                                    <p>
+                                      Recuerda que el número de recibo inicia con 001000.. y se encuentra en el recibo
+                                      generado en el paso 1.
+                                    </p>
+                                    <p>
+                                      <strong>DESCARGA E IMPRIME:</strong> Descarga la Declaración Jurada e Instrucciones. Revisa
+                                      bien, ¡son clave!
+                                    </p>
+                                    <p>
+                                      <strong>FINALIZA TU INSCRIPCIÓN: </strong>Envía tus documentos (requisitos) y foto al correo
+                                      indicado en tu declaración jurada.
+                                      ¡Recuerda! Las declaraciones juradas se generan automáticamente al finalizar el
+                                      paso 3.
+                                    </p>
+                                  </div>
+                                )}
                               </div >
                             </div>
                           )}
-
                         </div>
                         {pregunta5 === 'si' && (
                           <Button1 nombre="Finalizar" onClick={inicio} />
