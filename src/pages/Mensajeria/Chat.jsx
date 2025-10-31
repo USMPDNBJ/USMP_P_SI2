@@ -560,10 +560,10 @@ export default function ChatInicio() {
                                       <h1 className='text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
                                       <h1 className="text-lg ">Desea saber algo adicional?</h1>
                                       <div className="mt-6 flex justify-center gap-6">
-                                        <Button1 nombre="PENSIÓN" onClick={() => setShowPRI('pension')} colorC={`${showPRI === 'pension' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
-                                        <Button1 nombre="GENERAR RECIBO" onClick={() => setShowPRI('recibo')} colorC={`${showPRI === 'recibo' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
+                                        <Button1 nombre="PENSIÓN" onClick={() => setShowPRI('pension')} colorC={`${showPRI === 'pension' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
+                                        <Button1 nombre="GENERAR RECIBO" onClick={() => setShowPRI('recibo')} colorC={`${showPRI === 'recibo' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
                                         {selectedCareerId === 3 && (
-                                          <Button1 nombre="INSCRIBIRSE" onClick={() => setShowPRI('inscripcion')} colorC={`${showPRI === 'inscripcion' ? 'bg-red-700 text-white' : 'bg-white text-neutral-800'}`} />
+                                          <Button1 nombre="INSCRIBIRSE" onClick={() => setShowPRI('inscripcion')} colorC={`${showPRI === 'inscripcion' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
                                         )}
                                       </div>
                                     </div>
