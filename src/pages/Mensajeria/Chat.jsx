@@ -565,6 +565,7 @@ export default function ChatInicio() {
                                         {selectedCareerId === 3 && (
                                           <Button1 nombre="INSCRIBIRSE" onClick={() => setShowPRI('inscripcion')} colorC={`${showPRI === 'inscripcion' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
                                         )}
+                                        <Button1 nombre="NO" onClick={() => setShowPRI('no')} colorC={`${showPRI === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
                                       </div>
                                     </div>
                                   )}
@@ -896,6 +897,36 @@ export default function ChatInicio() {
                                       indicado en tu declaración jurada.
                                       ¡Recuerda! Las declaraciones juradas se generan automáticamente al finalizar el
                                       paso 3.
+                                    </p>
+                                  </div>
+                                )}
+                                {showPRI === 'no' && (
+                                  <div className='mt-10'>
+
+                                    <h1 className='text-3xl font-bold text-red-700 mb-6 text-center'>MENSAJES DE DESPEDIDA</h1>
+
+                                    <p>
+                                      <strong>OPCION 1: </strong>
+                                    </p>
+                                    <p>
+                                      Gracias por comunicarte con la Universidad de San Martín de Porres . ¡Que tengas
+                                      un excelente día!
+                                    </p>
+                                    <p className='mt-5'>
+                                      <strong>OPCION 2: </strong>
+                                    </p>
+                                    <p >
+                                      Muchas gracias por su tiempo, si tiene alguna consulta o duda, me indicas por este
+                                      medio para poder ayudarte. Gracias por comunicarte con la Universidad de San Martín
+                                      de Porres
+                                    </p>
+                                    <p className='mt-5'>
+                                      <strong>OPCIONAL: Si te indica el usuario, gracias por la información.</strong>
+                                    </p>
+                                    <p >Podemos responder:
+                                      Igualmente, para usted, muchas gracias por su tiempo, de igual manera si tiene alguna
+                                      consulta o duda, me indicas por este medio. Gracias por comunicarte con la Universidad
+                                      de San Martín de Porres
                                     </p>
                                   </div>
                                 )}
