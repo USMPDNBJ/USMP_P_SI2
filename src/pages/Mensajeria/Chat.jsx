@@ -142,7 +142,7 @@ export default function ChatInicio() {
                     <h2 className="font-bold text-gray-800 mb-6">MENSAJE</h2>
                     {emisor === 'asesor' && (
                       <div>
-                        <p className="text-gray-600 mb-6">
+                        <p className="text-gray-600 mb-6 ">
                           ¡Hola! 👋🏻😉 somos de la USMP, me comunicó contigo porque te has inscrito anteriormente cuando hemos visitado tu colegio. <br /> Si quieres saber más, bríndanos el consentimiento para usar tus datos. Puedes ver las
                           condiciones aquí: <a href="https://usmp.edu.pe/politicas-de-privacidad/" className="text-blue-600 hover:underline">Políticas de Privacidad</a>
                         </p>
@@ -290,7 +290,7 @@ export default function ChatInicio() {
                         <h1 className="text-3xl text-center font-bold text-red-700 mb-6">
                           6. PREGUNTAR SI ESTÁ EN 5TO O ES EGRESADO
                         </h1>
-                        <p className='font-bold text-2xl my-5'>PREGUNTA</p>
+                        <p className='font-bold text-xl my-5'>PREGUNTA</p>
                         <div className="max-w-3xl w-full px-4 my-5">
                           <p className="text-xl text-gray-600 text-center">
                             ¿Te encuentras cursando 5to de secundaria o ya terminaste el colegio?
@@ -310,7 +310,7 @@ export default function ChatInicio() {
                           <h1 className="text-3xl text-center font-bold text-red-700 mb-10">
                             7. SOLICITUD DE LLAMADA
                           </h1>
-                          <p className='font-bold text-2xl my-5 text-center'>
+                          <p className='font-bold text-xl my-5 text-center'>
                             PREGUNTA
                           </p>
                           <p className="text-xl text-gray-600 mb-10 text-center">
@@ -358,10 +358,10 @@ export default function ChatInicio() {
 
                                   {situacion === '5to' && (
                                     <>
-                                      <h1 className="text-3xl font-bold text-center text-red-700 mb-6">8. AVERIGUAR MODALIDAD DE INGRESO</h1>
+                                      <h1 className="text-3xl font-bold text-center text-red-700 mb-6 mt-5">8. AVERIGUAR MODALIDAD DE INGRESO</h1>
                                       <h1 className='font-bold text-gray-400 text-center text-2xl'>ESTÁ EN 5TO DE SECUNDARIA</h1>
                                       <h1 className='font-bold text-center text-xl mt-5'>PREGUNTA</h1>
-                                      <p className='text-xl'>¡Genial! Para poder orientarte mejor, ¿me puedes indicar en qué colegio estudias y en qué distrito se encuentra tu colegio?</p>
+                                      <p className='text-xl mt-5'>¡Genial! Para poder orientarte mejor, ¿me puedes indicar en qué colegio estudias y en qué distrito se encuentra tu colegio?</p>
                                       <p className='text-gray-400 text-center text-xl'>(Esperar respuesta del usuario)</p>
 
                                       <div className="flex gap-3 my-6">
@@ -556,9 +556,9 @@ export default function ChatInicio() {
                                   {selected && (
                                     <div className="text-center py-8">
                                       <h1 className="text-3xl font-bold text-center text-red-700 mb-6">9. PREGUNTAR SI NECESITA ALGO ADICIONAL</h1>
-                                      <h1 className="text-lg font-bold text-center">PREGUNTA</h1>
-                                      <h1 className='text-center mt-5'>¿Por el momento todo claro con la información brindada para continuar?</h1>
-                                      <h1 className="text-lg ">Desea saber algo adicional?</h1>
+                                      <h1 className="text-xl font-bold text-center">PREGUNTA</h1>
+                                      <h1 className='text-center mt-5 text-xl'>¿Por el momento todo claro con la información brindada para continuar?</h1>
+                                      <h1 className='text-xl'>¿Desea saber algo adicional?</h1>
                                       <div className="mt-6 flex justify-center gap-6">
                                         <Button1 nombre="PENSIÓN" onClick={() => setShowPRI('pension')} colorC={`${showPRI === 'pension' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
                                         <Button1 nombre="GENERAR RECIBO" onClick={() => setShowPRI('recibo')} colorC={`${showPRI === 'recibo' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
@@ -573,8 +573,8 @@ export default function ChatInicio() {
                                 </div>
                                 {/* PENSION: form + simulator + beneficios */}
                                 {showPRI === 'pension' && (
-                                  <div>
-                                    <div className="max-w-4xl mx-auto my-8 bg-gray-50 p-6 rounded-lg">
+                                  <div >
+                                    <div className="max-w-4xl mx-auto my-5 p-6 rounded-lg">
                                       <h1 className="text-center text-2xl font-bold mb-3 text-red-700">PENSIÓN</h1>
                                       {/* <h3 className="text-lg font-semibold mt-4">SIMULADOR PENSIÓN APROXIMADA</h3>
                                         <p className="mb-2">Por favor, completa los siguientes datos:</p>
@@ -655,30 +655,6 @@ export default function ChatInicio() {
 
                                     </div>
                                     <div>
-                                      {(generateReceipt === 'no' || (generateReceipt === 'si' && selected !== 'primera') || (selected === 'primera' && modalidadReceipt)) && (
-                                        <div className="mb-5 mt-6 max-w-3xl mx-auto bg-white p-4 rounded shadow">
-                                          <h2 className="text-xl font-bold mb-2">MENSAJES DE DESPEDIDA</h2>
-                                          <p className='mb-4'>
-                                            <h3 className='font-bold'>OPCION 1</h3>
-                                            Gracias por comunicarte con la Universidad de San Martín de Porres . ¡Que tengas
-                                            un excelente día!
-                                            <h3 className='font-bold mt-3'>OPCION 2</h3>
-                                            Muchas gracias por su tiempo, si tiene alguna consulta o duda, me indicas por este
-                                            medio para poder ayudarte. Gracias por comunicarte con la Universidad de San Martín
-                                            de Porres
-                                          </p>
-                                          <h3 className="text-xl font-bold mb-2">OPCIONAL</h3>
-                                          <p>
-                                            Si te indica el usuario, gracias por la información. Podemos responder:
-                                            Igualmente, para usted, muchas gracias por su tiempo, de igual manera si tiene alguna
-                                            consulta o duda, me indicas por este medio. Gracias por comunicarte con la Universidad
-                                            de San Martín de Porres
-                                          </p>
-                                          <div className="flex justify-center mt-3">
-                                            <Button1 nombre={'Finalizar'} onClick={() => navigate('/')}></Button1>
-                                          </div>
-                                        </div>
-                                      )}
                                     </div>
                                   </div>
                                 )
@@ -688,7 +664,7 @@ export default function ChatInicio() {
                                   <div className="mb-5 mt-6 max-w-3xl mx-auto bg-white p-4 rounded shadow">
                                     <h1 className="text-center text-2xl font-bold mb-3 text-red-700">GENERAR RECIBO</h1>
                                     <h1 className='text-xl font-bold text-center'>MENSAJE</h1>
-                                    <p className=' mt-1'>¡Qué buena noticia saber que estás interesado en estudiar con nosotros en la USMP!</p>
+                                    <p className='text-mb mt-1'>¡Qué buena noticia saber que estás interesado en estudiar con nosotros en la USMP!</p>
                                     <p>Y que ya deseas rendir tu examen digital de admisión</p>
                                     <p>Para poder generarte tu recibo, solo necesito que me envíes los siguientes datos:</p>
                                     <p className='mb-2'>
@@ -861,24 +837,24 @@ export default function ChatInicio() {
                                   </div>
                                 )}
                                 {showPRI === 'inscripcion' && (
-                                  <div className='mt-10'>
+                                  <div className='mt-10 '>
                                     <h1 className="text-center text-2xl font-bold mb-3 text-red-700">INSCRIBIRSE</h1>
                                     <p>
-                                      PASOS DE INSCRIPCIÓN Y ENVIO DE DOCUMENTOS ¡Listo para iniciar tu inscripción la USMP!
+                                      <strong>PASOS DE INSCRIPCIÓN Y ENVIO DE DOCUMENTOS </strong><br />¡Listo para iniciar tu inscripción la USMP!
                                     </p>
                                     <p>
-                                      <strong>GENERAR TU RECIBO:</strong> en el siguiente link:
+                                      <strong>1. GENERAR TU RECIBO:</strong> en el siguiente link:
                                     </p>
                                     <a className='text-blue-700' href="https://preinscripcion.usmp.edu.pe/Preinscripcion/GenerarRecibo.aspx">
                                       https://preinscripcion.usmp.edu.pe/Preinscripcion/GenerarRecibo.aspx
                                     </a>
                                     <p>
-                                      <strong>REALIZA EL PAGO:</strong> Realiza el pago en bancos, agentes, banca móvil y yape (en PAGO
+                                      <strong>2. REALIZA EL PAGO:</strong> Realiza el pago en bancos, agentes, banca móvil y yape (en PAGO
                                       DE SERVICIOS {'>>'} USMP {'>>'} CÓDIGO "DNI del postulante"), luego continua con el
                                       siguiente paso.
                                     </p>
                                     <p>
-                                      <strong>REGISTRA TUS DATOS:</strong> Completa todos tus datos correctamente, en el siguiente
+                                      <strong>3. REGISTRA TUS DATOS:</strong> Completa todos tus datos correctamente, en el siguiente
                                       enlace:
                                     </p>
                                     <a className='text-blue-700' href="https://preinscripcion.usmp.edu.pe/Preinscripcion/Acceso.aspx">
@@ -889,11 +865,11 @@ export default function ChatInicio() {
                                       generado en el paso 1.
                                     </p>
                                     <p>
-                                      <strong>DESCARGA E IMPRIME:</strong> Descarga la Declaración Jurada e Instrucciones. Revisa
+                                      <strong>4. DESCARGA E IMPRIME:</strong> Descarga la Declaración Jurada e Instrucciones. Revisa
                                       bien, ¡son clave!
                                     </p>
                                     <p>
-                                      <strong>FINALIZA TU INSCRIPCIÓN: </strong>Envía tus documentos (requisitos) y foto al correo
+                                      <strong>5. FINALIZA TU INSCRIPCIÓN: </strong>Envía tus documentos (requisitos) y foto al correo
                                       indicado en tu declaración jurada.
                                       ¡Recuerda! Las declaraciones juradas se generan automáticamente al finalizar el
                                       paso 3.
@@ -903,7 +879,7 @@ export default function ChatInicio() {
                                 {showPRI === 'no' && (
                                   <div className='mt-10'>
 
-                                    <h1 className='text-3xl font-bold text-red-700 mb-6 text-center'>MENSAJES DE DESPEDIDA</h1>
+                                    <h1 className='text-2xl font-bold text-red-700 mb-6 text-center'>MENSAJES DE DESPEDIDA</h1>
 
                                     <p>
                                       <strong>OPCION 1: </strong>
