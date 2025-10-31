@@ -9,7 +9,7 @@ export default function Button1({ colorC, nombre, onClick }) {
             onClick={onClick}
             className={`  
       bg-red-700
-      font-bold text-white rounded-2xl shadow-lg px-20 py-5 
+      font-bold text-white rounded-2xl shadow-lg px-10 py-3
       text-xl text-center 
       transform hover:scale-105 transition-all duration-300 
       hover:shadow-2xl active:scale-95 my-2 border border-gray ${colorC} 
