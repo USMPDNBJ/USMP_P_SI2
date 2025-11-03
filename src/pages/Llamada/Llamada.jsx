@@ -9,6 +9,7 @@ import PreguntasBasicas from '../../components/Preguntas';
 
 export default function LlamadaInicio() {
     const storageKey = 'careersList';
+    const listNum = [1, 2, 3, 4, 5];
     const storedList = useMemo(() => {
         const data = localStorage.getItem(storageKey);
         return data ? JSON.parse(data) : [];
@@ -244,7 +245,7 @@ export default function LlamadaInicio() {
                                 {protocolIn === 'SI' && (
 
                                     <div className="my-20 max-w-3xl w-full px-4 text-center">
-                                        <h1 className="text-3xl font-bold text-red-700 mb-6">4. COMUNICACIÓN PERMITIDA</h1>
+                                        <h1 className="text-3xl font-bold text-red-700 mb-6">3. COMUNICACIÓN PERMITIDA</h1>
                                         <section className='text-xl'>
                                             <h2 className=" font-bold text-gray-800 mb-6">MENSAJE</h2>
                                             <p className=" text-black mb-6">
@@ -312,7 +313,11 @@ export default function LlamadaInicio() {
                     {derivarAsesor === 'SI' && (
                         <div className='mt-5'>
                             <Opciones4x4
-                                title={"5. SELECCIONAR CARRERA UNIVERSITARIA"}
+                                title={
+                                    pregunta1 === 'asesor'
+                                        ? '5. SELECCIONAR CARRERA UNIVERSITARIA'
+                                        : '4. SELECCIONAR CARRERA UNIVERSITARIA'
+                                }
                                 storedList={JSON.stringify(storedList)} // pasa como string si el componente lo espera así
                                 selectedCareerId={selectedCareerId}
                                 onSelectCareer={setSelectedCareerId}
@@ -322,7 +327,12 @@ export default function LlamadaInicio() {
                             {selectedCareerId && selectedCareerData && (
                                 <div className=" bg-white flex flex-col items-center py-10">
                                     <h1 className="text-3xl text-center font-bold text-red-700 mb-6">
-                                        6. SALUDO DEL ASESOR Y FORTALEZAS DE LA CARRERA
+                                        {
+                                            pregunta1 === 'asesor'
+                                                ? '6. SALUDO DEL ASESOR Y FORTALEZAS DE LA CARRERA'
+                                                : '5. SALUDO DEL ASESOR Y FORTALEZAS DE LA CARRERA'
+                                        }
+
                                     </h1>
 
                                     <p className='font-bold text-2xl my-5'>SALUDO INICIAL</p>
@@ -379,14 +389,18 @@ export default function LlamadaInicio() {
                                 <div>
                                     <div className="bg-white flex flex-col items-center mb-10">
                                         <h1 className="text-3xl text-center font-bold text-red-700 mb-6">
-                                            7. PREGUNTAR SI ESTÁ EN 5TO O ES EGRESADO
+                                            {
+                                                pregunta1 === 'asesor'
+                                                    ? '7. PREGUNTAR SI ESTÁ EN 5TO O ES EGRESADO'
+                                                    : '6. PREGUNTAR SI ESTÁ EN 5TO O ES EGRESADO'
+                                            }
                                         </h1>
                                         <p className='font-bold text-xl my-5'>PREGUNTA</p>
                                         <div className="max-w-3xl w-full px-4 my-5">
                                             <p className="text-xl text-gray-600 text-center">
                                                 ¿Te encuentras cursando 5to de secundaria o ya terminaste el colegio?
+                                                <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
                                             </p>
-                                            <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
                                             <div className='flex justify-center gap-4 mt-5'>
                                                 <Button1 nombre="5to de Secundaria" onClick={() => setSituacion('5to')} colorC={`${situacion === '5to' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
                                                 <Button1 nombre="Terminó el Colegio" onClick={() => setSituacion('termino')} colorC={`${situacion === 'termino' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
@@ -398,276 +412,244 @@ export default function LlamadaInicio() {
                                     </div>
                                     <div className="bg-white flex flex-col items-center mb-10">
                                         <div className="max-w-3xl w-full px-4">
-                                            <h1 className="text-3xl text-center font-bold text-red-700 mb-10">
-                                                8. SOLICITUD DE LLAMADA
-                                            </h1>
-                                            <p className='font-bold text-xl my-5 text-center'>
-                                                PREGUNTA
-                                            </p>
-                                            <p className="text-xl text-gray-600 mb-10 text-center">
-                                                ¿Qué te parece si te llamo en unos minutos? Así te cuento todos los beneficios de
-                                                estudiar en nuestra universidad
-                                            </p>
-                                            <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
 
-                                            <p className='text-xl text-center text-gray-400'>
-                                                ¿Respondió que sí?
-                                            </p>
+                                            <div>
+                                                <div className="h-auto min-h-[10vh]">
+                                                    <div className="max-w-4xl mx-auto px-4">
 
-                                            <div className="flex justify-center gap-4">
-                                                <Button1 nombre="SI" onClick={() => setPregunta5('si')} colorC={`${pregunta5 === 'si' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
-                                                <Button1 nombre="NO" onClick={() => setPregunta5('no')} colorC={`${pregunta5 === 'no' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
-                                            </div>
+                                                        {situacion === '5to' && (
+                                                            <>
+                                                                <h1 className="text-3xl font-bold text-center text-red-700 mb-6 mt-5">
+                                                                    {
+                                                                        pregunta1 === 'asesor'
+                                                                            ? '8. AVERIGUAR MODALIDAD DE INGRESO'
+                                                                            : '7. AVERIGUAR MODALIDAD DE INGRESO'
+                                                                    }
+                                                                </h1>
+                                                                <h1 className='font-bold text-gray-400 text-center text-2xl'>ESTÁ EN 5TO DE SECUNDARIA</h1>
+                                                                <h1 className='font-bold text-center text-xl mt-5'>PREGUNTA</h1>
+                                                                <p className='text-xl mt-5'>¡Genial! Para poder orientarte mejor, ¿me puedes indicar en qué colegio estudias y en qué distrito se encuentra tu colegio?</p>
+                                                                <p className='text-gray-400 text-center text-xl'>(Esperar respuesta del usuario)</p>
 
-                                            {pregunta5 === 'si' && (
-                                                <div>
-                                                    <h1 className="text-3xl font-bold text-center text-red-700 mb-6">9. DERIVACIÓN TELEFÓNICA</h1>
-                                                    <p className='font-bold text-2xl my-5 text-center'>
-                                                        MENSAJE
-                                                    </p>
-                                                    <p className="text-xl text-gray-600 mb-6 my-5">
-                                                        ¡Perfecto! Me comunicaré contigo a través de nuestra central <br /> (01) 748 4747
-                                                    </p>
-                                                    <p className="text-xl text-gray-600 mb-6 my-5">
-                                                        Soy [Tu nombre], tu asesor de la Facultad de {selectedCareerData?.facultad || ''} de la USMP
-                                                    </p>
-                                                    <p className="text-xl text-gray-600 mb-6 my-5">
-                                                        Te dejo mi número {selectedCareerData?.celular || ''} para que lo puedas agendar, ya que por ese medio te
-                                                        brindaré toda la información y puedas enviar todos los documentos solicitados.
-                                                    </p>
-                                                    <p className="text-xl text-gray-600 mb-6 ">
-                                                        Ante cualquier duda o consulta, no dudes en escribirme <br />
-                                                        ¡Gracias por comunicarte con la Universidad de San Martín de Porres! <br />
-                                                    </p> <br />
-                                                    <br /><p className='text-gray-400 text-center'>(PROCEDES A CERRAR EL CHAT)</p>
-                                                </div>
-                                            )}
-                                            {pregunta5 === 'no' && (
-                                                <div>
-                                                    <div className="h-auto min-h-[10vh]">
-                                                        <div className="max-w-4xl mx-auto px-4">
-
-                                                            {situacion === '5to' && (
-                                                                <>
-                                                                    <h1 className="text-3xl font-bold text-center text-red-700 mb-6 mt-5">9. AVERIGUAR MODALIDAD DE INGRESO</h1>
-                                                                    <h1 className='font-bold text-gray-400 text-center text-2xl'>ESTÁ EN 5TO DE SECUNDARIA</h1>
-                                                                    <h1 className='font-bold text-center text-xl mt-5'>PREGUNTA</h1>
-                                                                    <p className='text-xl mt-5'>¡Genial! Para poder orientarte mejor, ¿me puedes indicar en qué colegio estudias y en qué distrito se encuentra tu colegio?</p>
-                                                                    <p className='text-gray-400 text-center text-xl'>(Esperar respuesta del usuario)</p>
-
-                                                                    <div className="flex gap-3 my-6">
-                                                                        <div
-                                                                            className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center ${selected === 'Aplica CEA' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
-                                                                                }`}
-                                                                            onClick={() => setSelected('Aplica CEA')}
-                                                                        >
-                                                                            <h3 className="text-lg font-semibold">Aplica CEA</h3>
-                                                                        </div>
-                                                                        <div
-                                                                            className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center ${selected === 'Aplica Primera Alternativa' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
-                                                                                }`}
-                                                                            onClick={() => setSelected('Aplica Primera Alternativa')}
-                                                                        >
-                                                                            <h3 className="text-lg font-semibold">Aplica Primera Alternativa</h3>
-                                                                        </div>
+                                                                <div className="flex gap-3 my-6">
+                                                                    <div
+                                                                        className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center ${selected === 'Aplica CEA' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
+                                                                            }`}
+                                                                        onClick={() => setSelected('Aplica CEA')}
+                                                                    >
+                                                                        <h3 className="text-lg font-semibold">Aplica CEA</h3>
                                                                     </div>
-                                                                    {selected === 'Aplica CEA' && (
-                                                                        <Section title="">
-                                                                            <h1 className='font-bold text-xl text-center'>MENSAJE CEA</h1>
-                                                                            <p>¡Perfecto! En tu caso, estarías ingresando por la modalidad <strong>CEA (Colegio de Excelencia Académica)</strong>.</p>
-                                                                            <p>✓ Esta modalidad es para estudiantes de 5.º de secundaria cuyos colegios han sido reconocidos por la USMP por su excelencia académica.</p>
-                                                                            <h1 className='font-bold text-xl'>CRONOGRAMA EXAMEN</h1>
-                                                                            {selectedCareerId !== 3 && (
-                                                                                < div >
-                                                                                    • Nuestro examen para estudiantes de 5.º año de secundaria inicia el 18 de agosto y
-                                                                                    va hasta el 23 de octubre. <br />
-                                                                                    • El examen tiene un costo de S/ 350, pero... ¡ contamos con cupos limitados para
-                                                                                    exonerarte del pago!
-                                                                                </div>)
-                                                                            }
-                                                                            <div>
-                                                                                • Rinde tu examen digital en la sede más cercana a tu hogar y da el primer paso hacia
-                                                                                tu futuro profesional.
-                                                                            </div>
-                                                                            {selectedCareerId === 3 && (
-                                                                                < div className=''>
-                                                                                    • Solo para la carrera de Medicina Humana el examen es el 25 de octubre presencial y
-                                                                                    se mantiene el costo de S/ 350.
-                                                                                </div>)
-                                                                            }
-                                                                            <div>
-                                                                                • Una vez admitid@, solo deberás reservar tu vacante con S/ 530, asegurando tu
-                                                                                ingreso para el ciclo 2026-I.
-                                                                            </div>
-                                                                            <div>
-                                                                                ¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
-                                                                            </div>
-
-
-                                                                        </Section>
-
-                                                                    )}
-                                                                    {selected === 'Aplica Primera Alternativa' && (
-                                                                        <Section title="">
-                                                                            <h1 className='font-bold text-xl text-center'>MENSAJE PRIMERA ALTERNATIVA</h1>
-                                                                            <p>¡Perfecto! En tu caso, ingresarías por la modalidad <strong>Primera Alternativa</strong>.</p>
-                                                                            <p>✓ Esta modalidad te permite asegurar tu ingreso a la USMP el mismo año en que concluyes la educación secundaria en un colegio escolarizado.</p>
-                                                                            <h1 className='font-bold text-xl'>CRONOGRAMA EXAMEN</h1>
-                                                                            {selectedCareerId !== 3 && (
-                                                                                < div >
-                                                                                    • Nuestro examen para estudiantes de 5.º año de secundaria inicia el 18 de agosto y
-                                                                                    va hasta el 23 de octubre. <br />
-                                                                                    • El examen tiene un costo de S/ 350, pero... ¡ contamos con cupos limitados para
-                                                                                    exonerarte del pago!
-                                                                                </div>)
-                                                                            }
-                                                                            <div>
-                                                                                • Rinde tu examen digital en la sede más cercana a tu hogar y da el primer paso hacia
-                                                                                tu futuro profesional.
-                                                                            </div>
-                                                                            {selectedCareerId === 3 && (
-                                                                                < div className='p-0'>
-                                                                                    • Solo para la carrera de Medicina Humana el examen es el 25 de octubre presencial y
-                                                                                    se mantiene el costo de S/ 350.
-                                                                                </div>)
-                                                                            }
-                                                                            <div>
-                                                                                • Una vez admitid@, solo deberás reservar tu vacante con S/ 530, asegurando tu
-                                                                                ingreso para el ciclo 2026-I.
-                                                                            </div>
-                                                                            <div>
-                                                                                ¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
-                                                                            </div>
-                                                                        </Section>
-                                                                    )}
-
-                                                                </>
-                                                            )}
-
-                                                            {situacion === 'termino' && (
-                                                                <>
-                                                                    <h1 className="text-3xl font-bold text-center text-red-700 mb-6">8. AVERIGUAR MODALIDAD DE INGRESO</h1>
-                                                                    <h1 className='text-2xl font-bold text-center text-gray-400'>TERMINÓ EL COLEGIO</h1>
-                                                                    <h1 className='text-xl font-bold text-center mt-5'>PREGUNTA</h1>
-                                                                    <p className='text-xl'>Cuéntame, ¿sería tu primera vez postulando a una universidad o ya estás estudiando otra carrera?</p>
-                                                                    <p className='text-gray-400 text-center text-xl'>(Esperar respuesta del usuario)</p>
-
-                                                                    <div className="flex gap-3 my-6">
-                                                                        <div
-                                                                            className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center 
-                                                                  ${selected === 'primera' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
-                                                                                }`}
-                                                                            onClick={() => setSelected('primera')}
-                                                                        >
-                                                                            <h3 className="text-lg font-semibold">Es primera vez</h3>
-                                                                        </div>
-                                                                        <div
-                                                                            className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center ${selected === 'otra' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
-                                                                                }`}
-                                                                            onClick={() => setSelected('otra')}
-                                                                        >
-                                                                            <h3 className="text-lg font-semibold">Estudia / terminó otra carrera</h3>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    {/* Sección dinámica: muestra contenido según la opción seleccionada sin redirigir */}
-                                                                    {selected === 'primera' && (
-                                                                        <Section title="">
-                                                                            <h1 className="text-xl font-bold text-center">MENSAJE SI ES PRIMERA VEZ</h1>
-                                                                            <p>Perfecto! En tu caso, como terminaste la secundaria completa, contamos con distintas modalidades de ingreso:</p>
-                                                                            <ul className="list-disc pl-5">
-                                                                                <li>
-                                                                                    <strong>Ordinario:</strong> Son para egresados del nivel secundario. <a className="text-blue-600 underline" href="https://admision.usmp.edu.pe/ordinario/" target="_blank" rel="noreferrer">https://admision.usmp.edu.pe/ordinario/</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <strong>Primeros Puestos:</strong> Para quienes ocuparon el 1.º o 2.º puesto desde 1.º hasta 5.º de secundaria (válido en su región). <a className="text-blue-600 underline" href="https://admision.usmp.edu.pe/primeros/primero_segundo/" target="_blank" rel="noreferrer">https://admision.usmp.edu.pe/primeros/primero_segundo/</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <strong>Tercio Superior:</strong> Para quienes culminaron el 5.º año ubicándose en el tercio superior, presentando una constancia firmada y sellada por el colegio. <a className="text-blue-600 underline" href="https://admision.usmp.edu.pe/primeros/tercio_superior/" target="_blank" rel="noreferrer">https://admision.usmp.edu.pe/primeros/tercio_superior/</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                            <p className="mt-3">Tener en cuenta que si indica el postulante que cree que está en tercio superior (USAR APLICATIVO DE PRONABEC Y PEDIR FOTO DE DNI)</p>
-                                                                            <h1 className="text-xl font-bold">CRONOGRAMA EXAMEN</h1>
-                                                                            <p>
-                                                                                {selectedCareerId !== 3 && (
-                                                                                    <div>
-                                                                                        • Nuestro examen para los que ya terminaron el colegio inicio el 1 de setiembre y va
-                                                                                        hasta el 11 de diciembre.
-                                                                                        <br />• Rinde tu examen digital en la sede más cercana a tu hogar y da el primer paso hacia
-                                                                                        tu futuro profesional.
-                                                                                        <br />• El examen tiene un costo de S/ 350, pero... ¡ contamos con cupos limitados para
-                                                                                        exonerarte del pago!
-                                                                                    </div>
-                                                                                )}
-                                                                                {selectedCareerId === 3 && (
-                                                                                    <div>
-                                                                                        • Solo para la carrera de Medicina Humana el examen es el 13 de diciembre presencial
-                                                                                        y se mantiene el costo de S/ 350.
-                                                                                    </div>
-                                                                                )}
-                                                                                • Una vez admitid@, solo deberás reservar tu vacante con S/ 530, asegurando tu
-                                                                                ingreso para el ciclo 2026-I.
-                                                                                <br />¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
-                                                                            </p>
-                                                                        </Section>
-                                                                    )}
-
-                                                                    {selected === 'otra' && (
-                                                                        <Section title="">
-                                                                            <h1 className="text-xl text-center font-bold">MENSAJE SI ESTUDIA/ TERMINÓ</h1>
-                                                                            <p>Contamos con las siguientes modalidades de Traslados, complementación, titulado o graduado, etc.</p>
-                                                                            <p className='text-gray-400 text-center'>(Usuario responde)</p>
-                                                                            <h1 className="text-xl font-bold">CRONOGRAMA EXAMEN</h1>
-                                                                            <p>
-                                                                                Inscripciones 1 de setiembre hasta el 10 de diciembre. <br />
-                                                                                🖥️Rinde tu examen presencial. <br />
-                                                                                🕒📍Horario y lugar: Indica en tu declaración jurada. ¡Léela con atención! <br />
-                                                                                💰El examen tiene un costo de S/ 350. <br />
-                                                                                ✅ Una vez admitid@, solo deberás reservar tu vacante con S/ 530, asegurando tu
-                                                                                ingreso para el ciclo 2026-I. <br />
-                                                                                🌟¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP! 💪🏼� <br />
-                                                                                ⚠ Importante: <br />
-                                                                                Recuerda llevar tu DNI físico al momento de rendir tu examen digital. <br />
-                                                                                Recuerda llevar tu DNI físico y Declaración Jurada impresa el día del examen. <br />
-                                                                            </p>
-                                                                        </Section>
-                                                                    )}
-                                                                </>
-
-                                                            )}
-
-                                                            {!situacion && selected && (
-                                                                <div className="text-center py-8">
-                                                                    <p className="text-lg">No se recibió una modalidad. Seleccione una modalidad en la sección anterior.</p>
-                                                                    <div className="mt-6 flex justify-center">
-                                                                        <Button1 nombre="Ir a Modalidades" onClick={() => navigate('/modalidades')} />
+                                                                    <div
+                                                                        className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center ${selected === 'Aplica Primera Alternativa' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
+                                                                            }`}
+                                                                        onClick={() => setSelected('Aplica Primera Alternativa')}
+                                                                    >
+                                                                        <h3 className="text-lg font-semibold">Aplica Primera Alternativa</h3>
                                                                     </div>
                                                                 </div>
-                                                            )}
-                                                            {selected && (
-                                                                <div className="text-center py-8">
-                                                                    <h1 className="text-3xl font-bold text-center text-red-700 mb-6">10. PREGUNTAR SI NECESITA ALGO ADICIONAL</h1>
-                                                                    <h1 className="text-xl font-bold text-center">PREGUNTA</h1>
-                                                                    <h1 className='text-center mt-5 text-xl'>¿Por el momento todo claro con la información brindada para continuar?</h1>
-                                                                    <h1 className='text-xl'>¿Desea saber algo adicional?</h1>
-                                                                    <div className="mt-6 flex justify-center gap-6">
-                                                                        <Button1 nombre="PENSIÓN" onClick={() => setShowPRI('pension')} colorC={`${showPRI === 'pension' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
-                                                                        <Button1 nombre="GENERAR RECIBO" onClick={() => setShowPRI('recibo')} colorC={`${showPRI === 'recibo' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
+                                                                {selected === 'Aplica CEA' && (
+                                                                    <Section title="">
+                                                                        <h1 className='font-bold text-xl text-center'>MENSAJE CEA</h1>
+                                                                        <p>¡Perfecto! En tu caso, estarías ingresando por la modalidad <strong>CEA (Colegio de Excelencia Académica)</strong>.</p>
+                                                                        <p>✓ Esta modalidad es para estudiantes de 5.º de secundaria cuyos colegios han sido reconocidos por la USMP por su excelencia académica.</p>
+                                                                        <h1 className='font-bold text-xl'>CRONOGRAMA EXAMEN</h1>
+                                                                        {selectedCareerId !== 3 && (
+                                                                            < div >
+                                                                                • Nuestro examen para estudiantes de 5.º año de secundaria inicia el 18 de agosto y
+                                                                                va hasta el 23 de octubre. <br />
+                                                                                • El examen tiene un costo de S/ 350, pero... ¡ contamos con cupos limitados para
+                                                                                exonerarte del pago!
+                                                                            </div>)
+                                                                        }
+                                                                        <div>
+                                                                            • Rinde tu examen digital en la sede más cercana a tu hogar y da el primer paso hacia
+                                                                            tu futuro profesional.
+                                                                        </div>
                                                                         {selectedCareerId === 3 && (
-                                                                            <Button1 nombre="INSCRIBIRSE" onClick={() => setShowPRI('inscripcion')} colorC={`${showPRI === 'inscripcion' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
-                                                                        )}
-                                                                        <Button1 nombre="NO" onClick={() => setShowPRI('no')} colorC={`${showPRI === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
+                                                                            < div className=''>
+                                                                                • Solo para la carrera de Medicina Humana el examen es el 25 de octubre presencial y
+                                                                                se mantiene el costo de S/ 350.
+                                                                            </div>)
+                                                                        }
+                                                                        <div>
+                                                                            • Una vez admitid@, solo deberás reservar tu vacante con S/ 530, asegurando tu
+                                                                            ingreso para el ciclo 2026-I.
+                                                                        </div>
+                                                                        <div>
+                                                                            ¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
+                                                                        </div>
+
+
+                                                                    </Section>
+
+                                                                )}
+                                                                {selected === 'Aplica Primera Alternativa' && (
+                                                                    <Section title="">
+                                                                        <h1 className='font-bold text-xl text-center'>MENSAJE PRIMERA ALTERNATIVA</h1>
+                                                                        <p>¡Perfecto! En tu caso, ingresarías por la modalidad <strong>Primera Alternativa</strong>.</p>
+                                                                        <p>✓ Esta modalidad te permite asegurar tu ingreso a la USMP el mismo año en que concluyes la educación secundaria en un colegio escolarizado.</p>
+                                                                        <h1 className='font-bold text-xl'>CRONOGRAMA EXAMEN</h1>
+                                                                        {selectedCareerId !== 3 && (
+                                                                            < div >
+                                                                                • Nuestro examen para estudiantes de 5.º año de secundaria inicia el 18 de agosto y
+                                                                                va hasta el 23 de octubre. <br />
+                                                                                • El examen tiene un costo de S/ 350, pero... ¡ contamos con cupos limitados para
+                                                                                exonerarte del pago!
+                                                                            </div>)
+                                                                        }
+                                                                        <div>
+                                                                            • Rinde tu examen digital en la sede más cercana a tu hogar y da el primer paso hacia
+                                                                            tu futuro profesional.
+                                                                        </div>
+                                                                        {selectedCareerId === 3 && (
+                                                                            < div className='p-0'>
+                                                                                • Solo para la carrera de Medicina Humana el examen es el 25 de octubre presencial y
+                                                                                se mantiene el costo de S/ 350.
+                                                                            </div>)
+                                                                        }
+                                                                        <div>
+                                                                            • Una vez admitid@, solo deberás reservar tu vacante con S/ 530, asegurando tu
+                                                                            ingreso para el ciclo 2026-I.
+                                                                        </div>
+                                                                        <div>
+                                                                            ¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
+                                                                        </div>
+                                                                    </Section>
+                                                                )}
+
+                                                            </>
+                                                        )}
+
+                                                        {situacion === 'termino' && (
+                                                            <>
+                                                                <h1 className="text-3xl font-bold text-center text-red-700 mb-6">8. AVERIGUAR MODALIDAD DE INGRESO</h1>
+                                                                <h1 className='text-2xl font-bold text-center text-gray-400'>TERMINÓ EL COLEGIO</h1>
+                                                                <h1 className='text-xl font-bold text-center mt-5'>PREGUNTA</h1>
+                                                                <p className='text-xl'>Cuéntame, ¿sería tu primera vez postulando a una universidad o ya estás estudiando otra carrera?</p>
+                                                                <p className='text-gray-400 text-center text-xl'>(Esperar respuesta del usuario)</p>
+
+                                                                <div className="flex gap-3 my-6">
+                                                                    <div
+                                                                        className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center 
+                                                                  ${selected === 'primera' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
+                                                                            }`}
+                                                                        onClick={() => setSelected('primera')}
+                                                                    >
+                                                                        <h3 className="text-lg font-semibold">Es primera vez</h3>
+                                                                    </div>
+                                                                    <div
+                                                                        className={`p-4 border border-gray-200 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition w-1/2 text-center ${selected === 'otra' ? 'bg-red-700 text-white' : 'bg-white text-gray-800'
+                                                                            }`}
+                                                                        onClick={() => setSelected('otra')}
+                                                                    >
+                                                                        <h3 className="text-lg font-semibold">Estudia / terminó otra carrera</h3>
                                                                     </div>
                                                                 </div>
-                                                            )}
 
-                                                        </div>
-                                                        {/* PENSION: form + simulator + beneficios */}
-                                                        {showPRI === 'pension' && (
-                                                            <div >
-                                                                <div className="max-w-4xl mx-auto my-5 p-6 rounded-lg">
-                                                                    <h1 className="text-center text-2xl font-bold mb-3 text-red-700">PENSIÓN</h1>
-                                                                    {/* <h3 className="text-lg font-semibold mt-4">SIMULADOR PENSIÓN APROXIMADA</h3>
+                                                                {/* Sección dinámica: muestra contenido según la opción seleccionada sin redirigir */}
+                                                                {selected === 'primera' && (
+                                                                    <Section title="">
+                                                                        <h1 className="text-xl font-bold text-center">MENSAJE SI ES PRIMERA VEZ</h1>
+                                                                        <p>Perfecto! En tu caso, como terminaste la secundaria completa, contamos con distintas modalidades de ingreso:</p>
+                                                                        <ul className="list-disc pl-5">
+                                                                            <li>
+                                                                                <strong>Ordinario:</strong> Son para egresados del nivel secundario. <a className="text-blue-600 underline" href="https://admision.usmp.edu.pe/ordinario/" target="_blank" rel="noreferrer">https://admision.usmp.edu.pe/ordinario/</a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <strong>Primeros Puestos:</strong> Para quienes ocuparon el 1.º o 2.º puesto desde 1.º hasta 5.º de secundaria (válido en su región). <a className="text-blue-600 underline" href="https://admision.usmp.edu.pe/primeros/primero_segundo/" target="_blank" rel="noreferrer">https://admision.usmp.edu.pe/primeros/primero_segundo/</a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <strong>Tercio Superior:</strong> Para quienes culminaron el 5.º año ubicándose en el tercio superior, presentando una constancia firmada y sellada por el colegio. <a className="text-blue-600 underline" href="https://admision.usmp.edu.pe/primeros/tercio_superior/" target="_blank" rel="noreferrer">https://admision.usmp.edu.pe/primeros/tercio_superior/</a>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <p className="mt-3">Tener en cuenta que si indica el postulante que cree que está en tercio superior (USAR APLICATIVO DE PRONABEC Y PEDIR FOTO DE DNI)</p>
+                                                                        <h1 className="text-xl font-bold">CRONOGRAMA EXAMEN</h1>
+                                                                        <p>
+                                                                            {selectedCareerId !== 3 && (
+                                                                                <div>
+                                                                                    • Nuestro examen para los que ya terminaron el colegio inicio el 1 de setiembre y va
+                                                                                    hasta el 11 de diciembre.
+                                                                                    <br />• Rinde tu examen digital en la sede más cercana a tu hogar y da el primer paso hacia
+                                                                                    tu futuro profesional.
+                                                                                    <br />• El examen tiene un costo de S/ 350, pero... ¡ contamos con cupos limitados para
+                                                                                    exonerarte del pago!
+                                                                                </div>
+                                                                            )}
+                                                                            {selectedCareerId === 3 && (
+                                                                                <div>
+                                                                                    • Solo para la carrera de Medicina Humana el examen es el 13 de diciembre presencial
+                                                                                    y se mantiene el costo de S/ 350.
+                                                                                </div>
+                                                                            )}
+                                                                            • Una vez admitid@, solo deberás reservar tu vacante con S/ 530, asegurando tu
+                                                                            ingreso para el ciclo 2026-I.
+                                                                            <br />¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP!
+                                                                        </p>
+                                                                    </Section>
+                                                                )}
+
+                                                                {selected === 'otra' && (
+                                                                    <Section title="">
+                                                                        <h1 className="text-xl text-center font-bold">MENSAJE SI ESTUDIA/ TERMINÓ</h1>
+                                                                        <p>Contamos con las siguientes modalidades de Traslados, complementación, titulado o graduado, etc.</p>
+                                                                        <p className='text-gray-400 text-center'>(Usuario responde)</p>
+                                                                        <h1 className="text-xl font-bold">CRONOGRAMA EXAMEN</h1>
+                                                                        <p>
+                                                                            Inscripciones 1 de setiembre hasta el 10 de diciembre. <br />
+                                                                            🖥️Rinde tu examen presencial. <br />
+                                                                            🕒📍Horario y lugar: Indica en tu declaración jurada. ¡Léela con atención! <br />
+                                                                            💰El examen tiene un costo de S/ 350. <br />
+                                                                            ✅ Una vez admitid@, solo deberás reservar tu vacante con S/ 530, asegurando tu
+                                                                            ingreso para el ciclo 2026-I. <br />
+                                                                            🌟¡No dejes pasar esta oportunidad de ser parte de la gran familia USMP! 💪🏼� <br />
+                                                                            ⚠ Importante: <br />
+                                                                            Recuerda llevar tu DNI físico al momento de rendir tu examen digital. <br />
+                                                                            Recuerda llevar tu DNI físico y Declaración Jurada impresa el día del examen. <br />
+                                                                        </p>
+                                                                    </Section>
+                                                                )}
+                                                            </>
+
+                                                        )}
+
+                                                        {!situacion && selected && (
+                                                            <div className="text-center py-8">
+                                                                <p className="text-lg">No se recibió una modalidad. Seleccione una modalidad en la sección anterior.</p>
+                                                                <div className="mt-6 flex justify-center">
+                                                                    <Button1 nombre="Ir a Modalidades" onClick={() => navigate('/modalidades')} />
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                        {selected && (
+                                                            <div className="text-center py-8">
+                                                                <h1 className="text-3xl font-bold text-center text-red-700 mb-6">
+                                                                    {
+                                                                        pregunta1 === 'asesor'
+                                                                            ? '9. PREGUNTAR SI NECESITA ALGO ADICIONAL'
+                                                                            : '8. PREGUNTAR SI NECESITA ALGO ADICIONAL'
+                                                                    }
+                                                                </h1>
+                                                                <h1 className="text-xl font-bold text-center">PREGUNTA</h1>
+                                                                <h1 className='text-center mt-5 text-xl'>¿Por el momento todo claro con la información brindada para continuar?</h1>
+                                                                <h1 className='text-xl'>¿Desea saber algo adicional?</h1>
+                                                                <div className="mt-6 flex justify-center gap-6">
+                                                                    <Button1 nombre="PENSIÓN" onClick={() => setShowPRI('pension')} colorC={`${showPRI === 'pension' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
+                                                                    <Button1 nombre="GENERAR RECIBO" onClick={() => setShowPRI('recibo')} colorC={`${showPRI === 'recibo' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
+                                                                    {selectedCareerId === 3 && (
+                                                                        <Button1 nombre="INSCRIBIRSE" onClick={() => setShowPRI('inscripcion')} colorC={`${showPRI === 'inscripcion' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
+                                                                    )}
+                                                                    <Button1 nombre="NO" onClick={() => setShowPRI('no')} colorC={`${showPRI === 'no' ? 'bg-red-700 text-white' : 'bg-white text-zinc-800'}`} />
+                                                                </div>
+                                                            </div>
+                                                        )}
+
+                                                    </div>
+                                                    {/* PENSION: form + simulator + beneficios */}
+                                                    {showPRI === 'pension' && (
+                                                        <div >
+                                                            <div className="max-w-4xl mx-auto my-5 p-6 rounded-lg">
+                                                                <h1 className="text-center text-2xl font-bold mb-3 text-red-700">PENSIÓN</h1>
+                                                                {/* <h3 className="text-lg font-semibold mt-4">SIMULADOR PENSIÓN APROXIMADA</h3>
                                         <p className="mb-2">Por favor, completa los siguientes datos:</p>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                           <div>
@@ -728,278 +710,277 @@ export default function LlamadaInicio() {
                                             )}
                                           </div>
                                         )} */}
-                                                                    <div>
-                                                                        <p className='font-bold'>Enlace de Simulador de Pensiones</p>
-                                                                        <a className='text-blue-700' target='_blank' href="https://preinscripcion.usmp.edu.pe/preinscripcion/Simulador.aspx">https://preinscripcion.usmp.edu.pe/preinscripcion/Simulador.aspx</a>
-                                                                    </div>
-                                                                    <div className="mt-6">
-                                                                        <h3 className="text-lg font-semibold">BENEFICIOS ECONÓMICOS</h3>
-                                                                        <ul className="list-disc pl-5 mt-2 text-gray-700">
-                                                                            <li>Padres o titular egresados de la USMP - <strong>BENEFICIO 10%</strong>.</li>
-                                                                            <li>Padres o titular de MININTER (PNP)-FAP-MGP-MINDEF.</li>
-                                                                            <li>Becas por rendimiento académico a partir del 2do ciclo de la carrera universitaria.</li>
-                                                                        </ul>
-                                                                        <p className="mt-3">✓ Cronograma por cada beneficio: <a className="text-blue-600 underline" href="https://usmp.edu.pe/categorizacion/" target="_blank" rel="noreferrer">https://usmp.edu.pe/categorizacion/</a></p>
-                                                                        <p>✓ Correo electrónico para consulta y asesoría: <strong>categorizacion@usmp.pe</strong></p>
-                                                                        <p>✓ Correo electrónico para envío de documentos para aplicar el beneficio: <strong>categorizacion_recepcion@usmp.pe</strong></p>
-                                                                    </div>
-
-                                                                </div>
                                                                 <div>
+                                                                    <p className='font-bold'>Enlace de Simulador de Pensiones</p>
+                                                                    <a className='text-blue-700' target='_blank' href="https://preinscripcion.usmp.edu.pe/preinscripcion/Simulador.aspx">https://preinscripcion.usmp.edu.pe/preinscripcion/Simulador.aspx</a>
                                                                 </div>
-                                                            </div>
-                                                        )
-                                                        }
+                                                                <div className="mt-6">
+                                                                    <h3 className="text-lg font-semibold">BENEFICIOS ECONÓMICOS</h3>
+                                                                    <ul className="list-disc pl-5 mt-2 text-gray-700">
+                                                                        <li>Padres o titular egresados de la USMP - <strong>BENEFICIO 10%</strong>.</li>
+                                                                        <li>Padres o titular de MININTER (PNP)-FAP-MGP-MINDEF.</li>
+                                                                        <li>Becas por rendimiento académico a partir del 2do ciclo de la carrera universitaria.</li>
+                                                                    </ul>
+                                                                    <p className="mt-3">✓ Cronograma por cada beneficio: <a className="text-blue-600 underline" href="https://usmp.edu.pe/categorizacion/" target="_blank" rel="noreferrer">https://usmp.edu.pe/categorizacion/</a></p>
+                                                                    <p>✓ Correo electrónico para consulta y asesoría: <strong>categorizacion@usmp.pe</strong></p>
+                                                                    <p>✓ Correo electrónico para envío de documentos para aplicar el beneficio: <strong>categorizacion_recepcion@usmp.pe</strong></p>
+                                                                </div>
 
-                                                        {showPRI === 'recibo' && (
-                                                            <div className="mb-5 mt-6 max-w-3xl mx-auto bg-white p-4 rounded shadow">
-                                                                <h1 className="text-center text-2xl font-bold mb-3 text-red-700">GENERAR RECIBO</h1>
-                                                                <h1 className='text-xl font-bold text-center'>MENSAJE</h1>
-                                                                <p className='text-mb mt-1'>¡Qué buena noticia saber que estás interesado en estudiar con nosotros en la USMP!</p>
-                                                                <p>Y que ya deseas rendir tu examen digital de admisión</p>
-                                                                <p>Para poder generarte tu recibo, solo necesito que me envíes los siguientes datos:</p>
-                                                                <p className='mb-2'>
-                                                                    − Foto de tu DNI (frontal y posterior) <br />
-                                                                    − Modalidad de ingreso:<br />
-                                                                    − Sede donde deseas estudiar: (Te detallo las opciones según tu carrera)<br />
-                                                                    − Correo Electrónico:<br />
-                                                                    − Celular:<br />
-                                                                </p>
-                                                                {selected === 'primera' && (
-                                                                    <div>
-                                                                        <h2 className="text-xl font-bold mb-2">SELECCIONE MODALIDAD DE INGRESO</h2>
-                                                                        <div className="grid grid-cols-3 md:grid-cols-3 gap-6 mb-4">
-                                                                            <Button1 nombre={'Ordinario'} onClick={() => setModalidadReceipt('Ordinario')}
-                                                                                colorC={
-                                                                                    `${modalidadReceipt === 'Ordinario' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'
-                                                                                    }`
-                                                                                }
-                                                                            />
-                                                                            <Button1 nombre={'Primeros Puestos'} onClick={() => setModalidadReceipt('Primeros Puestos')}
-                                                                                colorC={
-                                                                                    `${modalidadReceipt === 'Primeros Puestos' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'
-                                                                                    }`
-                                                                                }
-                                                                            />
-                                                                            <Button1 nombre={'Tercio Superior'} onClick={() => setModalidadReceipt('Tercio Superior')}
-                                                                                colorC={
-                                                                                    `${modalidadReceipt === 'Tercio Superior' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'
-                                                                                    }`
-                                                                                }
-                                                                            />
+                                                            </div>
+                                                            <div>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                    }
+
+                                                    {showPRI === 'recibo' && (
+                                                        <div className="mb-5 mt-6 max-w-3xl mx-auto bg-white p-4 rounded shadow">
+                                                            <h1 className="text-center text-2xl font-bold mb-3 text-red-700">GENERAR RECIBO</h1>
+                                                            <h1 className='text-xl font-bold text-center'>MENSAJE</h1>
+                                                            <p className='text-mb mt-1'>¡Qué buena noticia saber que estás interesado en estudiar con nosotros en la USMP!</p>
+                                                            <p>Y que ya deseas rendir tu examen digital de admisión</p>
+                                                            <p>Para poder generarte tu recibo, solo necesito que me envíes los siguientes datos:</p>
+                                                            <p className='mb-2'>
+                                                                − Foto de tu DNI (frontal y posterior) <br />
+                                                                − Modalidad de ingreso:<br />
+                                                                − Sede donde deseas estudiar: (Te detallo las opciones según tu carrera)<br />
+                                                                − Correo Electrónico:<br />
+                                                                − Celular:<br />
+                                                            </p>
+                                                            {selected === 'primera' && (
+                                                                <div>
+                                                                    <h2 className="text-xl font-bold mb-2">SELECCIONE MODALIDAD DE INGRESO</h2>
+                                                                    <div className="grid grid-cols-3 md:grid-cols-3 gap-6 mb-4">
+                                                                        <Button1 nombre={'Ordinario'} onClick={() => setModalidadReceipt('Ordinario')}
+                                                                            colorC={
+                                                                                `${modalidadReceipt === 'Ordinario' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'
+                                                                                }`
+                                                                            }
+                                                                        />
+                                                                        <Button1 nombre={'Primeros Puestos'} onClick={() => setModalidadReceipt('Primeros Puestos')}
+                                                                            colorC={
+                                                                                `${modalidadReceipt === 'Primeros Puestos' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'
+                                                                                }`
+                                                                            }
+                                                                        />
+                                                                        <Button1 nombre={'Tercio Superior'} onClick={() => setModalidadReceipt('Tercio Superior')}
+                                                                            colorC={
+                                                                                `${modalidadReceipt === 'Tercio Superior' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'
+                                                                                }`
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                    {modalidadReceipt === 'Ordinario' && (
+                                                                        <div>
+                                                                            <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
+                                                                                la modalidad ORDINARIO</h3>
+                                                                            <p className=' mt-1'>
+                                                                                Tienes que enviar un PDF con los siguientes documentos:
+                                                                                <br />1. Copia de DNI (ambos lados)
+                                                                                <br />2. Certificado Oficial de Estudios original o Constancia de
+                                                                                Logros de Aprendizaje de la secundaria completa
+                                                                                <br />3. La
+                                                                                Declaración Jurada de prevención de lavado de activos y financiamiento del
+                                                                                terrorismo.
+                                                                                <br />4. A parte la foto JPG con las
+                                                                                medidas especificadas en el documento de Instrucciones.
+                                                                                <br />5. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
+                                                                                asunto: Datos completos- DNI y Modalidad a la que está postulando.
+                                                                            </p>
+                                                                            <p>
+                                                                                <strong>PAGINA: </strong>
+                                                                                <br />
+                                                                                <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
+                                                                            </p>
                                                                         </div>
-                                                                        {modalidadReceipt === 'Ordinario' && (
-                                                                            <div>
-                                                                                <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
-                                                                                    la modalidad ORDINARIO</h3>
-                                                                                <p className=' mt-1'>
-                                                                                    Tienes que enviar un PDF con los siguientes documentos:
-                                                                                    <br />1. Copia de DNI (ambos lados)
-                                                                                    <br />2. Certificado Oficial de Estudios original o Constancia de
-                                                                                    Logros de Aprendizaje de la secundaria completa
-                                                                                    <br />3. La
-                                                                                    Declaración Jurada de prevención de lavado de activos y financiamiento del
-                                                                                    terrorismo.
-                                                                                    <br />4. A parte la foto JPG con las
-                                                                                    medidas especificadas en el documento de Instrucciones.
-                                                                                    <br />5. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
-                                                                                    asunto: Datos completos- DNI y Modalidad a la que está postulando.
-                                                                                </p>
-                                                                                <p>
-                                                                                    <strong>PAGINA: </strong>
-                                                                                    <br />
-                                                                                    <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
-                                                                                </p>
-                                                                            </div>
-                                                                        )
-                                                                        }
-                                                                        {modalidadReceipt === 'Primeros Puestos' && (
-                                                                            <div>
-                                                                                <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
-                                                                                    la modalidad PRIMEROS PUESTOS</h3>
-                                                                                <p className=' mt-1'>
-                                                                                    Tienes que enviar un PDF con los siguientes documentos:
-                                                                                    <br />1. Copia de DNI (ambos lados)
-                                                                                    <br />2. Certificado Oficial de Estudios original de los cinco años de
-                                                                                    estudios secundarios que acrediten haber aprobado todos los cursos,
-                                                                                    firmados y sellados por la Dirección del plantel y visado por la dependencia
-                                                                                    del Ministerio de Educación, en cuyo reverso conste el haber ocupado el
-                                                                                    primer o segundo puesto en el orden de mérito general de su promoción
-                                                                                    <br />3. La
-                                                                                    Declaración Jurada de prevención de lavado de activos y financiamiento del
-                                                                                    terrorismo.
-                                                                                    <br />4.  A parte la foto JPG con las medidas especificadas en el documento de
-                                                                                    Instrucciones.
-                                                                                    <br />5. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
-                                                                                    asunto: Datos completos- DNI y Modalidad a la que está postulando.
-                                                                                </p>
-                                                                                <p>
-                                                                                    <strong>PAGINA: </strong>
-                                                                                    <br />
-                                                                                    <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
-                                                                                </p>
-                                                                            </div>
-                                                                        )
-                                                                        }
-                                                                        {modalidadReceipt === 'Tercio Superior' && (
-                                                                            <div>
-                                                                                <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
-                                                                                    la modalidad TERCIO SUPERIOR</h3>
-                                                                                <p className=' mt-1'>
-                                                                                    Tienes que enviar un PDF con los siguientes documentos:
-                                                                                    <br />1. Copia de DNI (ambos lados)
-                                                                                    <br />2. , Certificado Oficial de Estudios original o Constancia de Logros
-                                                                                    de Aprendizaje de la secundaria completa
-                                                                                    <br />3. Constancia de tercio superior
-                                                                                    <br />4. la
-                                                                                    Declaración Jurada y la Declaración Jurada de prevención de lavado de
-                                                                                    activos y financiamiento del terrorismo.
-                                                                                    <br />5. A parte la foto JPG con las
-                                                                                    medidas especificadas en el documento de Instrucciones.
-                                                                                    <br />6. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
-                                                                                    asunto: Datos completos- DNI y Modalidad a la que está postulando.
-                                                                                </p>
-                                                                                <p>
-                                                                                    <strong>PAGINA: </strong>
-                                                                                    <br />
-                                                                                    <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
-                                                                                </p>
-                                                                            </div>
-                                                                        )
-                                                                        }
-                                                                    </div>
-                                                                )}
+                                                                    )
+                                                                    }
+                                                                    {modalidadReceipt === 'Primeros Puestos' && (
+                                                                        <div>
+                                                                            <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
+                                                                                la modalidad PRIMEROS PUESTOS</h3>
+                                                                            <p className=' mt-1'>
+                                                                                Tienes que enviar un PDF con los siguientes documentos:
+                                                                                <br />1. Copia de DNI (ambos lados)
+                                                                                <br />2. Certificado Oficial de Estudios original de los cinco años de
+                                                                                estudios secundarios que acrediten haber aprobado todos los cursos,
+                                                                                firmados y sellados por la Dirección del plantel y visado por la dependencia
+                                                                                del Ministerio de Educación, en cuyo reverso conste el haber ocupado el
+                                                                                primer o segundo puesto en el orden de mérito general de su promoción
+                                                                                <br />3. La
+                                                                                Declaración Jurada de prevención de lavado de activos y financiamiento del
+                                                                                terrorismo.
+                                                                                <br />4.  A parte la foto JPG con las medidas especificadas en el documento de
+                                                                                Instrucciones.
+                                                                                <br />5. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
+                                                                                asunto: Datos completos- DNI y Modalidad a la que está postulando.
+                                                                            </p>
+                                                                            <p>
+                                                                                <strong>PAGINA: </strong>
+                                                                                <br />
+                                                                                <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    )
+                                                                    }
+                                                                    {modalidadReceipt === 'Tercio Superior' && (
+                                                                        <div>
+                                                                            <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
+                                                                                la modalidad TERCIO SUPERIOR</h3>
+                                                                            <p className=' mt-1'>
+                                                                                Tienes que enviar un PDF con los siguientes documentos:
+                                                                                <br />1. Copia de DNI (ambos lados)
+                                                                                <br />2. , Certificado Oficial de Estudios original o Constancia de Logros
+                                                                                de Aprendizaje de la secundaria completa
+                                                                                <br />3. Constancia de tercio superior
+                                                                                <br />4. la
+                                                                                Declaración Jurada y la Declaración Jurada de prevención de lavado de
+                                                                                activos y financiamiento del terrorismo.
+                                                                                <br />5. A parte la foto JPG con las
+                                                                                medidas especificadas en el documento de Instrucciones.
+                                                                                <br />6. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
+                                                                                asunto: Datos completos- DNI y Modalidad a la que está postulando.
+                                                                            </p>
+                                                                            <p>
+                                                                                <strong>PAGINA: </strong>
+                                                                                <br />
+                                                                                <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    )
+                                                                    }
+                                                                </div>
+                                                            )}
 
-                                                                {selected === 'otra' && (
-                                                                    <div>
-                                                                        <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
-                                                                            la modalidad TRASLADO EXTERNO</h3>
-                                                                        <p className=' mt-1'>
-                                                                            Tienes que enviar un PDF con los siguientes documentos:
-                                                                            <br />1. Copia de DNI (ambos lados)
-                                                                            <br />2. Certificado de estudios originales que acrediten haber
-                                                                            aprobado por lo menos setenta y dos (72) créditos
-                                                                            <br />3. Constancia original de no
-                                                                            haber sido separado por medida disciplinaria de la universidad de
-                                                                            procedencia
-                                                                            <br />4. Declaración Jurada y Declaración Jurada de prevención de
-                                                                            lavado de activos y financiamiento del terrorismo.
-                                                                            <br />5. A parte la foto JPG con las
-                                                                            medidas especificadas en el documento de Instrucciones.
-                                                                            Lo envías al correo electrónico (CORREO DE LA FACULTAD), asunto: Datos
-                                                                            completos- DNI Y Modalidad a la que está postuland
-                                                                        </p>
-                                                                        <p>
-                                                                            <strong>Importante:</strong> Tener los sílabos de las asignaturas aprobadas firmada y sellada
-                                                                            por tu facultad de procedencia para que después de tus resultados como
-                                                                            ADMITIDO, tienes que enviar un correo electrónico para convalidación por
-                                                                            carrera a través del siguiente link:
-                                                                        </p>
-                                                                        <a className='text-blue-500' href="https://admision.usmp.edu.pe/wp-content/uploads/2025/06/Modalidades-Convalidacion-2025-II.pdf">https://admision.usmp.edu.pe/wp-content/uploads/2025/06/Modalidades-Convalidacion-2025-II.pdf</a>
-                                                                        <p>
-                                                                            <strong>PAGINA: </strong>
-                                                                            <br />
-                                                                            <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
-                                                                        </p>
-                                                                    </div>
-                                                                )}
-                                                                {(selected === 'Aplica CEA' || selected === 'Aplica Primera Alternativa') && (
-                                                                    <div>
-                                                                        <h3 className='font-bold'>Te indico los documentos que debes enviar</h3>
-                                                                        <p className=' mt-1'>
-                                                                            Tienes que enviar un PDF con los siguientes documentos:
-                                                                            <br />1. Copia de DNI (ambos lados)
-                                                                            <br />2. Constancia de Logros de Aprendizaje de 1° a 4° de secundaria emitido por MINEDU
-                                                                            <br />3. la Declaración Jurada y compromiso de Honor firmado
-                                                                            por el postulante y padre o apoderado donde se comprometen a entregar el
-                                                                            Certificado Oficial de Estudios original.
-                                                                            <br />4. A parte la foto JPG con las
-                                                                            medidas especificadas en el documento de Instrucciones.
-                                                                            <br />5. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
-                                                                            asunto: Datos completos- DNI y Modalidad a la que está postulando.
-                                                                        </p>
-                                                                        <p>
-                                                                            <strong>PAGINA: </strong>
-                                                                            <br />
-                                                                            <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
-                                                                        </p>
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        )}
-                                                        {showPRI === 'inscripcion' && (
-                                                            <div className='mt-10 '>
-                                                                <h1 className="text-center text-2xl font-bold mb-3 text-red-700">INSCRIBIRSE</h1>
-                                                                <p>
-                                                                    <strong>PASOS DE INSCRIPCIÓN Y ENVIO DE DOCUMENTOS </strong><br />¡Listo para iniciar tu inscripción la USMP!
-                                                                </p>
-                                                                <p>
-                                                                    <strong>1. GENERAR TU RECIBO:</strong> en el siguiente link:
-                                                                </p>
-                                                                <a className='text-blue-700' href="https://preinscripcion.usmp.edu.pe/Preinscripcion/GenerarRecibo.aspx">
-                                                                    https://preinscripcion.usmp.edu.pe/Preinscripcion/GenerarRecibo.aspx
-                                                                </a>
-                                                                <p>
-                                                                    <strong>2. REALIZA EL PAGO:</strong> Realiza el pago en bancos, agentes, banca móvil y yape (en PAGO
-                                                                    DE SERVICIOS {'>>'} USMP {'>>'} CÓDIGO "DNI del postulante"), luego continua con el
-                                                                    siguiente paso.
-                                                                </p>
-                                                                <p>
-                                                                    <strong>3. REGISTRA TUS DATOS:</strong> Completa todos tus datos correctamente, en el siguiente
-                                                                    enlace:
-                                                                </p>
-                                                                <a className='text-blue-700' href="https://preinscripcion.usmp.edu.pe/Preinscripcion/Acceso.aspx">
-                                                                    https://preinscripcion.usmp.edu.pe/Preinscripcion/Acceso.aspx
-                                                                </a>
-                                                                <p>
-                                                                    Recuerda que el número de recibo inicia con 001000.. y se encuentra en el recibo
-                                                                    generado en el paso 1.
-                                                                </p>
-                                                                <p>
-                                                                    <strong>4. DESCARGA E IMPRIME:</strong> Descarga la Declaración Jurada e Instrucciones. Revisa
-                                                                    bien, ¡son clave!
-                                                                </p>
-                                                                <p>
-                                                                    <strong>5. FINALIZA TU INSCRIPCIÓN: </strong>Envía tus documentos (requisitos) y foto al correo
-                                                                    indicado en tu declaración jurada.
-                                                                    ¡Recuerda! Las declaraciones juradas se generan automáticamente al finalizar el
-                                                                    paso 3.
-                                                                </p>
-                                                            </div>
-                                                        )}
-                                                        {showPRI === 'no' && (
-                                                            <div className='mt-10'>
+                                                            {selected === 'otra' && (
+                                                                <div>
+                                                                    <h3 className='font-bold'>Te indico los documentos que debes enviar para continuar con tu inscripción en
+                                                                        la modalidad TRASLADO EXTERNO</h3>
+                                                                    <p className=' mt-1'>
+                                                                        Tienes que enviar un PDF con los siguientes documentos:
+                                                                        <br />1. Copia de DNI (ambos lados)
+                                                                        <br />2. Certificado de estudios originales que acrediten haber
+                                                                        aprobado por lo menos setenta y dos (72) créditos
+                                                                        <br />3. Constancia original de no
+                                                                        haber sido separado por medida disciplinaria de la universidad de
+                                                                        procedencia
+                                                                        <br />4. Declaración Jurada y Declaración Jurada de prevención de
+                                                                        lavado de activos y financiamiento del terrorismo.
+                                                                        <br />5. A parte la foto JPG con las
+                                                                        medidas especificadas en el documento de Instrucciones.
+                                                                        Lo envías al correo electrónico (CORREO DE LA FACULTAD), asunto: Datos
+                                                                        completos- DNI Y Modalidad a la que está postuland
+                                                                    </p>
+                                                                    <p>
+                                                                        <strong>Importante:</strong> Tener los sílabos de las asignaturas aprobadas firmada y sellada
+                                                                        por tu facultad de procedencia para que después de tus resultados como
+                                                                        ADMITIDO, tienes que enviar un correo electrónico para convalidación por
+                                                                        carrera a través del siguiente link:
+                                                                    </p>
+                                                                    <a className='text-blue-500' href="https://admision.usmp.edu.pe/wp-content/uploads/2025/06/Modalidades-Convalidacion-2025-II.pdf">https://admision.usmp.edu.pe/wp-content/uploads/2025/06/Modalidades-Convalidacion-2025-II.pdf</a>
+                                                                    <p>
+                                                                        <strong>PAGINA: </strong>
+                                                                        <br />
+                                                                        <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
+                                                                    </p>
+                                                                </div>
+                                                            )}
+                                                            {(selected === 'Aplica CEA' || selected === 'Aplica Primera Alternativa') && (
+                                                                <div>
+                                                                    <h3 className='font-bold'>Te indico los documentos que debes enviar</h3>
+                                                                    <p className=' mt-1'>
+                                                                        Tienes que enviar un PDF con los siguientes documentos:
+                                                                        <br />1. Copia de DNI (ambos lados)
+                                                                        <br />2. Constancia de Logros de Aprendizaje de 1° a 4° de secundaria emitido por MINEDU
+                                                                        <br />3. la Declaración Jurada y compromiso de Honor firmado
+                                                                        por el postulante y padre o apoderado donde se comprometen a entregar el
+                                                                        Certificado Oficial de Estudios original.
+                                                                        <br />4. A parte la foto JPG con las
+                                                                        medidas especificadas en el documento de Instrucciones.
+                                                                        <br />5. Enviar los documentos al correo electrónico (CORREO DE LA FACULTAD),
+                                                                        asunto: Datos completos- DNI y Modalidad a la que está postulando.
+                                                                    </p>
+                                                                    <p>
+                                                                        <strong>PAGINA: </strong>
+                                                                        <br />
+                                                                        <a className='text-blue-500' href="https://admision.usmp.edu.pe/traslados/traslado_ex_n/">https://admision.usmp.edu.pe/traslados/traslado_ex_n/</a>
+                                                                    </p>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                    {showPRI === 'inscripcion' && (
+                                                        <div className='mt-10 '>
+                                                            <h1 className="text-center text-2xl font-bold mb-3 text-red-700">INSCRIBIRSE</h1>
+                                                            <p>
+                                                                <strong>PASOS DE INSCRIPCIÓN Y ENVIO DE DOCUMENTOS </strong><br />¡Listo para iniciar tu inscripción la USMP!
+                                                            </p>
+                                                            <p>
+                                                                <strong>1. GENERAR TU RECIBO:</strong> en el siguiente link:
+                                                            </p>
+                                                            <a className='text-blue-700' href="https://preinscripcion.usmp.edu.pe/Preinscripcion/GenerarRecibo.aspx">
+                                                                https://preinscripcion.usmp.edu.pe/Preinscripcion/GenerarRecibo.aspx
+                                                            </a>
+                                                            <p>
+                                                                <strong>2. REALIZA EL PAGO:</strong> Realiza el pago en bancos, agentes, banca móvil y yape (en PAGO
+                                                                DE SERVICIOS {'>>'} USMP {'>>'} CÓDIGO "DNI del postulante"), luego continua con el
+                                                                siguiente paso.
+                                                            </p>
+                                                            <p>
+                                                                <strong>3. REGISTRA TUS DATOS:</strong> Completa todos tus datos correctamente, en el siguiente
+                                                                enlace:
+                                                            </p>
+                                                            <a className='text-blue-700' href="https://preinscripcion.usmp.edu.pe/Preinscripcion/Acceso.aspx">
+                                                                https://preinscripcion.usmp.edu.pe/Preinscripcion/Acceso.aspx
+                                                            </a>
+                                                            <p>
+                                                                Recuerda que el número de recibo inicia con 001000.. y se encuentra en el recibo
+                                                                generado en el paso 1.
+                                                            </p>
+                                                            <p>
+                                                                <strong>4. DESCARGA E IMPRIME:</strong> Descarga la Declaración Jurada e Instrucciones. Revisa
+                                                                bien, ¡son clave!
+                                                            </p>
+                                                            <p>
+                                                                <strong>5. FINALIZA TU INSCRIPCIÓN: </strong>Envía tus documentos (requisitos) y foto al correo
+                                                                indicado en tu declaración jurada.
+                                                                ¡Recuerda! Las declaraciones juradas se generan automáticamente al finalizar el
+                                                                paso 3.
+                                                            </p>
+                                                        </div>
+                                                    )}
+                                                    {showPRI === 'no' && (
+                                                        <div className='mt-10'>
 
-                                                                <h1 className='text-2xl font-bold text-red-700 mb-6 text-center'>MENSAJES DE DESPEDIDA</h1>
+                                                            <h1 className='text-2xl font-bold text-red-700 mb-6 text-center'>MENSAJES DE DESPEDIDA</h1>
 
-                                                                <p>
-                                                                    <strong>OPCION 1: </strong>
-                                                                </p>
-                                                                <p>
-                                                                    Gracias por comunicarte con la Universidad de San Martín de Porres . ¡Que tengas
-                                                                    un excelente día!
-                                                                </p>
-                                                                <p className='mt-5'>
-                                                                    <strong>OPCION 2: </strong>
-                                                                </p>
-                                                                <p >
-                                                                    Muchas gracias por su tiempo, si tiene alguna consulta o duda, me indicas por este
-                                                                    medio para poder ayudarte. Gracias por comunicarte con la Universidad de San Martín
-                                                                    de Porres
-                                                                </p>
-                                                                <p className='mt-5'>
-                                                                    <strong>OPCIONAL: Si te indica el usuario, gracias por la información.</strong>
-                                                                </p>
-                                                                <p >Podemos responder:
-                                                                    Igualmente, para usted, muchas gracias por su tiempo, de igual manera si tiene alguna
-                                                                    consulta o duda, me indicas por este medio. Gracias por comunicarte con la Universidad
-                                                                    de San Martín de Porres
-                                                                </p>
-                                                            </div>
-                                                        )}
-                                                    </div >
-                                                </div>
-                                            )}
+                                                            <p>
+                                                                <strong>OPCION 1: </strong>
+                                                            </p>
+                                                            <p>
+                                                                Gracias por comunicarte con la Universidad de San Martín de Porres . ¡Que tengas
+                                                                un excelente día!
+                                                            </p>
+                                                            <p className='mt-5'>
+                                                                <strong>OPCION 2: </strong>
+                                                            </p>
+                                                            <p >
+                                                                Muchas gracias por su tiempo, si tiene alguna consulta o duda, me indicas por este
+                                                                medio para poder ayudarte. Gracias por comunicarte con la Universidad de San Martín
+                                                                de Porres
+                                                            </p>
+                                                            <p className='mt-5'>
+                                                                <strong>OPCIONAL: Si te indica el usuario, gracias por la información.</strong>
+                                                            </p>
+                                                            <p >Podemos responder:
+                                                                Igualmente, para usted, muchas gracias por su tiempo, de igual manera si tiene alguna
+                                                                consulta o duda, me indicas por este medio. Gracias por comunicarte con la Universidad
+                                                                de San Martín de Porres
+                                                            </p>
+                                                        </div>
+                                                    )}
+                                                </div >
+                                            </div>
                                         </div>
                                         {pregunta5 === 'si' && (
                                             <Button1 nombre="Finalizar" onClick={inicio} />
