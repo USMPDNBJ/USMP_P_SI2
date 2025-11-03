@@ -1054,7 +1054,9 @@ export default function LlamadaInicio() {
                                     de San Martín de Porres
                                 </p>
                             </div>
-
+                            <div className=''>
+                                <Button1 nombre={"Finalizar"} onClick={() => navigate("/")}/>
+                            </div>
                         </div>
                     </div>
                 )

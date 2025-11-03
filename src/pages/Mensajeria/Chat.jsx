@@ -130,12 +130,12 @@ export default function ChatInicio() {
                 <Button1 nombre='ASESOR' onClick={Asesor} colorC={`text-[20px] ${pregunta1 === 'asesor' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
                 <Button1 nombre='POSTULANTE' onClick={Postulante} colorC={`text-[20px] ${pregunta1 === 'postulante' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
               </div>
+              <div className=" text-3xl font-bold fixed top-[25vh] right-[10vh]">
+                <Button1 nombre={'No responde'} colorC={'py-2 px-4'} onClick={() => { setRespondio('no'); setReiniciar('si') }}></Button1>
+              </div>
               {pregunta1 && (
 
                 <div className='bg-white flex flex-col items-center text-center text-xl'>
-                  <div className=" text-3xl font-bold fixed top-[25vh] right-[10vh]">
-                    <Button1 nombre={'No responde'} colorC={'py-2 px-4'} onClick={() => { setRespondio('no'); setReiniciar('si') }}></Button1>
-                  </div>
                   <div className="relative top-20 max-w-3xl w-full">
                     <h1 className="text-3xl font-bold text-red-700 mb-6">2. PROTOCOLO DE ENTRADA</h1>
                     <h2 className="font-bold text-gray-800 mb-6">MENSAJE</h2>
@@ -964,7 +964,9 @@ export default function ChatInicio() {
                   de San Martín de Porres
                 </p>
               </div>
-
+              <div className='mb-10'>
+                <Button1 nombre={"Finalizar"} onClick={() => navigate("/")}/>
+              </div>
             </div>
           </div>
         )
