@@ -40,9 +40,6 @@ function App() {
           <Route path="/carrera/:nombre" element={<Carrera />} />
           //*LLAMADA
           <Route path="/LlamadaInicio" element={<LlamadaInicio />} />
-          <Route path="/llamada/:nombre" element={<Llamada />} />
-          <Route path="/modalidades" element={<Modalidades />} />
-          <Route path="/modalidades2/:id" element={<Modalidades2 />} />
         </Routes>
       </header>
     </div>

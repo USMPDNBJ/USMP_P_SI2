@@ -23,7 +23,6 @@ export default function ChatInicio() {
   //   annualIncrease: '6'
   // });
   // const [simulationResult, setSimulationResult] = useState(null);
-  const [generateReceipt, setGenerateReceipt] = useState(null);
   const [modalidadReceipt, setModalidadReceipt] = useState(null);
 
   // const handlePensionChange = (field, value) => {
