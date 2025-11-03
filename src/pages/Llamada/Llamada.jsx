@@ -115,8 +115,8 @@ export default function LlamadaInicio() {
                                     <strong>Asesora:</strong> Hola, ¿qué tal?, te saluda <span className='text-gray-400 text-center'>(Tu nombre)</span>, asesora de admisión de la Universidad San Martín de Porres (USMP), de la carrera de <span className='text-gray-400 text-center'>(Nombre de la carrera)</span>. <br />
                                     El motivo de mi llamada es porque realizamos una visita a tu colegio <span className='text-gray-400 text-center'>(Nombre del colegio)</span>, donde nos brindaste tus datos y mostraron interés en postular a nuestra universidad. <br />
                                     ¿Podrías brindarme unos minutos de tu tiempo para contarte sobre las oportunidades y beneficios que ofrece la carrera y nuestra universidad?
-                                    <br /><p className='text-gray-400 text-center'>(Esperar respuesta del usuario)</p>
                                 </p>
+                                <br /><p className='text-gray-400 text-center'>(Esperar respuesta del usuario)</p>
                                 <h1 className='font-bold text-xl text-center mt-5'>¿EL POSTULANTE DESEA CONTINUAR?</h1>
                                 <div className='flex justify-center mt-5 gap-4 mb-5'>
                                     <Button1 nombre={"Si"} onClick={() => setPregunta3('si')} colorC={`text-[20px] ${pregunta3 === 'si' ? 'bg-red-700 text-white' : 'bg-white text-zinc-900'}`} />
@@ -163,8 +163,8 @@ export default function LlamadaInicio() {
                                                     </p>
                                                     <p className='my-5 text-gray-400'>¿Eres asesor de esta carrera?</p>
                                                     <div className='flex justify-center gap-4'>
-                                                        <Button1 nombre='SI' onClick={() => setderivarAsesor('NO')} colorC={`${derivarAsesor === 'NO' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
-                                                        <Button1 nombre='NO' onClick={() => setderivarAsesor('SI')} colorC={`${derivarAsesor === 'SI' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
+                                                        <Button1 nombre='SI' onClick={() => setderivarAsesor('SI')} colorC={`${derivarAsesor === 'SI' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
+                                                        <Button1 nombre='NO' onClick={() => setderivarAsesor('NO')} colorC={`${derivarAsesor === 'NO' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
                                                     </div>
                                                 </section>
                                             </div>
@@ -265,14 +265,14 @@ export default function LlamadaInicio() {
                                                 3. ¿Cuál es tu carrera de interés?
                                                 <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
                                             </p>
+                                            <p className='my-5 text-gray-400'>¿Eres asesor de esta carrera?</p>
                                             <div className='flex justify-center gap-4'>
-                                                <Button1 nombre='SI' onClick={() => setderivarAsesor('NO')} colorC={`${derivarAsesor === 'NO' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
-                                                <Button1 nombre='NO' onClick={() => setderivarAsesor('SI')} colorC={`${derivarAsesor === 'SI' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
+                                                <Button1 nombre='SI' onClick={() => setderivarAsesor('SI')} colorC={`${derivarAsesor === 'SI' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
+                                                <Button1 nombre='NO' onClick={() => setderivarAsesor('NO')} colorC={`${derivarAsesor === 'NO' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
                                             </div>
                                         </section>
                                     </div>
                                 )}
-
                                 {protocolIn === 'NO' && (
                                     <div className="my-20 max-w-3xl w-full px-4 text-center text-xl">
                                         <h1 className="text-3xl font-bold text-red-700 mb-6">4. COMUNICACIÓN DENEGADA</h1>
@@ -309,7 +309,7 @@ export default function LlamadaInicio() {
                         </div>
                     )}
 
-                    {derivarAsesor === 'NO' && (
+                    {derivarAsesor === 'SI' && (
                         <div className='mt-5'>
                             <Opciones4x4
                                 title={"5. SELECCIONAR CARRERA UNIVERSITARIA"}
@@ -385,8 +385,8 @@ export default function LlamadaInicio() {
                                         <div className="max-w-3xl w-full px-4 my-5">
                                             <p className="text-xl text-gray-600 text-center">
                                                 ¿Te encuentras cursando 5to de secundaria o ya terminaste el colegio?
-                                                <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
                                             </p>
+                                            <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
                                             <div className='flex justify-center gap-4 mt-5'>
                                                 <Button1 nombre="5to de Secundaria" onClick={() => setSituacion('5to')} colorC={`${situacion === '5to' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
                                                 <Button1 nombre="Terminó el Colegio" onClick={() => setSituacion('termino')} colorC={`${situacion === 'termino' ? 'bg-red-700 text-white mb-10' : 'bg-white text-zinc-800 mb-10'}`} />
@@ -407,8 +407,8 @@ export default function LlamadaInicio() {
                                             <p className="text-xl text-gray-600 mb-10 text-center">
                                                 ¿Qué te parece si te llamo en unos minutos? Así te cuento todos los beneficios de
                                                 estudiar en nuestra universidad
-                                                <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
                                             </p>
+                                            <br /><span className='text-gray-400'>(Esperar respuesta del usuario)</span>
 
                                             <p className='text-xl text-center text-gray-400'>
                                                 ¿Respondió que sí?
@@ -438,8 +438,8 @@ export default function LlamadaInicio() {
                                                     <p className="text-xl text-gray-600 mb-6 ">
                                                         Ante cualquier duda o consulta, no dudes en escribirme <br />
                                                         ¡Gracias por comunicarte con la Universidad de San Martín de Porres! <br />
-                                                        <br /><p className='text-gray-400 text-center'>(PROCEDES A CERRAR EL CHAT)</p>
                                                     </p> <br />
+                                                    <br /><p className='text-gray-400 text-center'>(PROCEDES A CERRAR EL CHAT)</p>
                                                 </div>
                                             )}
                                             {pregunta5 === 'no' && (
@@ -1010,6 +1010,38 @@ export default function LlamadaInicio() {
                             )}
                         </div>
                     )}
+                    {derivarAsesor === 'NO' && (
+                        <div className='text-center'>
+                            <h1 className="text-3xl font-bold text-red-700">
+                                5. DERIVAR ASESOR
+                            </h1>
+
+                            <h2 className="font-bold text-gray-800 mt-5">
+                                MENSAJE
+                            </h2>
+                            <div className="flex justify-center mt-3 text-center text-xl">
+
+                                <div className='w-[800px]'>
+                                    <p className="text-gray-600 my-5 mb-6">
+                                        ¡Excelente! Hoy inicias tu camino para poder estudiar en una de las mejores universidades del
+                                        Perú, según el ranking de excelencia académica 2025 de SUNEDU.
+                                    </p>
+                                    <br />
+                                    <span className="text-gray-400">
+                                        (Esperar respuesta del usuario al asesor)
+                                    </span>
+                                </div>
+
+                            </div>
+                            <Button1
+                                nombre="Respondió al Asesor"
+                                onClick={() => navigate('/')}
+                                colorC="mb-10"
+                            />
+                        </div>
+
+                    )}
+
                 </div>
             )}
             {
@@ -1055,7 +1087,7 @@ export default function LlamadaInicio() {
                                 </p>
                             </div>
                             <div className=''>
-                                <Button1 nombre={"Finalizar"} onClick={() => navigate("/")}/>
+                                <Button1 nombre={"Finalizar"} onClick={() => navigate("/")} />
                             </div>
                         </div>
                     </div>

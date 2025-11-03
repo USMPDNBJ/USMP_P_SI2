@@ -208,9 +208,7 @@ export default function ChatInicio() {
                         <Button1 nombre="Finalizar" onClick={() => navigate('/')} colorC={'mb-10'} />
                         {/* <div ref={finalRef} /> */}
                       </div>
-
                     )}
-
                   </div>
 
                 </div>
@@ -965,7 +963,7 @@ export default function ChatInicio() {
                 </p>
               </div>
               <div className='mb-10'>
-                <Button1 nombre={"Finalizar"} onClick={() => navigate("/")}/>
+                <Button1 nombre={"Finalizar"} onClick={() => navigate("/")} />
               </div>
             </div>
           </div>
